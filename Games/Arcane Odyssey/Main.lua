@@ -1,253 +1,405 @@
---// Stands Awakening Pc
-
-
-
-
-
-
-
---// Notification Libray
-local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/Dynissimo/main/Scripts/AkaliNotif.lua"))();
-local Notify = AkaliNotif.Notify;
-
-
---// Others Librarys
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/AbstractPoo/Main/main/Notifications.lua"),true))()
-local notifications = loadstring(game:HttpGet(("https://raw.githubusercontent.com/AbstractPoo/Main/main/Notifications.lua"),true))()
---[[
-    notifications:message{
-        Title = "Walkspeed <font color='rgb(130, 220, 120)'>Enabled</font>",
-        Description = "Current walkspeed: <b>32</b>",
-        Icon = 6023426926
-    }
---]]
-
-
-
 --// Variables
-local plr = game:GetService("Players").LocalPlayer
-local plrId = plr.UserId
-local mouse = plr:GetMouse()
-local CheckSpeed = plr.Character.Humanoid.WalkSpeed
-local CheckJump = plr.Character.Humanoid.JumpPower
-local CheckHealth = plr.Character.Humanoid.Health
-local CheckStand = plr.Backpack.ClassName == "LocalScript"
-local AntiTs = game:GetService("Lighting").TS
-local AntiRagdoll = game:GetService("ReplicatedStorage").RagdollClient
-local Fire = game:GetService("ReplicatedStorage").fire
-local Settings
-local function PrintItem()
-	print(Option, "| Item Sniperded")
-end
-getgenv().SelectOptions = nil
-local function DoStuff()
-	if getgenv().SelectOptions == "Arrow" then
-	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-        	if v:IsA("Tool") and v.Name == "Arrow" then
-            	pcall(function()
-                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-            	end)
-        	end
-    	end
-
-
-	elseif getgenv().SelectOptions == "Requiem Arrow" then
-	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-        	if v:IsA("Tool") and v.Name == "Requiem Arrow" then
-            	pcall(function()
-                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-            	end)
-        	end
-    	end
-
-
-	elseif getgenv().SelectOptions == "Rokakaka Fruit" then
-	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-        	if v:IsA("Tool") and v.Name == "Rokakaka Fruit" then
-            	pcall(function()
-                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-            	end)
-        	end
-    	end
-
-
-	elseif getgenv().SelectOptions == "Vampire Mask" then
-	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-        	if v:IsA("Tool") and v.Name == "Vampire Mask" then
-            	pcall(function()
-                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-            	end)
-        	end
-    	end
-
-
-	elseif getgenv().SelectOptions == "Frog" then
-	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-        	if v:IsA("Tool") and v.Name == "Frog" then
-            	pcall(function()
-                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-            	end)
-        	end
-    	end
-
-
-	elseif getgenv().SelectOptions == "Banknote" then
-	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-        	if v:IsA("Tool") and v.Name == "Banknote" then
-            	pcall(function()
-                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-            	end)
-        	end
-    	end
-
-	elseif getgenv().SelectOptions == "DIO's Diary" then
-	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-        	if v:IsA("Tool") and v.Name == "DIO's Diary" then
-            	pcall(function()
-                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-            	end)
-        	end
-    	end
-
-	elseif getgenv().SelectOptions == "Dio's Skull" then
-	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-        	if v:IsA("Tool") and v.Name == "Dio's Skull" then
-            	pcall(function()
-                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-            	end)
-        	end
-    	end
-
-	elseif getgenv().SelectOptions == "Camera" then
-	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-        	if v:IsA("Tool") and v.Name == "Camera" then
-            	pcall(function()
-                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-            	end)
-        	end
-    	end
-
-	elseif getgenv().SelectOptions == "Pot Platinum’s Diary" then
-	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-        	if v:IsA("Tool") and v.Name == "Pot Platinum’s Diary" then
-            	pcall(function()
-                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-            	end)
-        	end
-    	end
-
-	elseif getgenv().SelectOptions == "Red Heart" then
-	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-        	if v:IsA("Tool") and v.Name == "Red Heart" then
-            	pcall(function()
-                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-            	end)
-        	end
-    	end
-
-	elseif getgenv().SelectOptions == "True Requiem Arrow" then
-	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-        	if v:IsA("Tool") and v.Name == "True Requiem Arrow" then
-            	pcall(function()
-                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-            	end)
-        	end
-    	end
-
-	elseif getgenv().SelectOptions == "Ornstein's Spear" then
-	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-        	if v:IsA("Tool") and v.Name == "Ornstein's Spear" then
-            	pcall(function()
-                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-            	end)
-        	end
-    	end
-
-	elseif getgenv().SelectOptions == "Aja Mask" then
-	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-        	if v:IsA("Tool") and v.Name == "Aja Mask" then
-            	pcall(function()
-                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-            	end)
-        	end
-    	end
-	end
-end
-local items = {
-	"Arrow",
-	"Requiem Arrow",
-	"Rokakaka Fruit", 
-	"Vampire Mask",
-	"Frog",
-	"Banknote",
-	"DIO's Diary", 
-	"Dio's Skull", 
-	"Camera", 
-	"Pot Platinum’s Diary",
-	"Red Heart",
-	"True Requiem Arrow",
-	"Ornstein's Spear",
-	"Aja Mask",
-
-}
-
-
 local function FeKill()
-	plr.Character.Humanoid.Health = 0
+	game.Players.LocalPlayer.Character.Head.Neck:Destroy()
 end
-local stands = {
-	"The World",
-	"Star Platinum",
-	"Star Platinum Ova",
-	"Omt",
+local Settings = {
+    Killaura = false;
+    Undetect = false;
+    InfDash = false;
+    LoadedFarm = false;
+    MobToFarm = "";
+    MobFarm = false;
+    ModDetector = false;
+    WeaponFarm = "";
+    ChestAura = false;
+    Fame = "Positive";
+    FruitFarm = false;
+    ASV = false;
+    ASM = false;
+    ASS = false;
+    ASW = false;
+    ChestESP = false;
+    TeleportTo = "Dawn Island";
 }
-getgenv().Stands = nil
-local function StandFarm()
-	if getgenv().Stands == "The World" then
-		loadstring(
-			game:HttpGet('https://raw.githubusercontent.com/Alonebr/Sad-GuiV3/main/tw')
-		)()
+local signal = game.ReplicatedStorage.RS.Remotes.Misc.OnTeleport.OnClientEvent
+local load = nil
 
-	elseif getgenv().Stands == "Star Platinum" then
-		loadstring(
-			game:HttpGet('https://raw.githubusercontent.com/Alonebr/Sad-GuiV3/main/jp')
-		)()
+for index, connection in next, getconnections(signal) do -- Made by DYLAN not me
+    local env = connection.Function and getfenv(connection.Function)
 
-	elseif getgenv().Stands == "Star Platinum Ova" then
-		loadstring(
-			game:HttpGet('https://raw.githubusercontent.com/Alonebr/Sad-GuiV3/main/jpova')
-		)()
+    if env and tostring(rawget(env, "script")) == "Unloading" then
+        load = debug.getupvalue(connection.Function, 2)
+        break
+    end
+end
 
-	elseif getgenv().Stands == "Omt" then
-		loadstring(
-			game:HttpGet('https://raw.githubusercontent.com/Alonebr/Sad-GuiV3/main/OMT%20Farm')
-		)()
+local LoadNPC = nil
 
+for index, connection in next, getconnections(game.ReplicatedStorage.RS.Remotes.Misc.OnTeleport.OnClientEvent) do -- Made by DYLAN not me
+    if connection.Function and tostring(rawget(getfenv(connection.Function), "script")) == "SetupNPCs" then
+        LoadNPC = hookfunction(debug.getupvalue(connection.Function, 6), function(...)
+            if not checkcaller() then
+                return
+            end LoadNPC(...)
+        end)
+    end
+end
+local getclosestmob = function()
+    local MaxDistance= math.huge
+    local ClosestObject
+    pcall(function()
+        for i, v in pairs(game.workspace.Enemies:GetChildren()) do
+            local MinDistance = MaxDistance
+            if not v:FindFirstChild("DeadRagdoll") and Settings.LoadedFarm and v.Attributes.Health.Value > 0 and v.Name ~= "Shark" and not v:FindFirstChild("Prompt") and not v:FindFirstChild("JailMark") and not v:FindFirstChild("JailedAt") and v:FindFirstChild("Data") and v.Data:FindFirstChild("RenownType") and tostring(v.Data.RenownType.Value) ~= Settings.Fame or v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+                local dist = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).Magnitude
+                if dist < MinDistance then
+                    MinDistance, ClosestObject = dist, v
+                end
+            end
+        end
+    end);
+    return ClosestObject
+end
+local Mobed = {}
+for i,v in ipairs(game.Workspace.Enemies:GetChildren()) do 
+    for g,e in ipairs(game:GetService("ReplicatedStorage").RS.UnloadEnemies:GetChildren()) do 
+        for _,i in ipairs(game:GetService("ReplicatedStorage").RS.Bosses:GetChildren()) do 
+            if not table.find(Mobed,v.Name) then
+                table.insert(Mobed,v.Name)
+                table.sort(Mobed)
+            end;
+            if not table.find(Mobed,e.Name) then
+                table.insert(Mobed,e.Name)
+                table.sort(Mobed)
+            end;
+            if not table.find(Mobed,i.Name) then
+                table.insert(Mobed,i.Name)
+                table.sort(Mobed)
+            end;
+        end;
+    end;
+end;
+local getclosestfruit = function()
+    local MaxDistance= math.huge
+    local ClosestObject
+    pcall(function()
+        for i, v in pairs(game.workspace:GetChildren()) do
+            local MinDistance = MaxDistance
+            if v.Name == "Fruit" and v:IsA("Part") then
+                local dist = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Position).Magnitude
+                if dist < MinDistance then
+                    MinDistance, ClosestObject = dist, v
+                end
+            end
+        end
+    end);
+    return ClosestObject
+end
+function addui(part,part2)
+    local partui = Instance.new("BillboardGui",part2)
+    partui.Size = UDim2.new(1,0,1,0)
+    partui.AlwaysOnTop = true
+    partui.Name = "Item-Esp"
+    local frame = Instance.new("Frame",partui)
+    frame.BackgroundColor3 = Color3.fromRGB(255,80,60)
+    frame.BackgroundTransparency = 0.75
+    frame.BorderSizePixel = 0
+    local namegui = Instance.new("BillboardGui",part2)
+    namegui.Size = UDim2.new(3,0,1.5,0)
+    namegui.SizeOffset = Vector2.new(0,1)
+    namegui.AlwaysOnTop = true
+    namegui.Name = "Name"
+    local text = Instance.new("TextLabel",namegui)
+    text.Text = part.Name
+    text.TextColor3 = Color3.fromRGB(255,80,60)
+    text.TextTransparency = 0.25
+    text.BackgroundTransparency = 1
+    text.TextScaled = true 
+    text.Size = UDim2.new(2,0,2,0)
+    text.Font = Enum.Font.GothamSemibold
+    text.Name = part.Name
+end;
+
+
+local Player 			= 		game.Players.LocalPlayer
+local TweenService 		= 		game:GetService('TweenService')
+local Player 			= 		game.Players.LocalPlayer
+local Char 				= 		Player.Character or Player.CharacterAdded:wait()
+
+
+local Position1 		= 	  	Vector3.new(19228.37109375, 511, 9963.859375)
+local Position2 		= 	  	Vector3.new(3851.619140625, 2239, 4.222255706787109)
+local Position3 		= 	  	Vector3.new(1702, 460.27374267578125, 5052.5)
+local Position4 		= 	  	Vector3.new(688.342041015625, 403.5, 6366.77099609375)
+local Position5 		= 	  	Vector3.new(7297.9248046875, 2514, 1143.7659912109375)
+local Position6 		= 	  	Vector3.new(-481.40625, 432, 6471.37890625)
+local Position7 		= 	  	Vector3.new(10745.4091796875, 415.99365234375, -14.5606689453125)
+local Position8 		= 	  	Vector3.new(3017.748779296875, 525.0000610351562, 6844.462890625)
+local Position9 		= 	  	Vector3.new(3040.05859375, 431.5001220703125, 4426.72216796875)
+local Position10 		= 	  	Vector3.new(7413.22021484375, 455.500244140625, 793.445556640625)
+local Position11 		= 	  	Vector3.new(5611.669921875, 463.5011901855469, 5779.02490234375)
+local Position12 		= 	  	Vector3.new(-300.8798828125, 396, 5530.361328125)
+local Position13 		= 	  	Vector3.new(27848.5, 29564.470703125, 7698.94287109375)
+local Position14 		= 	  	Vector3.new(10368.5, 397.5, 3178.5)
+local Position15 		= 	  	Vector3.new(5166.5283203125, 363, 3080.630615234375)
+local Position16 		= 	  	Vector3.new(16689.5, 234, 1517.5)
+local Position17 		= 	  	Vector3.new(331.5, 426.5, 3068.5)
+local Position18 		= 	  	Vector3.new(12726.0048828125, 441.4988708496094, 2210.0068359375)
+local Position19 		= 	  	Vector3.new(13572.4091796875, 406.4832458496094, 5723.98681640625)
+local Position20 		= 	  	Vector3.new(12752.921875, 436.9987487792969, 2260.244140625)
+local Position21 		= 	  	Vector3.new(11913.5, 357, 11025.5)
+local Position22 		= 	  	Vector3.new(6092, 369.5, 5510)
+local Position23 		= 	  	Vector3.new(7332.94140625, 410.4993896484375, 3834.105712890625)
+local Position24 		= 	  	Vector3.new(693.5, 2590, -618.5)
+local Position25 		= 	  	Vector3.new(9725.048828125, 427.4978332519531, 7131.43212890625)
+local Position26 		= 	  	Vector3.new(6364.619140625, 2818, 3028.221923828125)
+local Position27 		= 	  	Vector3.new(-1974.50048828125, 426.4999694824219, 3006.50048828125)
+local Position28 		= 	  	Vector3.new(1968.49951171875, 426.4999694824219, 1457.50048828125)
+local Position29 		= 	  	Vector3.new(4005.619140625, 1282, 1220.22216796875)
+local Position30 		= 	  	Vector3.new(4180.59033203125, 413.2923583984375, 9189.1494140625)
+local Position31 		= 	  	Vector3.new(6415.9521484375, 408.5, 8273.9287109375)
+local Position32 		= 	  	Vector3.new(4459.67431640625, 395.00006103515625, -257.2719421386719)
+local Position33 		= 	  	Vector3.new(21876.5, 234, 32.5)
+
+
+local t1 	  = 	TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(10), {CFrame = CFrame.new(Position1)}  )
+local t2 	  = 	TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(10), {CFrame = CFrame.new(Position2)}  )
+local t3 	  = 	TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(10), {CFrame = CFrame.new(Position3)}  )
+local t4 	  = 	TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(10), {CFrame = CFrame.new(Position4)}  )
+local t5 	  = 	TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(10), {CFrame = CFrame.new(Position5)}  )
+local t6 	  = 	TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(10), {CFrame = CFrame.new(Position6)}  )
+local t7 	  = 	TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(10), {CFrame = CFrame.new(Position7)}  )
+local t8 	  = 	TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(10), {CFrame = CFrame.new(Position8)}  )
+local t9 	  = 	TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(10), {CFrame = CFrame.new(Position9)}  )
+local t10 	  = 	TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(10), {CFrame = CFrame.new(Position10)}  )
+local t11	  = 	TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(10), {CFrame = CFrame.new(Position11)}  )
+local t12 	  = 	TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(10), {CFrame = CFrame.new(Position12)}  )
+local t13 	  = 	TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(10), {CFrame = CFrame.new(Position13)}  )
+local t14 	  = 	TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(10), {CFrame = CFrame.new(Position14)}  )
+local t15 	  = 	TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(10), {CFrame = CFrame.new(Position15)}  )
+local t16 	  = 	TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(10), {CFrame = CFrame.new(Position16)}  )
+local t17 	  = 	TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(10), {CFrame = CFrame.new(Position17)}  )
+local t18 	  = 	TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(10), {CFrame = CFrame.new(Position18)}  )
+local t19 	  = 	TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(10), {CFrame = CFrame.new(Position19)}  )
+local t20 	  = 	TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(10), {CFrame = CFrame.new(Position20)}  )
+local t21 	  = 	TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(10), {CFrame = CFrame.new(Position21)}  )
+local t22 	  = 	TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(10), {CFrame = CFrame.new(Position22)}  )
+local t23 	  = 	TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(10), {CFrame = CFrame.new(Position23)}  )
+local t24 	  = 	TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(10), {CFrame = CFrame.new(Position24)}  )
+local t25 	  = 	TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(10), {CFrame = CFrame.new(Position25)}  )
+local t26 	  = 	TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(10), {CFrame = CFrame.new(Position26)}  )
+local t27 	  = 	TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(10), {CFrame = CFrame.new(Position27)}  )
+local t28 	  = 	TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(10), {CFrame = CFrame.new(Position28)}  )
+local t29 	  = 	TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(10), {CFrame = CFrame.new(Position29)}  )
+local t30 	  = 	TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(10), {CFrame = CFrame.new(Position30)}  )
+local t31 	  = 	TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(10), {CFrame = CFrame.new(Position31)}  )
+local t32 	  = 	TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(10), {CFrame = CFrame.new(Position32)}  )
+local t33 	  = 	TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(10), {CFrame = CFrame.new(Position33)}  )
+
+
+getgenv().SelectIslands = nil
+local islands = {
+	"Akursius Keep", -- 1
+	"Cirrus Island", -- 2
+	"Darkpine Isle", -- 3
+	"Dawn Island", -- 4
+	"Djin Ruins", -- 5
+	"Elm Island", -- 6
+	"Fort Talos", -- 7 
+	"Frostmill Island", -- 8
+	"Goso Jungle", -- 9
+	"Harvest Island", -- 10
+	"Limestone Key", -- 11
+	"Mango Isle", -- 12
+	"Mount Othrys", -- 13
+	"Munera Garden", -- 14
+	"Palo Town", -- 15
+	"Ravenna", -- 16
+	"Redwake", -- 17
+	"Sailor's Lodge", -- 18
+	"Sandfall Isle", -- 19
+	"SeaContent", -- 20
+	"Shell Island", -- 21
+	"Shipwreck1", -- 22
+	"Silverhold", -- 23
+	"Skycliff Island", -- 24
+	"The Forest of Cernunno", -- 25
+	"The Myriad", -- 26
+	"The Northern Jaws", -- 27
+	"The Southern Jaws", -- 28
+	"The Stepstones", -- 29 
+	"Thorin's Refuge", -- 30
+	"Whispering Caverns", -- 31
+	"Whitesummit", -- 32
+	"Wind-Row Island", -- 33
+
+}
+local function TeleportIslands()
+	if getgenv().SelectIslands == "Akursius Keep" then
+		t1:Play()
+
+		
+	elseif getgenv().SelectIslands == "Cirrus Island" then
+		t2:Play()
+		
+			
+	elseif getgenv().SelectIslands == "Darkpine Isle" then
+		t3:Play()
+		
+		
+	elseif getgenv().SelectIslands == "Dawn Island" then
+		t4:Play()
+		
+		
+	elseif getgenv().SelectIslands == "Djin Ruins" then
+		t5:Play()
+		
+		
+	elseif getgenv().SelectIslands == "Elm Island" then
+		t6:Play()
+		
+		
+	elseif getgenv().SelectIslands == "Fort Talos" then
+		t7:Play()
+		
+		
+	elseif getgenv().SelectIslands == "Frostmill Island" then
+		t8:Play()
+		
+		
+	elseif getgenv().SelectIslands == "Goso Jungle" then
+		t9:Play()
+		
+		
+	elseif getgenv().SelectIslands == "Harvest Island" then
+		t10:Play()
+		
+		
+	elseif getgenv().SelectIslands == "Limestone Key" then
+		t11:Play()
+		
+		
+	elseif getgenv().SelectIslands == "Mango Isle" then
+		t12:Play()
+		
+		
+	elseif getgenv().SelectIslands == "Mount Othrys" then
+		t13:Play()
+		
+		
+	elseif getgenv().SelectIslands == "Munera Garden" then
+		t14:Play()
+		
+		
+	elseif getgenv().SelectIslands == "Palo Town" then
+		t15:Play()
+		
+		
+	elseif getgenv().SelectIslands == "Ravenna" then
+		t16:Play()
+		
+		
+	elseif getgenv().SelectIslands == "Redwake" then
+		t17:Play()
+		
+		
+	elseif getgenv().SelectIslands == "Sailor's Lodge" then
+		t18:Play()
+		
+		
+	elseif getgenv().SelectIslands == "Sandfall Isle" then
+		t19:Play()
+		
+		
+	elseif getgenv().SelectIslands == "SeaContent" then
+		t20:Play()
+		
+		
+	elseif getgenv().SelectIslands == "Shell Island" then
+		t21:Play()
+		
+		
+	elseif getgenv().SelectIslands == "Shipwreck1" then
+		t22:Play()
+		
+		
+	elseif getgenv().SelectIslands == "Silverhold" then
+		t23:Play()
+		
+		
+	elseif getgenv().SelectIslands == "Skycliff Island" then
+		t24:Play()
+		
+		
+	elseif getgenv().SelectIslands == "The Forest of Cernunno" then
+		t25:Play()
+		
+		
+	elseif getgenv().SelectIslands == "The Myriad" then
+		t26:Play()
+		
+		
+	elseif getgenv().SelectIslands == "The Northern Jaws" then
+		t27:Play()
+		
+		
+	elseif getgenv().SelectIslands == "The Southern Jaws" then
+		t28:Play()
+		
+		
+	elseif getgenv().SelectIslands == "The Stepstones" then
+		t29:Play()
+		
+		
+	elseif getgenv().SelectIslands == "Thorin's Refuge" then
+		t30:Play()
+		
+		
+	elseif getgenv().SelectIslands == "Whispering Caverns" then
+		t31:Play()
+		
+		
+	elseif getgenv().SelectIslands == "Whitesummit" then
+		t32:Play()
+		
+		
+	elseif getgenv().SelectIslands == "Wind-Row Island" then
+		t33:Play()
+		
+		
+			
 	end
 end
 
 
 
---// Prints
-print[[
-	.
 
-	--<>---<>---<>---<>---<>---<>---<>---<>---<>---<>---<>---<>---<>---<>---<>
-	|	Infinity Hub Loaded v 1.0.2					 						|
-	|	Have fun							 								|
-	|	Credits libray: Rayfield Libray / Discord Server: Sirus		 		|
-	--<>---<>---<>---<>---<>---<>---<>---<>---<>---<>---<>---<>---<>---<>---<>
+
+--//
+print[[
+	:
+
+	--<>--<>--<>--<>--<>--<>--<>--<>--<>--<>--<>--<>--<>--<>--<>--<>
+	|															  |
+	|	Infinity Hub |  InfHub Arcane Odyssey, Version:  1.0.0 	  |
+	|	Infinity Hub |  Have Fun.								  |
+	|															  |
+	--<>--<>--<>--<>--<>--<>--<>--<>--<>--<>--<>--<>--<>--<>--<>--<>
+
 ]]
 
 
+
+--// not libray
+local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/Jxereas/UI-Libraries/main/notification_gui_library.lua", true))()
 
 --// Rayfiel Libray
 getgenv().SecureMode = true
 local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/InfinityHubTwo/8917328917238971982346/main/Librays/Rayfield/Main.lua'))()
 local Window = Rayfield:CreateWindow({
-   Name = "Infinity Hub  |  @Darkzin, @Cool",
+   Name = "Infinity Hub  |  @Darkzin",
    LoadingTitle = "Infinity Hub",
-   LoadingSubtitle = "by darkzin and cool",
+   LoadingSubtitle = "by darkzin",
    ConfigurationSaving = {
       Enabled = true,
       FolderName = nil, -- Create a custom folder for your hub/game
@@ -272,1753 +424,520 @@ local Window = Rayfield:CreateWindow({
 
 
 
+--// Tabs: Info 
+local Tab = Window:CreateTab("Info")
+local Paragraph = Tab:CreateParagraph({Title = "Aviso", Content = [[
+	Este jogo foi lançado agora para Teste.
+	Então tem muitas falhas, falo que tome cuidado pois provavelmente no futuro ele ira fechalo.
 
---// Welcome Main
-local Tab = Window:CreateTab("Welcome", 12827783428)
-local Paragraph = Tab:CreateParagraph({Title = "Bem Vindo", Content = [[
-Bem vindo ao Infinity Hub.
-Espero que goste e Aproveite :>
-
-Se quiser pode ler as regras a baixo
+	Tome cuidado tambem para ninguem te ver. Obrigado.
 ]]})
+local Paragraph = Tab:CreateParagraph({Title = "Aviso", Content = [[
+	Lembrando que esta Gui ainda esta em Beta.
+	Então qualquer erro será corrigido em breve.
 
-local Section = Tab:CreateSection("--// Regras: ", true)
-local Paragraph = Tab:CreateParagraph({Title = "Regras", Content = [[
-Regras = { 
-	[1] - | Não compartilhe a Gui com NINGUEM |
-	[2] - | Não abuse muito das opções se quiser você quem sabe |
-	[3] - | So toma cuidado mesmo 👍 |
-}
+	Atenciosamente Infinity Hub Support 😄
 ]]})
 
 
 
 
-
---// Stands Main
-local Tab = Window:CreateTab("Stands", 7072724538)
-local Paragraph = Tab:CreateParagraph({Title = "Stands", Content = [[
-Nesta opções os stands abaixo terão o seus TS(Time Stop) com certa de 15 a 20 segundos.
+--// Tabs: Farming 
+local Tab = Window:CreateTab("Farming")
+local Paragraph = Tab:CreateParagraph({Title = "Aviso", Content = [[
+	Opções para você (O jogador) usar parar ter vantagens para farmar algo.
+	EX: {
+		Baús, mobs etc...
+	}
 ]]})
 
-
-local Section = Tab:CreateSection("--// Options: Stand", true)
-local Button = Tab:CreateButton({
-   Name = "Shadow Dio",
-   Info = "Active", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-      --// 20 == Max
-      game:GetService("ReplicatedStorage").Main.Timestop:FireServer(20, "shadowdio")
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "JSP",
-   Info = "Active", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-      --// 20 == Max
-      game:GetService("ReplicatedStorage").Main.Timestop:FireServer(20, "jotaro")
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "EVA 01",
-   Info = "Active", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-      --// 20 == Max
-      game:GetService("ReplicatedStorage").Main.Timestop:FireServer(20, "diooh")
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "The  World Over Heaven",
-   Info = "Active", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-      --// 20 == Max
-      game:GetService("ReplicatedStorage").Main.Timestop:FireServer(20, "diooh")
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Steve",
-   Info = "Active", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-      --// 20 == Max
-      game:GetService("ReplicatedStorage").Main.Timestop:FireServer(20, "jotaro")
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Herobrine",
-   Info = "Active", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-      --// 20 == Max
-      game:GetService("ReplicatedStorage").Main.Timestop:FireServer(20, "jotaro")
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "The World Au",
-   Info = "Active", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-      --// 20 == Max
-      game:GetService("ReplicatedStorage").Main.Timestop:FireServer(20, "diego")
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "The World Ova",
-   Info = "Active", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-      --// 20 == Max
-      game:GetService("ReplicatedStorage").Main.Timestop:FireServer(20, "dioova")
-   end,
-})
-
-local Section = Tab:CreateSection("--// Option: D4C", true)
-local Button = Tab:CreateButton({
-   Name = "D4C Clones",
-   Info = "Spawn 1 Clone", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-		local args = {
-			[1] = "Alternate",
-			[2] = "Clone"
-		}	
-	
-		game:GetService("ReplicatedStorage").Main.Input:FireServer(unpack(args)) 
-   end,
-})
-
-
-
-
-
-
---// Main
-local Tab = Window:CreateTab("Main", 12834994204)
-local Paragraph = Tab:CreateParagraph({Title = "Main", Content = [[
-Aqui são as opções para você usa em si mesmo no caso no Player, ou no seu stand.
-
-Tem funções para muitos stands para usar o quanto quiser.
-]]})
-
-
-local Section = Tab:CreateSection("--// Options: Player", true)
+local Section = Tab:CreateSection("--// Farm All Mobs", true)
 local Toggle = Tab:CreateToggle({
-   Name = "Auto Block",
+   Name = "Farm All Mobs",
    CurrentValue = false,
-   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(AutoBlock)
-		if AutoBlock then
-			getgenv().ToggleAutoBlock = true
-			while getgenv().ToggleAutoBlock do
-				wait(1)
-	    		local args = {
-					[1] = "Alternate",
-					[2] = "Block"
-				}
-
-				game:GetService("ReplicatedStorage").Main.Input:FireServer(unpack(args))
-			end
+   Flag = "Toggle1",
+   Callback = function(State)
+		Settings.LoadedFarm = State
+		if Settings.LoadedFarm then
+        	spawn(function()
+        	    while wait() and Settings.LoadedFarm do 
+        	        pcall(function()
+        	            local p = getclosestmob()
+        	            if p and Settings.LoadedFarm then 
+        	                repeat task.wait(0.5)
+        	                    LoadNPC(p,p.HumanoidRootPart.Position)
+        	                    load(p.HumanoidRootPart.Position,false)
+        	                    game.Players.LocalPlayer.Character.PrimaryPart.CFrame = p.HumanoidRootPart.CFrame
+        	                until p:FindFirstChild("DeadRagdoll") or not Settings.LoadedFarm or p.Attributes.Health.Value <= 0 or not p or not p.Parent
+        	            end
+        	        end)
+        	    end
+        	end)
 		else
-			getgenv().ToggleAutoBlock = false
+			Notification.new("info", "Force Respawn", "Player respawned.")
+			FeKill()
 		end
    end,
 })
-local Button = Tab:CreateButton({
-   Name = "Infinite Pose",
-   Info = "Player infinite pose", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-		local args = {
-			[1] = true
-		}
-	
-		game:GetService("ReplicatedStorage").Main.Menacing:FireServer(unpack(args))
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Death",
-   Info = "Player death", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-		local args = {
-	    	[1] = false
-	    }
-	
-	    game:GetService("ReplicatedStorage").Main.Death:FireServer(unpack(args))
+local Dropdown = Tab:CreateDropdown({
+   Name = "Select a Mob",
+   Options = Mobed,
+   CurrentOption = "Option 1",
+   Flag = "Dropdown1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(x)
+		Settings.MobToFarm = x;
    end,
 })
 local Toggle = Tab:CreateToggle({
-   Name = "Anti Time Stop",
+   Name = "Mob Farm",
+   CurrentValue = false,
+   Flag = "Toggle1",
+   Callback = function(State)
+		Settings.MobFarm = State
+		if Settings.MobFarm then
+        	spawn(function()
+        	    while wait() and Settings.MobFarm do 
+        	        pcall(function()
+        	            for i,v in ipairs(game.Workspace.Enemies:GetChildren()) do 
+        	                if not v:FindFirstChild("DeadRagdoll") and Settings.MobFarm and v.Name == Settings.MobToFarm then 
+        	                    repeat task.wait(1)
+        	                        LoadNPC(v,v.HumanoidRootPart.Position)
+        	                        game.Players.LocalPlayer.Character.PrimaryPart.CFrame = v.HumanoidRootPart.CFrame
+        	                    until v:FindFirstChild("DeadRagdoll") or not Settings.MobFarm or v.Attributes.Health.Value <= 0
+        	                end
+        	            end
+        	        end)
+        	    end
+        	end)
+		end
+   end,
+})
+
+
+local Section = Tab:CreateSection("--// More Farms Functions {", true)
+
+local Toggle = Tab:CreateToggle({
+   Name = "Fruit Farm",
+   CurrentValue = false,
+   Flag = "Toggle1",
+   Callback = function(State)
+        Settings.FruitFarm = State;
+        spawn(function()
+            while task.wait(1) and Settings.FruitFarm do 
+                pcall(function()
+                    local p = getclosestfruit()
+                    if p and Settings.FruitFarm then
+                        repeat task.wait()
+                            load(p.Position, false)
+                            game.Players.LocalPlayer.Character.PrimaryPart.CFrame = p.CFrame
+                            if game.Players.LocalPlayer:DistanceFromCharacter(p.Position) <= 10 then 
+                                fireproximityprompt(p.Prompt)
+                            end;
+                        until not Settings.FruitFarm or not p
+                    end;
+                end);
+            end;
+        end);
+   end,
+})
+local Toggle = Tab:CreateToggle({
+   Name = "Chest Farm",
+   CurrentValue = false,
+   Flag = "Toggle1",
+   Callback = function(State)
+        Settings.ChestFarm = x;
+        spawn(function()
+            while task.wait() and Settings.ChestFarm do 
+                for i,v in ipairs(game.Workspace:GetChildren()) do 
+                    if v.Name == "Great Sailor Chest" or v.Name == "Elite Sailor Chest" or v.Name == "Golden Chest" and not v:FindFirstChild("Open") and Settings.ChestFarm then 
+                        for _,g in ipairs(v:GetChildren()) do 
+                            if g:FindFirstChild("Prompt") and not v:FindFirstChild("Open") and Settings.ChestFarm then
+                                repeat wait(5)
+                                    if v:FindFirstChild("Open") then break end
+                                    pcall(function()
+                                        load(g.Position,false)
+                                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = g.CFrame
+                                        wait(0.5)
+                                        if g:FindFirstChild("Prompt") and game.Players.LocalPlayer:DistanceFromCharacter(g.Position) <= 10 then
+                                            game:GetService("ReplicatedStorage").RS.Remotes.Misc.OpenChest:FireServer(v)
+                                        end;
+                                    end);
+                                until v:FindFirstChild("Open") or not Settings.ChestFarm
+                            end;
+                        end;
+                    end;
+                end;
+            end;
+        end);
+   end,
+})
+local Toggle = Tab:CreateToggle({
+   Name = "Chest Aura",
+   CurrentValue = false,
+   Flag = "Toggle1",
+   Callback = function(State)
+        Settings.ChestAura = State;
+        spawn(function()
+            while task.wait() and Settings.ChestAura do 
+                for i,v in ipairs(game.Workspace:GetChildren()) do 
+                    if string.find(v.Name,"Chest") and not v:FindFirstChild("Open") and Settings.ChestAura then 
+                        for _,g in ipairs(v:GetChildren()) do 
+                            if g:FindFirstChild("Prompt") and Settings.ChestAura and game.Players.LocalPlayer:DistanceFromCharacter(g.Position) <= 10 then
+                                game:GetService("ReplicatedStorage").RS.Remotes.Misc.OpenChest:FireServer(v)
+                            end;
+                        end;
+                    end;
+                end;
+            end;
+        end);
+   end,
+})
+local Toggle = Tab:CreateToggle({
+   Name = "Chest Esp",
+   CurrentValue = false,
+   Flag = "Toggle1",
+   Callback = function(State)
+        Settings.ChestESP = State;
+        spawn(function()
+            if not Settings.ChestESP then 
+                for i,v in ipairs(game.Workspace:GetChildren()) do 
+                    if string.find(v.Name,"Chest") then 
+                        for _,g in ipairs(v:GetChildren()) do 
+                            if string.find(v.Name,"Chest") and g:FindFirstChild("Item-Esp") then 
+                                for _,p in ipairs(g:GetChildren()) do 
+                                    if p:IsA("BillboardGui") then 
+                                        p:Destroy()
+                                    end;
+                                end;
+                            end;
+                        end;
+                    end;
+                end;
+            end;
+        end);
+        spawn(function()
+            while task.wait() and Settings.ChestESP do 
+                for i,v in ipairs(game.Workspace:GetChildren()) do 
+                    if string.find(v.Name,"Chest") and not v:FindFirstChild("Open") and Settings.ChestESP then 
+                        for _,g in ipairs(v:GetChildren()) do 
+                            if g.Name == "Base" and not g:FindFirstChild("Item-Esp") then 
+                                addui(v,g)
+                            end;
+                        end;
+                    elseif string.find(v.Name,"Chest") and v:FindFirstChild("Open") and Settings.ChestESP then 
+                        pcall(function()
+                            for _,g in ipairs(v:GetChildren()) do 
+                                for _,p in ipairs(g:GetChildren()) do 
+                                    if p.Name == "Name" or p.Name == "Item-Esp" then 
+                                        p:Destroy()
+                                    end;
+                                end;
+                            end;
+                        end);
+                    end;
+                end;
+            end;
+        end);
+   end,
+})
+local Toggle = Tab:CreateToggle({
+   Name = "Kill Aura (Select weapon in 1 slot) ",
+   CurrentValue = false,
+   Flag = "Toggle1",
+   Callback = function(State)
+        Settings.Killaura = State;
+        while task.wait() and Settings.Killaura do 
+            for i,v in ipairs(game.Workspace.Enemies:GetChildren()) do 
+                pcall(function()
+                    if v:FindFirstChild("HumanoidRootPart") and not v:FindFirstChild("DeadRagdoll") and game.Players.LocalPlayer:DistanceFromCharacter(v.HumanoidRootPart.Position) <= 20 and game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool") then 
+                        game:GetService("ReplicatedStorage").RS.Remotes.Combat.DealWeaponDamage:FireServer(0,game.Players.LocalPlayer.Character,v,game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool"),"Slash")
+                    end;
+                end);
+            end;
+        end;
+   end,
+})
+local Paragraph = Tab:CreateParagraph({Title = "Aviso", Content = [[
+	Se o Kill Aura nao estiver funcionando.
+	Execute a gui novamente que o erro ira se ser corrigido, obrigado
+]]})
+
+local Section = Tab:CreateSection("}", true)
+
+
+
+
+--// Tabs: Misc 
+local Tab = Window:CreateTab("Misc")
+local Paragraph = Tab:CreateParagraph({Title = "Aviso", Content = [[
+	Opções para você executar no seu jogador para te dar vantagens.
+	EX { 
+		| Ultimate Dash
+	}
+]]})
+
+local Section = Tab:CreateSection("--// Misc options {", true)
+
+local Toggle = Tab:CreateToggle({
+   Name = "Anti Target ",
+   CurrentValue = false,
+   Flag = "Toggle1",
+   Callback = function(State)
+        Settings.Undetect = x;
+        while wait() and Settings.Undetect do 
+            pcall(function()
+                game:GetService("Players").LocalPlayer.PlayerScripts.NPCAI:Destroy()
+            end);
+        end;
+   end,
+})
+local Toggle = Tab:CreateToggle({
+   Name = "Ultimate Dash ",
+   CurrentValue = false,
+   Flag = "Toggle1",
+   Callback = function(State)
+		Settings.InfDash = State;
+   end,
+})
+local Toggle = Tab:CreateToggle({
+   Name = "infinite Stamina and Walk on Sea ",
+   CurrentValue = false,
+   Flag = "Toggle1",
+   Callback = function(State)
+		Settings = State
+		if Settings then
+			game:GetService("Players").LocalPlayer.bin.MaxStamina:Destroy()
+			game:GetService("Players").LocalPlayer.bin.Stamina:Destroy()
+		else
+			print[[
+				Infinite Stamina Desactived
+			]]
+		end
+   end,
+})
+
+local Group = 3596833
+local Toggle = Tab:CreateToggle({
+   Name = "Mod Detector ",
+   CurrentValue = false,
+   Flag = "Toggle1",
+   Callback = function(State)
+        Settings.ModDetector = State;
+        Group = 3596833
+        for i,v in ipairs(game.Players:GetChildren()) do 
+            if Settings.ModDetector and v:IsA("Player") and v:IsInGroup(Group) and v:GetRoleInGroup(3596833) == "🎤 Game Moderator" or v:GetRoleInGroup(3596833) == "📃 Group Manager" or v:GetRoleInGroup(3596833) == "📜 Developer" then 
+                game:GetService("Players").LocalPlayer:Kick(tostring(v).." joined (Staff)")
+            end;
+        end;
+   end,
+})
+
+local Section = Tab:CreateSection("}", true)
+
+
+
+
+
+--// Tabs: Teleports 
+local Tab = Window:CreateTab("Teleports")
+local Paragraph = Tab:CreateParagraph({Title = "Aviso", Content = [[
+	Uma dica, fica ativando e desativando a toggle de teleport pois a ilha demora para carrega.
+	E tambem para não morrer no mar :>
+]]})
+
+local Dropdown = Tab:CreateDropdown({
+   Name = "Select Islands",
+   Options = islands,
+   CurrentOption = "",
+   Flag = "Dropdown1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Option)
+		getgenv().SelectIslands = Option
+   end,
+})
+local Toggle = Tab:CreateToggle({
+   Name = "Teleport Island",
    CurrentValue = false,
    Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(State)
 		Settings = State 
 		if Settings then
-			while wait(.5) and Settings do
-				if AntiTs.Value == true then
-					wait(1)
-					AntiTs.Value = false
-				end
-			end
-		end
-   end,
-})
-
-
-local Section = Tab:CreateSection("--// Options: GER, GE", true)
-local Button = Tab:CreateButton({
-   Name = "Infinite Damage Reflect / Goldem Expirience Requiem",
-   Info = "Infinite Damage Reflect", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-   		local ohString1 = "Alternate"
-		local ohString2 = "RTZ"
-		local ohBoolean3 = true
-
-		game:GetService("ReplicatedStorage").Main.Input:FireServer(ohString1, ohString2, ohBoolean3)
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Infinite Damage Deflect / Goldem Expirience",
-   Info = "Infinite Damage Deflect", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-		local ohString1 = "Alternate"
-		local ohString2 = "Deflect"
-	
-		game:GetService("ReplicatedStorage").Main.Input:FireServer(ohString1, ohString2)
-   end,
-})
-
-
-local Section = Tab:CreateSection("--// Options: Shadow Dio", true)
-local Button = Tab:CreateButton({
-   Name = "Shadow Dio Infinite Kinifes",
-   Info = "Use Q first", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-		loadstring(game:HttpGet('https://raw.githubusercontent.com/Alonebr/Sad-GuiV3/main/Shadow%20Inf%20Kinifes'))()
-   end,
-})
-local Toggle = Tab:CreateToggle({
-   Name = "Loop Shadow Dio Infinite Kinifes",
-   CurrentValue = false,
-   Flag = "Toggle1", 
-   Callback = function(LoopSTWK)
-		if LoopSTWK then
-			getgenv().ToggleLoopSTWK = true
-			while getgenv().ToggleLoopSTWK do
-				loadstring(game:HttpGet('https://raw.githubusercontent.com/Alonebr/Sad-GuiV3/main/Shadow%20Inf%20Kinifes'))()
-			end
+			TeleportIslands()
 		else
-			getgenv().ToggleLoopSTWK = false
-		end
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Shadow Dio Infinite H",
-   Info = "STWRTZ ", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-   		local args = {
-	  		[1] = "Alternate",
-	  		[2] = "STWRTZ",
-	  		[3] = true
-		}
-	
-		game:GetService("ReplicatedStorage").Main.Input:FireServer(unpack(args))
-   end,
-})
-local Toggle = Tab:CreateToggle({
-   Name = "Loop Shadow Dio Infinite Effect",
-   CurrentValue = false,
-   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(StwIE)
-		if StwIE then
-			getgenv().ToggleStwIE = true
-			while getgenv().ToggleStwIE do
-				wait(2)
-				local ohInstance1 = workspace.Reset43354776.Stand.FakeTorso.particle.Pixelate
-				local ohBoolean2 = true
+			print[[
+				:
 
-				game:GetService("ReplicatedStorage").Trail:FireServer(ohInstance1, ohBoolean2)
-			end
-		else
-			getgenv().ToggleStwIE = false
-		end
-   end,
-})
-local Toggle = Tab:CreateToggle({
-   Name = "Loop Shadow Dio Infinite Fake Stand",
-   CurrentValue = false,
-   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(StwFS)
-		if StwFS then
-			getgenv().ToggleStwFS = true
-			while getgenv().ToggleStwFS do
-				wait(1)
-				-- Head
-				local args = {
-				    [1] = game:GetService("Players").LocalPlayer.Character.Stand.FakeHead,
-				    [2] = 0
-				}
-				game:GetService("ReplicatedStorage").Main.Transparency:FireServer(unpack(args))
-				-- Torso
-				local args = {
-				    [1] = game:GetService("Players").LocalPlayer.Character.Stand.FakeTorso,
-				    [2] = 0
-				}
-				game:GetService("ReplicatedStorage").Main.Transparency:FireServer(unpack(args))
-				-- Right Arm
-				local args = {
-				    [1] = game:GetService("Players").LocalPlayer.Character.Stand.FakeRightArm,
-				    [2] = 0
-				}
-				game:GetService("ReplicatedStorage").Main.Transparency:FireServer(unpack(args))
-				-- Left Arm
-				local args = {
-				    [1] = game:GetService("Players").LocalPlayer.Character.Stand.FakeLeftArm,
-				    [2] = 0
-				}
-				game:GetService("ReplicatedStorage").Main.Transparency:FireServer(unpack(args))
-			end
-		else
-			getgenv().ToggleStwFS = false
+				Teleport Island |  Desactived ✅
+				Success
+			]]
 		end
    end,
 })
 
 
-local Section = Tab:CreateSection("--// Option: One More Time, Solar One More Time", true)
-local Button = Tab:CreateButton({
-   Name = "Aura Drill attack (Z)",
-   Info = "Drill Attack", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-		local args = {
-	  		[1] = "Alternate",
-	   		[2] = "Drill"
-		}
-	
-		game:GetService("ReplicatedStorage").Main.Input:FireServer(unpack(args))
-   end,
-})
 
 
-local Section = Tab:CreateSection("--// Options: Sans", true)
-local Button = Tab:CreateButton({
-   Name = "Sans teleport player limbo",
-   Info = "Players teleport to limbo", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-		local args = {
-			[1] = "Alternate",
-			[2] = "Teleport",
-			[3] = false,
-			[4] = Vector3.new(621, -75, 235)
-		}
+--// Tabs: Status 
+local Tab = Window:CreateTab("Status")
+local Paragraph = Tab:CreateParagraph({Title = "Aviso", Content = [[
+	Aqui você pode selecionar oque deseja que o script coloque os pontos que você obteve em uma determinada função, EX: {
+		Magia, Vitalidade, Força e Armas
+	}
+]]})
 
-		game:GetService("ReplicatedStorage").Main.Input:FireServer(unpack(args))
-   end,
-})
 local Toggle = Tab:CreateToggle({
-   Name = "Sans Sound Effect (Key T/H)",
+   Name = "Auto Status Vitality",
    CurrentValue = false,
    Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(State)
-		Settings = State
+		Settings = State 
 		if Settings then
-			-- Modded
-			game:GetService("ReplicatedStorage").Effects.BoneZone.Primary.reverb.SoundId = "rbxassetid://5121734927"
-			game:GetService("ReplicatedStorage").Effects.BoneZone.Primary.eoe.SoundId = "rbxassetid://5121734927"
-		else
-			-- Normal
-			game:GetService("ReplicatedStorage").Effects.BoneZone.Primary.reverb.SoundId = "rbxassetid://401680588"
-			game:GetService("ReplicatedStorage").Effects.BoneZone.Primary.eoe.SoundId = "rbxassetid://4264104024"
-		end
-   end,
-})
-
-
-local Section = Tab:CreateSection("--// Options: Made In Heaven", true)
-local Button = Tab:CreateButton({
-   Name = "Made in Heaven Universe Reset",
-   Info = "Universe Reset", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-	    local args = {
-	        [1] = "Alternate",
-	        [2] = "UniverseReset"
-	    }
-	
-	    game:GetService("ReplicatedStorage").Main.Input:FireServer(unpack(args))
-   end,
-})
-local Toggle = Tab:CreateToggle({
-   Name = "Loop Made in Heaven Universe Reset",
-   CurrentValue = false,
-   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(LoopUNVR)
-		if LoopUNVR then
-			getgenv().ToggleLoopUNVR = true
-			while getgenv().ToggleLoopUNVR do
-				wait(10)
-	    		local args = {
-	    		    [1] = "Alternate",
-	    		    [2] = "UniverseReset"
-	    		}
-
-	    		game:GetService("ReplicatedStorage").Main.Input:FireServer(unpack(args))
+			while wait(.1) and Settings do
+				game:GetService("ReplicatedStorage").RS.Remotes.UI.SpendSP:InvokeServer("Vitality")
 			end
-		else
-			getgenv().ToggleLoopUNVR = false
 		end
    end,
 })
-local Button = Tab:CreateButton({
-   Name = "Made in Heaven Time Accel",
-   Info = "No cooldown", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-		local args = {
-		    [1] = "Alternate",
-		    [2] = "TimeAccel"
-		}
-		
-		game:GetService("ReplicatedStorage").Main.Input:FireServer(unpack(args))
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Made in Heaven invisible",
-   Info = "Need MIH Hallow", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-	    local args = {
-	        [1] = "Alternate",
-	        [2] = "Appear",
-	        [3] = false
-	    }
-	
-	    game:GetService("ReplicatedStorage").Main.Input:FireServer(unpack(args))
-   end,
-})
-
-
-local Section = Tab:CreateSection("--// Options: Oni", true)
 local Toggle = Tab:CreateToggle({
-   Name = "Oni Loop Dodge",
+   Name = "Auto Status Magic",
    CurrentValue = false,
    Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(State)
-	Settings = State
-	if Settings then
-	    while wait() and Settings do
-		local args = {
-    		    [1] = "Alternate",
-    		    [2] = "Dodge"
-		}
-		game:GetService("ReplicatedStorage"):WaitForChild("Main"):WaitForChild("Input"):FireServer(unpack(args))
-	    end
-	end
-   end,
-})
-
-
-
-
-
---// Server Remotes
-local Tab = Window:CreateTab("Server Remotes", 12828674545)
-local Paragraph = Tab:CreateParagraph({Title = "Server Remotes", Content = [[
-Aqui as opções que você iniciar irá prejuticar o servidor EX Lag Server
-]]})
-
-local Section = Tab:CreateSection("--// Options: Lag Server", true)
-local Button = Tab:CreateButton({
-   Name = "Lag Server",
-   Info = "Need hierophant green", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-	    Rayfield:Notify({
-        Title = "Lag Server",
-        Content = "O lag server é preciso ter o stand hierophant green, e tambem você não ira conseguir para-lo, então tem certeza que quer continuar?",
-        Duration = 6.5,
-        Image = 7733964640,
-        Actions = { -- Notification Buttons
-            Ignore = {
-               Name = "Execute",
-                Callback = function()
-                Rayfield:Notify({
-                   Title = "Lag Server",
-                   Content = "Ao aperta em executar, fice spamando a tecla (E). Cuidado para não ser denunciado.",
-                   Duration = 6.5,
-                   Image = 7733964640,
-                   Actions = { -- Notification Buttons
-                      Ignore = {
-                         Name = "Executar",
-                         Callback = function()
-
-                         local key = game:GetService("UserInputService") --- this is meant for KAT but works for any game
-
-                         key.InputBegan:Connect(function(input)
-                         if input.KeyCode == Enum.KeyCode.E then
-                         for i,v in pairs(game.Players:GetChildren()) do
-                             if v ~= game.Players.LocalPlayer then
-                                  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Character.Head.CFrame * CFrame.new(0,0,.4)
-                                  wait(0.1)
-                             end
-                         end
-                         end
-                         end)
-
-                         loadstring(game:HttpGet("https://raw.githubusercontent.com/XInfiniteHub/teste/main/LagServer/InfiniteEsmeral"))()
-                      end
-                   },
-                },
-                })
-            end
-          },
-       },
-    })
-   end,
-})
-
-
-
---// Buy Items
-local Tab = Window:CreateTab("Buy Items", 12828624122)
-local Paragraph = Tab:CreateParagraph({Title = "Buy Item", Content = [[
-Aqui você compra os items abaixo.
-]]})
-
-local Button = Tab:CreateButton({
-   Name = "Arrow",
-   Info = "Click to buy", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-		local args = {
-		    [1] = "Arrow"
-		}
-		
-		game:GetService("ReplicatedStorage").Purchase:FireServer(unpack(args))
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Rokakaka Fruit",
-   Info = "Click to buy", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-		local args = {
-		    [1] = "Rokakaka Fruit"
-		}
-		
-		game:GetService("ReplicatedStorage").Purchase:FireServer(unpack(args))
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Shiny Arrow",
-   Info = "Click to buy", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-		local args = {
-		    [1] = "Shiny Arrow"
-		}
-		
-		game:GetService("ReplicatedStorage").Purchase:FireServer(unpack(args))
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Ticket",
-   Info = "Click to buy", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-		local ohString1 = "Ticket"
-
-		game:GetService("ReplicatedStorage").Purchase:FireServer(ohString1)
-   end,
-})
-
-
-
-
-
---// Auto Boss
-local Tab = Window:CreateTab("Auto Boss", 12828636851)
-local Paragraph = Tab:CreateParagraph({Title = "Auto Boss", Content = "Execute o auto boss quando estiver no mapa contra o boss, execute a mesma loadstring que iniciara uma nova gui com o auto boss"})
-
-
-
-
-
---// Stand Farm Main
-local Tab = Window:CreateTab("Stand Farm", 7072707588)
-local Paragraph = Tab:CreateParagraph({Title = "Stand Farm", Content = [[
-Aqui aonde você farma stands
-]]})
-local Section = Tab:CreateSection("--// Option: Stand Farm", true)
-local Dropdown = Tab:CreateDropdown({
-   Name = "Select Stand",
-   Options = stands,
-   CurrentOption = "",
-   Flag = "Dropdown1", 
-   Callback = function(Option)
-		getgenv().Stands = Option
-   end,
-})
-local Toggle = Tab:CreateToggle({
-   Name = "Start Stand Farm",
-   CurrentValue = false,
-   Flag = "Toggle1",
-   Callback = function(State)
-		Settings = State
+		Settings = State 
 		if Settings then
-			StandFarm()
-		else
-			FeKill()
-			Notify({
-				Description = "Player reseted for desactive stand farm.";
-				Title = "Player Reseted";
-				Duration = 5;
-			});
+			while wait(.1) and Settings do
+				game:GetService("ReplicatedStorage").RS.Remotes.UI.SpendSP:InvokeServer("Magic")
+			end
 		end
    end,
 })
-
-
-local Section = Tab:CreateSection("--// Option: Item No Animation", true)
-local Button = Tab:CreateButton({
-   Name = "Arrow",
-   Info = "Need arrow in your hand", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-		game:GetService("ReplicatedStorage").ItemEvents.Arrow:FireServer()
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Rokakaka ",
-   Info = "Need Rokakaka in your hand", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-		game:GetService("ReplicatedStorage").ItemEvents.Roka:FireServer()
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Shiny Arrow ",
-   Info = "Need Shiny Arrow in your hand", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-		game:GetService("ReplicatedStorage").ItemEvents.ShinyArrow:FireServer()
-   end,
-})
-
-
-
-
---// Item Farm
-local Tab = Window:CreateTab("Item Farm", 7072707588)
-local Paragraph = Tab:CreateParagraph({Title = "Buy Item", Content = [[
-Aqui você farma items
-]]})
-local Section = Tab:CreateSection("--// Options: Item Farm and Grab Tools", true)
 local Toggle = Tab:CreateToggle({
-   Name = "Start Item Farm / Stop",
+   Name = "Auto Status Strength",
    CurrentValue = false,
    Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(ItemFarm)
-		if ItemFarm then
-			getgenv().ToggleItemFarm = true
-			while getgenv().ToggleItemFarm do
-				wait(0.1)
-				for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
-					if v:IsA("Tool") and v:FindFirstChild("Handle") then
-						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Handle.CFrame
-					end
-				end
+   Callback = function(State)
+		Settings = State 
+		if Settings then
+			while wait(.1) and Settings do
+				game:GetService("ReplicatedStorage").RS.Remotes.UI.SpendSP:InvokeServer("Strength")
 			end
-		else
-			getgenv().ToggleItemFarm = false
 		end
    end,
 })
 local Toggle = Tab:CreateToggle({
-   Name = "Grab Tools",
+   Name = "Auto Status Weapons",
    CurrentValue = false,
-   Flag = "Toggle1",
-   Callback = function(GrabTools)
-		if GrabTools then
-			getgenv().ToggleGrabTools = true
-			while getgenv().ToggleGrabTools do
-				wait(1)
-				local Human = game:GetService("Players").LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid")
-				for _, v in ipairs(workspace:GetChildren()) do
-					if game:GetService("Players").LocalPlayer.Character and v:IsA("BackpackItem") and v:FindFirstChild("Handle") then
-						Human:EquipTool(v)
-					end
-				end
-				if grabtoolsFunc then grabtoolsFunc:Disconnect() end
-				grabtoolsFunc = workspace.ChildAdded:Connect(function(v)
-					if game:GetService("Players").LocalPlayer.Character and v:IsA("BackpackItem") and v:FindFirstChild("Handle") then
-						game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):EquipTool(v)
-					end
-				end)
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(State)
+		Settings = State 
+		if Settings then
+			while wait(.1) and Settings do
+			   	game:GetService("ReplicatedStorage").RS.Remotes.UI.SpendSP:InvokeServer("Weapons")
 			end
-		else
-			getgenv().ToggleGrabTools = false
 		end
    end,
 })
 
-local Section = Tab:CreateSection("--// Option: Item Sniper", true)
-local Dropdown = Tab:CreateDropdown({
-   Name = "Select Item",
-   Options = items,
-   CurrentOption = "",
-   Flag = "Dropdown1",
-   Callback = function(Option)
-		getgenv().SelectOptions = Option
-		PrintItem()
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Item Sniper",
-   Callback = function()
-		DoStuff()
-   end,
-})
 
 
 
 
 
---// Teleport Main
-local Tab = Window:CreateTab("Teleports", 10090587519)
-local Paragraph = Tab:CreateParagraph({Title = "Buy Item", Content = [[
-Aqui nas opções você da teleport nas opções a baixo
-]]})
-local Section = Tab:CreateSection("--// Options: Teleports", true)
-local Button = Tab:CreateButton({
-   Name = "Bank ",
-   Info = "Click to teleport", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-		game.Players.LocalPlayer.Character:MoveTo(Vector3.new(1342.28, 584.95, -546.44))
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Farm Zone ",
-   Info = "Click to teleport", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-		game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-316.59, 466.42, -1502.53))
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Timmy ",
-   Info = "Click to teleport", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-		game.Players.LocalPlayer.Character:MoveTo(Vector3.new(1395.74, 581.69, -218.97))
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Key Boss ",
-   Info = "Click to teleport", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-		game.Players.LocalPlayer.Character:MoveTo(Vector3.new(1099, 589, -738))
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "D4C Place ",
-   Info = "Click to teleport", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-		game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-3093, 464, -428))
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Arena 1v1 ",
-   Info = "Click to teleport", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-		game.Players.LocalPlayer.Character:MoveTo(Vector3.new(1247.95, 581.04, -279.96))
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Key Spawm 1 ",
-   Info = "Click to teleport", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-		game.Players.LocalPlayer.Character:MoveTo(Vector3.new(1043.8, 591.63, -185.03))
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Key Spawm 2 ",
-   Info = "Click to teleport", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-		game.Players.LocalPlayer.Character:MoveTo(Vector3.new(1617.95, 588.23, -755.87))
-   end,
-})
 
 
 
 
---// Local Player Main
-local Tab = Window:CreateTab("Local Player", 8797391485)
-local Paragraph = Tab:CreateParagraph({Title = "Buy Item", Content = [[
-Aqui as opções vão ser executadas no LocalPlayer(Ou seja você)
-]]})
-local Section = Tab:CreateSection("--// Options: LocalPlayer", true)
-local Slider = Tab:CreateSlider({
-   Name = "WalkSpeed",
-   Range = {16, 500},
-   Increment = 16,
-   Suffix = "Speed",
-   CurrentValue = 10,
-   Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(Speed)
-		plr.Character.Humanoid.WalkSpeed = Speed
-   end,
-})
-local Slider = Tab:CreateSlider({
-   Name = "JumpPower",
-   Range = {50, 500},
-   Increment = 50,
-   Suffix = "Speed",
-   CurrentValue = 10,
-   Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(jump)
-		plr.Character.Humanoid.JumpPower = jump
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Click Tp Tool ",
-   Info = "Give a click teleport tool", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-		local tool = Instance.new("Tool")
-		tool.RequiresHandle = false
-		tool.Name = "Click Teleport"
 
-		tool.Activated:Connect(function()
-		local root = plr.Character.HumanoidRootPart
-		local pos = mouse.Hit.Position+Vector3.new(0,2.5,0)
-		local offset = pos-root.Position
-		root.CFrame = root.CFrame+offset
-		end)
 
-		tool.Parent = plr.Backpack
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Player Info",
-   Info = "Click to check player info.", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-		Notify({
-			Description = "Coletando dados";
-			Title = "Player Info";
-			Duration = 5;
-		});
-		 wait(3)
-		if plr then
-			Notify({
-				Description = "dados coletados, se quiser ver seus dados aperte F9";
-				Title = "Player Info";
-				Duration = 5;
-			});
-			print("------------------------------------------------------------------------")
-            print("{Player Info} Name:", plr)
-            print("{Player Info} User Id:", plrId)
-            print("{Player Info} Health:", CheckHealth)
-            print("{Player Info} WalkSpeed:", CheckSpeed)
-            print("{Player Info} JumpPower:", CheckJump)
-            print("{Player Info} Stand:", CheckStand)
-         print("------------------------------------------------------------------------")
-		else
-			Notify({
-				Description = "Desculpe eu não consegui achar seu Humanoid, talvez porquer você não seja um jogador :(";
-				Title = "Player Info Error";
-				Duration = 5;
-			});
-		end
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Force respawn",
-   Info = "If player as buged, use this", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-		Notify({
-			Description = "Player respawned.";
-			Title = "Player Info";
-			Duration = 5;
-		});
-		game:GetService("Players").LocalPlayer.Character:Destroy()
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Anti Ragdoll",
-   Interact = 'Changable',
-   Callback = function()
-		if AntiRagdoll then
-			AntiRagdoll:Destroy()
-		end
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Anti Fire",
-   Interact = 'Changable',
-   Callback = function()
-		if Fire then
-			Fire:Destroy()
-		end
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Infinite Jump",
-   Info = "Click to Infinite Jump", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-		local Player = game:GetService'Players'.LocalPlayer;
-		local UIS = game:GetService'UserInputService';
 
-		function Action(Object, Function) if Object ~= nil then Function(Object); end end
 
-		UIS.InputBegan:connect(function(UserInput)
-		    if UserInput.UserInputType == Enum.UserInputType.Keyboard and UserInput.KeyCode == Enum.KeyCode.Space then
-		        Action(Player.Character.Humanoid, function(self)
-		            if self:GetState() == Enum.HumanoidStateType.Jumping or self:GetState() == Enum.HumanoidStateType.Freefall then
-		                Action(self.Parent.HumanoidRootPart, function(self)
-		                    self.Velocity = Vector3.new(0, _G.JumpHeight, 0);
-		                end)
-		            end
-		        end)
-		    end
-		end)
 
-		wait(.4)
 
-		task.spawn(function ()
-	  		local Slider = Tab:CreateSlider({
-	  		Name = "Jump Height",
-	  		Range = {50, 500},
-	  		Increment = 50,
-	  		Suffix = "Jump",
-	  		CurrentValue = 50,
-	  		Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-	  		Callback = function(JumpHeight)
-				_G.JumpHeight = JumpHeight;
-	  		end,
-	  		})
-		end)
-   end,
-})
 
 
 
 
 
---// Item Notifier Main
-local Tab = Window:CreateTab("Item Notifier", 12828647854)
-local Paragraph = Tab:CreateParagraph({Title = "item Notifier", Content = [[
-Aqui nas opções ele ira demonstra se tem o item no mapa ou não
+spawn(function()
+    while task.wait() do 
+        if Settings.Killaura then
+            pcall(function()
+                for i,v in ipairs(game.Workspace.Enemies:GetChildren()) do 
+                    pcall(function()
+                        if v:FindFirstChild("LOADED") and v:FindFirstChild("HumanoidRootPart") and not v:FindFirstChild("DeadRagdoll") and game.Players.LocalPlayer:DistanceFromCharacter(v.HumanoidRootPart.Position) <= 20 then 
+                            game:GetService("ReplicatedStorage").RS.Remotes.Combat.DealWeaponDamage:FireServer(0,game.Players.LocalPlayer.Character,v,game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool"),"Slash")
+                        end;
+                    end);
+                end;
+            end);
+        end;
+    end;
+end);
 
-Obs: Se der "CallBack Error" quer dizer que nãp tem
-]]})
-local Section = Tab:CreateSection("--// Option: Items", true)
-local Button = Tab:CreateButton({
-   Name = "Check Arrow",
-   Info = "Click to check", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-        local Arrow = game:GetService("Workspace").Arrow.ClassName == "Tool"
-        if Arrow then
-      		Rayfield:Notify({
-      		   Title = "Item Notifier",
-      		   Content = "Tem arrow no mapa, deseja se teleporta para ela? ",
-      		   Duration = 6.5,
-      		   Image = 12828647854,
-      		   Actions = { -- Notification Buttons
-      		       Ignore = {
-      		           Name = "Sim",
-      		           Callback = function()
-							for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
-								if v:IsA("Tool") and v:FindFirstChild("Handle") and v.Name == "Arrow" then
-									game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Handle.CFrame
-								end
-							end
-      		           end
-      		       },
-      		       Hi = {
-      		           Name = "Não",
-      		           Callback = function()
-      		           end
-      		       },
-      		   },
-     		})
-        end
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Check Rokakaka Fruit",
-   Info = "Click to check", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-        local roka = game:GetService("Workspace")["Rokakaka Fruit"].ClassName == "Tool"
-		if roka then
-      		Rayfield:Notify({
-      		   Title = "Item Notifier",
-      		   Content = "Tem Rokakaka Fruit no mapa, deseja se teleporta para ela? ",
-      		   Duration = 6.5,
-      		   Image = 12828647854,
-      		   Actions = { -- Notification Buttons
-      		       Ignore = {
-      		           Name = "Sim",
-      		           Callback = function()
-							for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
-								if v:IsA("Tool") and v:FindFirstChild("Handle") and v.Name == "Arrow" then
-									game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Handle.CFrame
-								end
-							end
-      		           end
-      		       },
-      		       Hi = {
-      		           Name = "Não",
-      		           Callback = function()
-      		           end
-      		       },
-      		   },
-     		})
-        end
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Check Requiem Arrow",
-   Info = "Click to check", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-        local RArrow = game:GetService("Workspace")["Requiem Arrow"].ClassName == "Tool"
-        if RArrow then
-      		Rayfield:Notify({
-      		   Title = "Item Notifier",
-      		   Content = "Tem requiem arrow no mapa, deseja se teleporta para ela? ",
-      		   Duration = 6.5,
-      		   Image = 12828647854,
-      		   Actions = { -- Notification Buttons
-      		       Ignore = {
-      		           Name = "Sim",
-      		           Callback = function()
-							for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
-								if v:IsA("Tool") and v:FindFirstChild("Handle") and v.Name == "Arrow" then
-									game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Handle.CFrame
-								end
-							end
-      		           end
-      		       },
-      		       Hi = {
-      		           Name = "Não",
-      		           Callback = function()
-      		           end
-      		       },
-      		   },
-     		})
-        end
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Check DIO's Diary",
-   Info = "Click to check", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-        local DioDiary = game:GetService("Workspace")["DIO's Diary"].ClassName == "Tool"
-        if DioDiary then
-      		Rayfield:Notify({
-      		   Title = "Item Notifier",
-      		   Content = "Tem Dio's Diary no mapa, deseja se teleporta para ela? ",
-      		   Duration = 6.5,
-      		   Image = 12828647854,
-      		   Actions = { -- Notification Buttons
-      		       Ignore = {
-      		           Name = "Sim",
-      		           Callback = function()
-							for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
-								if v:IsA("Tool") and v:FindFirstChild("Handle") and v.Name == "Arrow" then
-									game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Handle.CFrame
-								end
-							end
-      		           end
-      		       },
-      		       Hi = {
-      		           Name = "Não",
-      		           Callback = function()
-      		           end
-      		       },
-      		   },
-     		})
-        end
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Check DIO's Skull 2",
-   Info = "Click to check", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-        local DS = game:GetService("Workspace")["DIO's Skull 2"].ClassName == "Tool"
-        if DS then
-      		Rayfield:Notify({
-      		   Title = "Item Notifier",
-      		   Content = "Tem Dio's Skull 2 no mapa, deseja se teleporta para ela? ",
-      		   Duration = 6.5,
-      		   Image = 12828647854,
-      		   Actions = { -- Notification Buttons
-      		       Ignore = {
-      		           Name = "Sim",
-      		           Callback = function()
-							for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
-								if v:IsA("Tool") and v:FindFirstChild("Handle") and v.Name == "Arrow" then
-									game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Handle.CFrame
-								end
-							end
-      		           end
-      		       },
-      		       Hi = {
-      		           Name = "Não",
-      		           Callback = function()
-      		           end
-      		       },
-      		   },
-     		})
-        end
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Check Hell Arrow",
-   Info = "Click to check", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-        local HellArrow = game:GetService("Workspace")["Hell Arrow"].ClassName == "Tool"
-        if HellArrow then
-      		Rayfield:Notify({
-      		   Title = "Item Notifier",
-      		   Content = "Tem hell arrow no mapa, deseja se teleporta para ela? ",
-      		   Duration = 6.5,
-      		   Image = 12828647854,
-      		   Actions = { -- Notification Buttons
-      		       Ignore = {
-      		           Name = "Sim",
-      		           Callback = function()
-							for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
-								if v:IsA("Tool") and v:FindFirstChild("Handle") and v.Name == "Arrow" then
-									game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Handle.CFrame
-								end
-							end
-      		           end
-      		       },
-      		       Hi = {
-      		           Name = "Não",
-      		           Callback = function()
-      		           end
-      		       },
-      		   },
-     		})
-        end
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Check Camera",
-   Info = "Click to check", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-        local cam = game:GetService("Workspace").Camera.ClassName == "Tool"
-        if cam then
-      		Rayfield:Notify({
-      		   Title = "Item Notifier",
-      		   Content = "Tem camera no mapa, deseja se teleporta para ela? ",
-      		   Duration = 6.5,
-      		   Image = 12828647854,
-      		   Actions = { -- Notification Buttons
-      		       Ignore = {
-      		           Name = "Sim",
-      		           Callback = function()
-							for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
-								if v:IsA("Tool") and v:FindFirstChild("Handle") and v.Name == "Arrow" then
-									game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Handle.CFrame
-								end
-							end
-      		           end
-      		       },
-      		       Hi = {
-      		           Name = "Não",
-      		           Callback = function()
-      		           end
-      		       },
-      		   },
-     		})
-        end
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Check Uncanny Key",
-   Info = "Click to check", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-        local key = game:GetService("Workspace")["Uncanny Key"].ClassName == "Tool"
-        if key then
-      		Rayfield:Notify({
-      		   Title = "Item Notifier",
-      		   Content = "Tem Uncanny Key no mapa, deseja se teleporta para ela? ",
-      		   Duration = 6.5,
-      		   Image = 12828647854,
-      		   Actions = { -- Notification Buttons
-      		       Ignore = {
-      		           Name = "Sim",
-      		           Callback = function()
-							for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
-								if v:IsA("Tool") and v:FindFirstChild("Handle") and v.Name == "Arrow" then
-									game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Handle.CFrame
-								end
-							end
-      		           end
-      		       },
-      		       Hi = {
-      		           Name = "Não",
-      		           Callback = function()
-      		           end
-      		       },
-      		   },
-     		})
-        end
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Check Pot Platinum's Diary",
-   Info = "Click to check", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-        local pot = game:GetService("Workspace")["Pot Platinum's Diary"].ClassName == "Tool"
-        if pot then
-      		Rayfield:Notify({
-      		   Title = "Item Notifier",
-      		   Content = "Tem POT no mapa, deseja se teleporta para ela? ",
-      		   Duration = 6.5,
-      		   Image = 12828647854,
-      		   Actions = { -- Notification Buttons
-      		       Ignore = {
-      		           Name = "Sim",
-      		           Callback = function()
-							for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
-								if v:IsA("Tool") and v:FindFirstChild("Handle") and v.Name == "Arrow" then
-									game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Handle.CFrame
-								end
-							end
-      		           end
-      		       },
-      		       Hi = {
-      		           Name = "Não",
-      		           Callback = function()
-      		           end
-      		       },
-      		   },
-     		})
-        end
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Check Red Heart",
-   Info = "Click to check", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-        local redh = game:GetService("Workspace")["Red Heart"].ClassName == "Tool"
-        if redh then
-      		Rayfield:Notify({
-      		   Title = "Item Notifier",
-      		   Content = "Tem Red Heart no mapa, deseja se teleporta para ela? ",
-      		   Duration = 6.5,
-      		   Image = 12828647854,
-      		   Actions = { -- Notification Buttons
-      		       Ignore = {
-      		           Name = "Sim",
-      		           Callback = function()
-							for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
-								if v:IsA("Tool") and v:FindFirstChild("Handle") and v.Name == "Arrow" then
-									game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Handle.CFrame
-								end
-							end
-      		           end
-      		       },
-      		       Hi = {
-      		           Name = "Não",
-      		           Callback = function()
-      		           end
-      		       },
-      		   },
-     		})
-        end
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Check True Requiem Arrow",
-   Info = "Click to check", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-        local trarrow = game:GetService("Workspace")["True Requiem Arrow"].ClassName == "Tool"
-        if trarrow then
-      		Rayfield:Notify({
-      		   Title = "Item Notifier",
-      		   Content = "Tem True Requiem Arrow no mapa, deseja se teleporta para ela? ",
-      		   Duration = 6.5,
-      		   Image = 12828647854,
-      		   Actions = { -- Notification Buttons
-      		       Ignore = {
-      		           Name = "Sim",
-      		           Callback = function()
-							for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
-								if v:IsA("Tool") and v:FindFirstChild("Handle") and v.Name == "Arrow" then
-									game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Handle.CFrame
-								end
-							end
-      		           end
-      		       },
-      		       Hi = {
-      		           Name = "Não",
-      		           Callback = function()
-      		           end
-      		       },
-      		   },
-     		})
-        end
-   end,
-})
+spawn(function()
+    while wait(2) do 
+        if Settings.LoadedFarm or Settings.MobFarm  then
+            for i,v in ipairs(game:GetService("ReplicatedStorage").RS.UnloadEnemies:GetChildren()) do 
+                v.Parent = game.Workspace.Enemies
+            end;
+        end;
+    end;
+end);
 
+spawn(function()
+    while wait(2) do 
+        if Settings.LoadedFarm or Settings.MobFarm  then
+            for i,v in ipairs(game:GetService("ReplicatedStorage").RS.Bosses:GetChildren()) do 
+                v.Parent = game.Workspace.Enemies
+            end;
+        end;
+    end;
+end);
 
+spawn(function()
+    while wait(1) do 
+        pcall(function()
+            if not game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool") and Settings.Killaura then
+                game:GetService('VirtualInputManager'):SendKeyEvent(true, "One", false, game) 
+            end;
+        end);
+    end;
+end);
 
+spawn(function()
+    while wait(1) do 
+        if Settings.ChestFarm or Settings.ChestAura or Settings.ChestESP then
+            for i,v in ipairs(game.Workspace.Map:GetDescendants()) do 
+                if string.find(v.Name,"Chest") then 
+                    v.Parent = game.Workspace
+                end;
+            end;
+        end;
+    end;
+end);
 
 
---// Troll Main
-local Tab = Window:CreateTab("Troll", 12828699755)
-local Paragraph = Tab:CreateParagraph({Title = "Troll Main", Content = [[
-Aqui tem opções para você trollar as pessoas no server em que esta,
-lembrando que tem opções FE e opções visuais 
+spawn(function()
+    while wait(1) do 
+        if Settings.FruitFarm then
+            for i,v in ipairs(game.Workspace.Map:GetDescendants()) do 
+                if v.Name == "Fruit" and v:IsA("Part") then 
+                    v.Parent = game.Workspace
+                end;
+            end;
+        end;
+    end;
+end);
 
-A maioria feito por mim.
-]]})
+game:GetService("Players").ChildAdded:Connect(function(player)
+    if Settings.ModDetector and player:IsA("Player") and player:IsInGroup(Group) and player:GetRoleInGroup(3596833) == "🎤 Game Moderator" or player:GetRoleInGroup(3596833) == "📃 Group Manager" or player:GetRoleInGroup(3596833) == "📜 Developer" then
+        game:GetService("Players").LocalPlayer:Kick(tostring(player).." joined (Staff)")
+    end
+end)
 
-local Section = Tab:CreateSection("--// Options: Fe Scripts", true)
-local Button = Tab:CreateButton({
-   Name = "FE Creeper",
-   Info = "Click to use Creeper script FE.", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-
-      print("{Infinity Hub} Executing Creeper FE Script")
-
-      plr.Character.Humanoid.WalkSpeed = 0
-      if game:GetService("Workspace").FilteringEnabled == true then
-         game:GetService("StarterGui"):SetCore("SendNotification", {
-            Title = " Loading script... ";
-            Text = " Wait a moment ";
-         })
-      end
-      wait(2)
-      if game:GetService("Workspace").FilteringEnabled == true then
-         game:GetService("StarterGui"):SetCore("SendNotification", {
-            Title = " Script executed ";
-            Text = " ... ";
-         })
-      end
-
-      wait(.8)
-
-      _G.CreeperMode = true
-      --// Variables
-      local LocalPlr = game:GetService("Players").LocalPlayer.Character
-      local LeftArm = LocalPlr["Left Arm"]
-      local RightArm = LocalPlr["Right Arm"]
-      --// Main Code
-      RightArm:Destroy()
-      LeftArm:Destroy()
-
-
-      LocalPlr.Shirt.ShirtTemplate = "http://www.roblox.com/asset/?id=5339301922"
-      LocalPlr.Pants.PantsTemplate = "http://www.roblox.com/asset/?id=3597049463"
-
-      plr.Character.Humanoid.WalkSpeed = 16
-
-      print("{Infinity Hub} FE Creeper Script Executed")
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "FE Head Fly",
-   Info = "Click to use Head Fly script FE.", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-      print("{Infinity Hub} Executing Head Fly FE Script")
-
-      plr.Character.Humanoid.WalkSpeed = 0
-      if game:GetService("Workspace").FilteringEnabled == true then
-         game:GetService("StarterGui"):SetCore("SendNotification", {
-            Title = " Loading script... ";
-            Text = " Wait a moment ";
-         })
-      end
-      wait(2)
-      if game:GetService("Workspace").FilteringEnabled == true then
-         game:GetService("StarterGui"):SetCore("SendNotification", {
-            Title = " Script executed ";
-            Text = " ... ";
-         })
-      end
-
-      _G.HeadFlyFe = true
-      --// Variables
-      local LocalPlr = game:GetService("Players").LocalPlayer.Character
-      local LeftArm = LocalPlr["Left Arm"]
-      local RightArm = LocalPlr["Right Arm"]
-      local RightLeg = LocalPlr["Right Leg"]
-      local LeftLeg = LocalPlr["Left Leg"]
-      local Torso = LocalPlr.Torso
-      --// Main Code
-      LeftLeg:Destroy()
-      RightLeg:Destroy()
-      RightArm:Destroy()
-      LeftArm:Destroy()
-      Torso.Transparency = 1
-
-      plr.Character.Humanoid.WalkSpeed = 16
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "FE Invisible",
-   Info = "Click to use Invisible script FE.", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-		local offset = 1100 --how far you are away from your camera when invisible
-		local LocalPlayer = game.Players.LocalPlayer
-		local Backpack = LocalPlayer.Backpack
-		local Character = LocalPlayer.Character
-		local invisible = false
-		local grips = {}
-		local heldTool
-		local gripChanged
-		local handle
-		local weld
-		function setDisplayDistance(distance)
-		   for _,player in pairs(game.Players:GetPlayers()) do if player.Character and player.Character:FindFirstChildWhichIsA("Humanoid") then player.Character:FindFirstChildWhichIsA("Humanoid").NameDisplayDistance = distance player.Character:FindFirstChildWhichIsA("Humanoid").HealthDisplayDistance = distance end end
-		end
-		local tool = Instance.new("Tool", Backpack)
-		tool.Name = "Ghostify [Disabled]"
-		tool.RequiresHandle = false
-		tool.CanBeDropped = false
-		tool.Equipped:Connect(function() wait()
-		   if not invisible then
-		       invisible = true
-		       tool.Name = "Ghostify [Enabled]"
-		       if handle then handle:Destroy() end if weld then weld:Destroy() end
-		       handle = Instance.new("Part", workspace) handle.Name = "Handle" handle.Transparency = 1 handle.CanCollide = false handle.Size = Vector3.new(2, 1, 1)
-		       weld = Instance.new("Weld", handle) weld.Part0 = handle weld.Part1 = Character.HumanoidRootPart weld.C0 = CFrame.new(0, offset-1.5, 0)
-		       setDisplayDistance(offset+100)
-		       workspace.CurrentCamera.CameraSubject = handle
-		       Character.HumanoidRootPart.CFrame = Character.HumanoidRootPart.CFrame * CFrame.new(0, offset, 0)
-		       Character.Humanoid.HipHeight = offset
-		       Character.Humanoid:ChangeState(11)
-		       for _,child in pairs(Backpack:GetChildren()) do if child:IsA("Tool") and child ~= tool then grips[child] = child.Grip end end
-		   elseif invisible then
-		       invisible = false
-		       tool.Name = "Ghostify [Disabled]"
-		       if handle then handle:Destroy() end if weld then weld:Destroy() end
-		       for _,child in pairs(Character:GetChildren()) do if child:IsA("Tool") then child.Parent = Backpack end end
-		       for tool,grip in pairs(grips) do if tool then tool.Grip = grip end end
-		       heldTool = nil
-		       setDisplayDistance(100)
-		       workspace.CurrentCamera.CameraSubject = Character.Humanoid
-		       Character.Animate.Disabled = false
-		       Character.HumanoidRootPart.CFrame = Character.HumanoidRootPart.CFrame * CFrame.new(0, -offset, 0)
-		       Character.Humanoid.HipHeight = 0
-		       Character.Humanoid:ChangeState(11)
-		   end
-		   tool.Parent = Backpack
-		end)
-		Character.ChildAdded:Connect(function(child) wait()
-		   if invisible and child:IsA("Tool") and child ~= heldTool and child ~= tool then
-		       heldTool = child
-		       local lastGrip = heldTool.Grip
-		       if not grips[heldTool] then grips[heldTool] = lastGrip end
-		       for _,track in pairs(Character.Humanoid:GetPlayingAnimationTracks()) do track:Stop() end
-		       Character.Animate.Disabled = true
-		       heldTool.Grip = heldTool.Grip*(CFrame.new(0, offset-1.5, 1.5) * CFrame.Angles(math.rad(-90), 0, 0))
-		       heldTool.Parent = Backpack
-		       heldTool.Parent = Character
-		       if gripChanged then gripChanged:Disconnect() end
-		       gripChanged = heldTool:GetPropertyChangedSignal("Grip"):Connect(function() wait()
-		           if not invisible then gripChanged:Disconnect() end
-		           if heldTool.Grip ~= lastGrip then
-		               lastGrip = heldTool.Grip*(CFrame.new(0, offset-1.5, 1.5) * CFrame.Angles(math.rad(-90), 0, 0))
-		               heldTool.Grip = lastGrip
-		               heldTool.Parent = Backpack
-		               heldTool.Parent = Character
-		           end
-		       end)
-		   end
-		end)
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Shadow The World Requiem",
-   Info = "Need Dtw or Dtw Ova", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-      Rayfield:Notify({
-         Title = "Select",
-         Content = "Por favor selecione o seu stand, Dtw ova ou dtw normal. Lembrando que tem que selecionar mesmo, se não buga.",
-         Duration = 6.5,
-         Image = 4483362458,
-         Actions = { -- Notification Buttons
-             Ignore = {
-                 Name = "Dtw",
-                 Callback = function()
-                     --// Dtw Destroy Legs
-                     game:GetService("Players").LocalPlayer.Character.Stand["Stand Left Leg"]:Destroy()
-                     game:GetService("Players").LocalPlayer.Character.Stand["Stand Right Leg"]:Destroy()
-                 end
-             },
-             Hi = {
-                 Name = "Dtw Ova",
-                 Callback = function()
-                     game:GetService("Players").LocalPlayer.Character.Stand["Stand Left Leg"]:Destroy()
-                     game:GetService("Players").LocalPlayer.Character.Stand["Stand Right Leg"]:Destroy()
-                 end
-             },
-         },
-     })
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Money Locker",
-   Info = "Click to lock your money.", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-      Rayfield:Notify({
-         Title = "Money Locker, Waring!",
-         Content = "O money locker so funciona as vezes, então pode ser que não funcione, tem certeza que quer executar?",
-         Duration = 6.5,
-         Image = 4483362458,
-         Actions = { -- Notification Buttons
-             Ignore = {
-                 Name = "Sim",
-                 Callback = function()
-                     --// Main Variables
-                     local plrMoney = game:GetService("Players").LocalPlayer.Data.Money.Value
-
-                     wait(8)
-					 Notify({
-					 	Description = "Aguarde um momento";
-					 	Title = "Player Money";
-					 	Duration = 5;
-					 });
-                     wait(4)
-					 Notify({
-					 	Description = "dados coletados, se quiser ver seus dados aperte F9";
-					 	Title = "Player Info";
-					 	Duration = 5;
-					 });
-                     --// Prints
-                     print("------------------------------------------------------------------------")
-                        
-                        print("{Player Info} Say:", plrMoney, "<-- your money")
-                        print("{Player Info} Collect Money |", plrMoney, "<-- your money")
-
-                     print("------------------------------------------------------------------------")
-
-                     --end
-
-                     --// Variables
-                     local Money1 = game:GetService("Players").LocalPlayer.PlayerGui.MenuGUI.Background.Money.TextLabel.Money
-                     local Money2 = game:GetService("StarterGui").MenuGUI.Background.Money.TextLabel.Money
-                     --// Main Code
-                     wait(6.5)
-					 Notify({
-					 	Description = "Criando variaveis aguarde um momento";
-					 	Title = "Variables";
-					 	Duration = 5;
-					 });
-                     wait(4)
-					 Notify({
-					 	Description = "Variaveis criadas";
-					 	Title = "Variables";
-					 	Duration = 5;
-					 });
-                     wait(4)
-                     Notify({
-					 	Description = "Money Locker gerado";
-					 	Title = "Money Locker";
-					 	Duration = 5;
-					 });
-                     if Money1 and Money2 then
-                        Money1:Destroy()
-                        Money2:Destroy()
-                     end
-
-
-                     --// Important Menssage
-                     wait(5.5)
-					 Notify({
-					 	Description = "Mensagem importante";
-					 	Title = "WARING! ";
-					 	Duration = 5;
-					 });
-                     wait(2)
-					 Notify({
-					 	Description = "Money locker pode ser notado pelo jogo, então você so tem 5 minutos para user, depois disso você será relogado";
-					 	Title = "Player Info";
-					 	Duration = 5;
-					 });
-                     wait(300)
-                     game:GetService("TeleportService"):Teleport(game.PlaceId, player)
-                 end
-             },
-             Hi = {
-                 Name = "Não",
-                 Callback = function()
-                     print("{Player} say: No!")
-                 end
-             },
-         },
-     })
-   end,
-})
-local Toggle = Tab:CreateToggle({
-   Name = "Black Dtw, Dtw Ova",
-   CurrentValue = false,
-   Flag = "Toggle1",
-   Callback = function(ActiveBD)
-      if ActiveBD then
-         getgenv().ActiveBDToggle = true
-         game:GetService("Players").LocalPlayer.Character.Stand["Meshes/18"].Name = "Neon"
-         game:GetService("Players").LocalPlayer.Character.Stand["Meshes/18"].Name = "Neon"
-         while getgenv().ActiveBDToggle do
-            wait(0.01)
-            game:GetService("Players").LocalPlayer.Character.Stand.Neon:Remove()
-         end
-      else
-         getgenv().ActiveBDToggle = false
-         plr.Character:Destroy()
-      end
-   end,
-})
-local Toggle = Tab:CreateToggle({
-   Name = '"Cosmic" JSP',
-   CurrentValue = false,
-   Flag = "Toggle1",
-   Callback = function(ActiveCMB)
-      if ActiveCMB then
-         getgenv().ActiveCMBToggle = true
-         while getgenv().ActiveCMBToggle do
-            wait(0.01)
-            game:GetService("Players").LocalPlayer.Character.Stand["Neon."]:Destroy()
-         end
-      else
-         getgenv().ActiveCMBToggle = false
-         plr.Character:Destroy()
-      end
-   end,
-})
-local Toggle = Tab:CreateToggle({
-   Name = 'Ws Au 😳',
-   CurrentValue = false,
-   Flag = "Toggle1",
-   Callback = function(ActiveWsAuT)
-      if ActiveWsAuT then
-         getgenv().ActiveWsAuTToggle = true
-         while getgenv().ActiveWsAuTToggle do
-            game:GetService("Players").LocalPlayer.Character.Stand.Gold:Remove()
-            game:GetService("Players").LocalPlayer.Character.Stand.Leather:Remove() 
-            game:GetService("Players").LocalPlayer.Character.Stand.Leather:Remove()
-         end
-      else
-         getgenv().ActiveWsAuTToggle = false
-         plr.Character:Destroy()
-      end
-   end,
-})
-
-
-------------------------------------------------
-
-
-local Section = Tab:CreateSection("--// Options: Visual Scripts", true)
-local Button = Tab:CreateButton({
-   Name = "Jumpscare (Golden Freddy)",
-   Info = "Click to Jumpscare.", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-      game:GetService("Players").LocalPlayer.PlayerGui.backup.LOSE.Visible = true
-      game:GetService("Players").LocalPlayer.PlayerGui.backup.FUNNY:Play()
-      wait(8)
-      game:GetService("Players").LocalPlayer.PlayerGui.backup.LOSE.Visible = false
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Jumpscare (Luigi Distorced)",
-   Info = "Click to Jumpscare.", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-      game:GetService("Players").LocalPlayer.PlayerGui.backup.LOSE2.Visible = true
-      game:GetService("Players").LocalPlayer.PlayerGui.backup.FUNNY2:Play()
-      wait(5)
-      game:GetService("Players").LocalPlayer.PlayerGui.backup.LOSE2.Visible = false
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Make Creator",
-   Info = "Click this for your make a creator.", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-      if game.CreatorType == Enum.CreatorType.User then
-         game.Players.LocalPlayer.UserId = game.CreatorId
-      end
-      if game.CreatorType == Enum.CreatorType.Group then
-         game.Players.LocalPlayer.UserId = game:GetService("GroupService"):GetGroupInfoAsync(game.CreatorId).Owner.Id
-      end
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Infinite Money",
-   Info = "Click this get inf money.", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-      Notification.new("success", "Infinite Money", "Sucesso :> (Lembrando que é visual)")
-      game:GetService("Players").LocalPlayer.Data.Money.Value = 4198237189273980213
-   end,
-})
-
-
-
-
---// Troll Main
-local Tab = Window:CreateTab("Settings", 7734053495)
-local Paragraph = Tab:CreateParagraph({Title = "Settings", Content = [[
-Em Breve 💤
-]]})
-
-
-
-
---// End Script......
-
-
-
-
-
-
-
-
-
-
-
--- more soon -- 
+spawn(function()
+    while wait() do 
+        if not game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
+            game.Players.LocalPlayer.Character.Humanoid.Health = 0
+        end;
+    end;
+end);
