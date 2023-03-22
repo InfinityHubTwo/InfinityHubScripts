@@ -1,7 +1,8 @@
 --[[
+Made by Darkzin 
 
-  Made by Darkzin 
-
+info:
+All scripts work ✅
 --]]
 
 
