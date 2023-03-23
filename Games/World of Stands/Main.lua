@@ -19,7 +19,7 @@ local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/
 
 --// Rayfiel Libray
 getgenv().SecureMode = true
-local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/InfinityHubTwo/8917328917238971982346/main/Librays/Rayfield/Main.lua'))()
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Ui%20Libray/Rayfield/Main.lua'))()
 local Window = Rayfield:CreateWindow({
    Name = "Wos Farmming Test",
    LoadingTitle = "Infinity Hub",
