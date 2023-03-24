@@ -11,18 +11,6 @@ local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/Ki
 local Notify = AkaliNotif.Notify;
 
 
---// Others Librarys
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/AbstractPoo/Main/main/Notifications.lua"),true))()
-local notifications = loadstring(game:HttpGet(("https://raw.githubusercontent.com/AbstractPoo/Main/main/Notifications.lua"),true))()
---[[
-    notifications:message{
-        Title = "Walkspeed <font color='rgb(130, 220, 120)'>Enabled</font>",
-        Description = "Current walkspeed: <b>32</b>",
-        Icon = 6023426926
-    }
---]]
-
-
 
 --// Variables
 local plr = game:GetService("Players").LocalPlayer
@@ -36,9 +24,6 @@ local AntiTs = game:GetService("Lighting").TS
 local AntiRagdoll = game:GetService("ReplicatedStorage").RagdollClient
 local Fire = game:GetService("ReplicatedStorage").fire
 local Settings
-local function PrintItem()
-	print(Option, "| Item Sniperded")
-end
 getgenv().SelectOptions = nil
 local function DoStuff()
 	if getgenv().SelectOptions == "Arrow" then
@@ -226,6 +211,173 @@ local function StandFarm()
 	end
 end
 
+--// Afk Farm \\--
+getgenv().AutoItemSlot = nil
+getgenv().SlotsSelect = nil
+slots = {
+	"Slot 1",
+	"Slot 2",
+	"Slot 3",
+	"Slot 4",
+	"Slot 5",
+	"Slot 6",
+	"Slot 7",
+	"Slot 8",
+}
+local function AutoCollectSlots()
+	if getgenv().SlotsSelect == "Slot 1" then
+		game:GetService("ReplicatedStorage").Bank:FireServer("Slot1", false, false)
+
+
+	elseif getgenv().SlotsSelect == "Slot 2" then
+		game:GetService("ReplicatedStorage").Bank:FireServer("Slot2", false, false)
+
+
+	elseif getgenv().SlotsSelect == "Slot 3" then
+		game:GetService("ReplicatedStorage").Bank:FireServer("Slot3", false, false)
+
+
+	elseif getgenv().SlotsSelect == "Slot 4" then
+		game:GetService("ReplicatedStorage").Bank:FireServer("Slot4", false, false)
+
+
+	elseif getgenv().SlotsSelect == "Slot 5" then
+		game:GetService("ReplicatedStorage").Bank:FireServer("Slot5", false, false)
+
+
+	elseif getgenv().SlotsSelect == "Slot 6" then
+		game:GetService("ReplicatedStorage").Bank:FireServer("Slot6", false, false)
+
+
+	elseif getgenv().SlotsSelect == "Slot 7" then
+		game:GetService("ReplicatedStorage").Bank:FireServer("Slot7", false, false)
+
+
+	elseif getgenv().SlotsSelect == "Slot 8" then
+		game:GetService("ReplicatedStorage").Bank:FireServer("Slot8", false, false)
+	end
+end
+
+
+local ItemsAfkFarm = {
+	"Dio's Skull",
+	"Camera",
+	"Pot Platinum's Diary",
+	"Uncanny Key",
+}
+local function AutoItemSlot()
+	if getgenv().AutoItemSlot == "Dio's Skull" then
+		for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
+			if v:IsA("Tool") and v.Name == "DIO's Skull 2" then
+		    	pcall(function()
+		        	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+		    	end)
+			end
+		end
+		pcall(
+			function ()
+    			for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+    			    if v.name == "DIO's Skull 2" then
+    			        v.Parent = game.Players.LocalPlayer.Character
+    			    end
+    			end
+			end
+		)
+
+
+	elseif getgenv().AutoItemSlot == "Camera" then
+		for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
+			if v:IsA("Tool") and v.Name == "Camera" then
+		    	pcall(function()
+		        	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+		    	end)
+			end
+		end
+		pcall(
+			function ()
+    			for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+    			    if v.name == "Camera" then
+    			        v.Parent = game.Players.LocalPlayer.Character
+    			    end
+    			end
+			end
+		)
+
+
+	elseif getgenv().AutoItemSlot == "Pot Platinum's Diary" then
+		for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
+			if v:IsA("Tool") and v.Name == "Pot Platinum's Diary" then
+		    	pcall(function()
+		        	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+		    	end)
+			end
+		end
+		pcall(
+			function ()
+    			for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+    			    if v.name == "Pot Platinum's Diary" then
+    			        v.Parent = game.Players.LocalPlayer.Character
+    			    end
+    			end
+			end
+		)
+
+
+	elseif getgenv().AutoItemSlot == "Uncanny Key" then
+		for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
+			if v:IsA("Tool") and v.Name == "Uncanny Key" then
+		    	pcall(function()
+		        	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+		    	end)
+			end
+		end
+		pcall(
+			function ()
+    			for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+    			    if v.name == "Uncanny Key" then
+    			        v.Parent = game.Players.LocalPlayer.Character
+    			    end
+    			end
+			end
+		)
+	end
+end
+--// End \\--
+
+
+getgenv().SansSounds = nil
+SansSoundsOption = {
+	"Vampire Laser ( Dio )", 
+	"Undertale Attack",
+	"Blood Sound",
+}
+local function SelectSound()
+	if getgenv().SansSounds == "Vampire Laser ( Dio )" then
+		game:GetService("ReplicatedStorage").Effects.BoneZone.Primary.reverb.SoundId  = "rbxassetid://5121734927"
+		game:GetService("ReplicatedStorage").Effects.BoneZone.Primary.eoe.SoundId 	  = "rbxassetid://5121734927"
+
+	elseif getgenv().SansSounds == "Undertale Attack" then
+		game:GetService("ReplicatedStorage").Effects.BoneZone.Primary.reverb.SoundId  = "rbxassetid://437475935"
+		game:GetService("ReplicatedStorage").Effects.BoneZone.Primary.eoe.SoundId 	  = "rbxassetid://437475935"
+
+	elseif getgenv().SansSounds == "Blood Sound" then
+		game:GetService("ReplicatedStorage").Effects.BoneZone.Primary.reverb.SoundId  = "rbxassetid://7837536401"
+		game:GetService("ReplicatedStorage").Effects.BoneZone.Primary.eoe.SoundId 	  = "rbxassetid://7837536401"
+	end
+end
+
+local function get_plrs()
+   local plrs = {}
+   
+   for i,v in pairs(game.Players:GetPlayers()) do
+       if v ~= game.Players.LocalPlayer then
+           table.insert(plrs, v.Name)
+       end
+   end
+   
+   return plrs
+end
+
 
 
 --// Prints
@@ -243,7 +395,7 @@ print[[
 
 --// Rayfiel Libray
 getgenv().SecureMode = true
-local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/InfinityHubTwo/8917328917238971982346/main/Librays/Rayfield/Main.lua'))()
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Ui%20Libray/Rayfield/Main.lua'))()
 local Window = Rayfield:CreateWindow({
    Name = "Infinity Hub  |  @Darkzin, @Cool",
    LoadingTitle = "Infinity Hub",
@@ -625,16 +777,23 @@ local Button = Tab:CreateButton({
 		game:GetService("ReplicatedStorage").Main.Input:FireServer(unpack(args))
    end,
 })
+local Dropdown = Tab:CreateDropdown({
+   Name = "Sans Sound, Key T/H. Select Sound:",
+   Options = SansSoundsOption,
+   CurrentOption = "",
+   Flag = "Dropdown1", 
+   Callback = function(Option)
+		getgenv().SansSounds = Option
+   end,
+})
 local Toggle = Tab:CreateToggle({
-   Name = "Sans Sound Effect (Key T/H)",
+   Name = "Start Sound",
    CurrentValue = false,
    Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(State)
 		Settings = State
 		if Settings then
-			-- Modded
-			game:GetService("ReplicatedStorage").Effects.BoneZone.Primary.reverb.SoundId = "rbxassetid://5121734927"
-			game:GetService("ReplicatedStorage").Effects.BoneZone.Primary.eoe.SoundId = "rbxassetid://5121734927"
+			SelectSound()
 		else
 			-- Normal
 			game:GetService("ReplicatedStorage").Effects.BoneZone.Primary.reverb.SoundId = "rbxassetid://401680588"
@@ -732,8 +891,8 @@ local Toggle = Tab:CreateToggle({
 
 
 --// Server Remotes
-local Tab = Window:CreateTab("Server Remotes", 12828674545)
-local Paragraph = Tab:CreateParagraph({Title = "Server Remotes", Content = [[
+local Tab = Window:CreateTab("Server", 12828674545)
+local Paragraph = Tab:CreateParagraph({Title = "Server", Content = [[
 Aqui as opções que você iniciar irá prejuticar o servidor EX Lag Server
 ]]})
 
@@ -784,6 +943,38 @@ local Button = Tab:CreateButton({
           },
        },
     })
+   end,
+})
+
+local Section = Tab:CreateSection("--// Options: Kill All", true)
+
+local Toggle = Tab:CreateToggle({
+   Name = "Loop Kill Player",
+   CurrentValue = false,
+   Flag = "Toggle1",
+   Callback = function(State)
+		Settings = State
+		if Settings then
+			Notify({
+				Description = "Esta opção ainda esta por vir, aguarde 💤";
+				Title = "Soon...";
+				Duration = 5;
+			});
+			while wait() and Settings do
+				print(
+					"ta ainda por vir acalmate k "
+				)
+			end
+		end
+   end,
+})
+local Dropdown = Tab:CreateDropdown({
+   Name = "Select Player:",
+   Options = get_plrs(),
+   CurrentOption = "Option 1",
+   Flag = "Dropdown1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Option)
+		
    end,
 })
 
@@ -980,7 +1171,6 @@ local Dropdown = Tab:CreateDropdown({
    Flag = "Dropdown1",
    Callback = function(Option)
 		getgenv().SelectOptions = Option
-		PrintItem()
    end,
 })
 local Button = Tab:CreateButton({
@@ -989,6 +1179,12 @@ local Button = Tab:CreateButton({
 		DoStuff()
    end,
 })
+
+
+
+
+
+
 
 
 
@@ -2000,11 +2196,77 @@ local Button = Tab:CreateButton({
 
 
 
---// Troll Main
+--// Afk Farm
+local Tab = Window:CreateTab("Afk Farm", 12876835994)
+local Section = Tab:CreateSection("--// Options: Afk Item Farm", true)
+local Paragraph = Tab:CreateParagraph({Title = "Afk Farm", Content = [[
+Nesta opção você seleciona o item que quer que ele pegue automaticamente para você e guarda no seu slot que você selecionou.
+
+
+Obs: Se o item que você selecionou estiver spawnado no mapa ele coleta pro teu inventario e ja guarda no slot que selecionou (Feito para pessoa com problema de conexão)
+]]})
+
+local Dropdown = Tab:CreateDropdown({
+   Name = "Select Slots",
+   Options = slots,
+   CurrentOption = "",
+   Flag = "Dropdown1",
+   Callback = function(Option)
+		getgenv().SlotsSelect = Option
+   end,
+})
+local Dropdown = Tab:CreateDropdown({
+   Name = "Select Item",
+   Options = ItemsAfkFarm,
+   CurrentOption = "",
+   Flag = "Dropdown1",
+   Callback = function(Option)
+		getgenv().AutoItemSlot = Option
+   end,
+})
+local Toggle = Tab:CreateToggle({
+   Name = "Start + Anti Afk",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(State)
+		Settings = State 
+		if Settings then
+			while wait() and Settings do
+				AutoItemSlot()
+				AutoCollectSlots()
+
+				-- Anti Afk
+				pcall(
+					function ()
+						plr.Character.Humanoid.WalkSpeed = 0
+						plr.Character.HumanoidRootPart.CFrame = CFrame.new(1335.813, 592.817, -355.57)
+					
+						for _, v in next, getconnections(game:GetService("Players").LocalPlayer.Idled) do
+        					v:Disable()
+   					    end
+					end
+				)
+			end
+		else
+			FeKill()
+			Notify({
+				Description = "Jogador Resetado para desativar o Afk Farm.";
+				Title = "Player Reseted";
+				Duration = 5;
+			});
+		end
+   end,
+})
+
+
+
+
+--// Settings Main
 local Tab = Window:CreateTab("Settings", 7734053495)
 local Paragraph = Tab:CreateParagraph({Title = "Settings", Content = [[
 Em Breve 💤
 ]]})
+
 
 
 
