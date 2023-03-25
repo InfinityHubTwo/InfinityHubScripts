@@ -19,7 +19,13 @@ local mouse = plr:GetMouse()
 local CheckSpeed = plr.Character.Humanoid.WalkSpeed
 local CheckJump = plr.Character.Humanoid.JumpPower
 local CheckHealth = plr.Character.Humanoid.Health
-local CheckStand = plr.Backpack.ClassName == "LocalScript"
+local function CheckStand()
+	for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+		if v:IsA("LocalScript") and v.Name ~= "ResetLighting" then
+			print(v)
+		end
+	end
+end
 local AntiTs = game:GetService("Lighting").TS
 local AntiRagdoll = game:GetService("ReplicatedStorage").RagdollClient
 local Fire = game:GetService("ReplicatedStorage").fire
@@ -211,6 +217,7 @@ local function StandFarm()
 	end
 end
 
+
 --// Afk Farm \\--
 getgenv().AutoItemSlot = nil
 getgenv().SlotsSelect = nil
@@ -366,6 +373,7 @@ local function SelectSound()
 	end
 end
 
+
 local function get_plrs()
    local plrs = {}
    
@@ -376,6 +384,66 @@ local function get_plrs()
    end
    
    return plrs
+end
+
+
+local function AutoUseBanknote()
+	task.spawn(
+		function ()
+			-- Grab Banknote
+			repeat task.wait(.1)
+				for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
+					if v:IsA("Tool") and v.Name == "Banknote" then
+				    	pcall(function()
+				        	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+				    	end)
+					end
+				end
+			until 1+1==2
+
+
+			pcall(
+				function ()
+					-- Grab BankNote in Inventory
+	    			for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+	    			    if v.name == "Banknote" then
+	    			        v.Parent = game.Players.LocalPlayer.Character
+	    			        wait(.5)
+							game:GetService("Players").LocalPlayer.Backpack.Banknote:Active()
+	    			    end
+	    			end
+				end
+			)
+		end
+	)
+end
+
+
+local function KillAllPlayers()
+	-- Teleport All
+	local player = game.Players.LocalPlayer
+	local timewait = 4
+	for i,v in pairs(game.Players:GetChildren()) do
+	   if v.Name ~= player.Name then
+	       pcall(function()
+	              player.Character.HumanoidRootPart.CFrame = v.Character.HumanoidRootPart.CFrame
+	       end)
+	   end
+	   wait(timewait)
+	end
+
+
+	-- Kill All (Loop)
+	for i,v in pairs(game:GetService("Players"):GetChildren()) do
+		if v.Name ~= game.Players.LocalPlayer.Name then
+			local ohString1 = "Damage"
+			local ohString2 = "Fly"
+			local ohNil3 = nil
+			local ohNil4 = nil
+			local ohInstance5 = v.Character.Humanoid
+			game:GetService("ReplicatedStorage").Main.Input:FireServer(ohString1, ohString2, ohNil3, ohNil4, ohInstance5)
+		end
+	end
 end
 
 
@@ -949,32 +1017,16 @@ local Button = Tab:CreateButton({
 local Section = Tab:CreateSection("--// Options: Kill All", true)
 
 local Toggle = Tab:CreateToggle({
-   Name = "Loop Kill Player",
+   Name = "Kill All Players (Beta)",
    CurrentValue = false,
    Flag = "Toggle1",
    Callback = function(State)
 		Settings = State
 		if Settings then
-			Notify({
-				Description = "Esta opção ainda esta por vir, aguarde 💤";
-				Title = "Soon...";
-				Duration = 5;
-			});
 			while wait() and Settings do
-				print(
-					"ta ainda por vir acalmate k "
-				)
+				KillAllPlayers()
 			end
 		end
-   end,
-})
-local Dropdown = Tab:CreateDropdown({
-   Name = "Select Player:",
-   Options = get_plrs(),
-   CurrentOption = "Option 1",
-   Flag = "Dropdown1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(Option)
-		
    end,
 })
 
@@ -1334,7 +1386,9 @@ local Button = Tab:CreateButton({
             print("{Player Info} Health:", CheckHealth)
             print("{Player Info} WalkSpeed:", CheckSpeed)
             print("{Player Info} JumpPower:", CheckJump)
-            print("{Player Info} Stand:", CheckStand)
+            print("{Player Info} Stand = {")
+				CheckStand()
+			print("}")
          print("------------------------------------------------------------------------")
 		else
 			Notify({
