@@ -123,8 +123,7 @@ local Toggle = Tab:CreateToggle({
 			end
 			wait(1.2)
 			-- Mob Farm
-			getgenv().Start = true
-			while wait() and getgenv().Start do 
+			while wait() do 
 				LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").TrollPrism.Chat.CFrame 
 			end
 		end
