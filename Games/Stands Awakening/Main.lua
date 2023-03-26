@@ -1015,6 +1015,12 @@ local Button = Tab:CreateButton({
 })
 
 local Section = Tab:CreateSection("--// Options: Kill All", true)
+local Paragraph = Tab:CreateParagraph({Title = "Bem Vindo", Content = [[
+Bem, nesta opção para você poder usa você precisa ter o Sonic/Exe
+Depois disso é so executar esta opção.
+		
+Obs: Cuidado, pois podem te denunciar 
+]]})
 
 local Toggle = Tab:CreateToggle({
    Name = "Kill All Players (Beta)",
