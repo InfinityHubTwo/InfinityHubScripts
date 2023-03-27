@@ -26,7 +26,17 @@ local function CheckStand()
 		end
 	end
 end
-local AntiTs = game:GetService("Lighting").TS
+local ts = game:GetService("Lighting").TS
+local function AntiTs()
+	for i,v in pairs(game:GetService("Lighting"):GetChildren()) do
+		if v:IsA("BoolValue") and v.Name == "TS" then
+			if ts.Value == true then
+				wait(1.2)
+				ts.Value = false
+			end
+		end
+	end
+end
 local AntiRagdoll = game:GetService("ReplicatedStorage").RagdollClient
 local Fire = game:GetService("ReplicatedStorage").fire
 local Settings
@@ -678,11 +688,8 @@ local Toggle = Tab:CreateToggle({
    Callback = function(State)
 		Settings = State 
 		if Settings then
-			while wait(.5) and Settings do
-				if AntiTs.Value == true then
-					wait(1)
-					AntiTs.Value = false
-				end
+			while wait() and Settings do
+				AntiTs()
 			end
 		end
    end,
