@@ -14,6 +14,8 @@ Quests = {
 	"Quest Level 40",
 	"Quest Level 50",
 	"Quest Level 75",
+	"Quest Level 100",
+	"Quest Level 125",
 }
 local function AutoFarmLevel()
 	if getgenv().SelectQuests == "Quest Level 1" then
@@ -39,7 +41,7 @@ local function AutoFarmLevel()
 
 
 
-	elseif  getgenv().SelectQuests == "Quest Level 10" then
+	elseif getgenv().SelectQuests == "Quest Level 10" then
 		workspace.Map.NPCs["Scared Noob"].Done:FireServer() wait(.1)
 		workspace.Map.NPCs["Scared Noob"].QuestDone:FireServer()
 		plr.Character.StandEvents.M1:FireServer()
@@ -62,7 +64,7 @@ local function AutoFarmLevel()
 
 
 
-	elseif  getgenv().SelectQuests == "Quest Level 20" then
+	elseif getgenv().SelectQuests == "Quest Level 20" then
 		workspace.Map.NPCs.Koichi.Done:FireServer() wait(.1)
 		workspace.Map.NPCs.Koichi.QuestDone:FireServer()
 		plr.Character.StandEvents.M1:FireServer()
@@ -85,7 +87,7 @@ local function AutoFarmLevel()
 
 
 
-	elseif  getgenv().SelectQuests == "Quest Level 30" then
+	elseif getgenv().SelectQuests == "Quest Level 30" then
 		workspace.Map.NPCs.aLLmemester.Done:FireServer() wait(.1)
 		workspace.Map.NPCs.aLLmemester.QuestDone:FireServer()
 		plr.Character.HumanoidRootPart.CFrame = CFrame.new(-617.175, 66.777, -472.283)
@@ -94,7 +96,7 @@ local function AutoFarmLevel()
 
 
 
-	elseif  getgenv().SelectQuests == "Quest Level 40" then
+	elseif getgenv().SelectQuests == "Quest Level 40" then
 		workspace.Map.NPCs.Okayasu.Done:FireServer() wait(.1)
 		workspace.Map.NPCs.Okayasu.QuestDone:FireServer()
 		plr.Character.StandEvents.M1:FireServer()
@@ -117,7 +119,7 @@ local function AutoFarmLevel()
 
 		
 
-	elseif  getgenv().SelectQuests == "Quest Level 50" then
+	elseif getgenv().SelectQuests == "Quest Level 50" then
 		workspace.Map.NPCs["Joseph Joestar"].Done:FireServer() wait(.1)
 		workspace.Map.NPCs["Joseph Joestar"].QuestDone:FireServer()
 		plr.Character.StandEvents.M1:FireServer()
@@ -140,11 +142,57 @@ local function AutoFarmLevel()
 
 
 
-	elseif  getgenv().SelectQuests == "Quest Level 75" then
+	elseif getgenv().SelectQuests == "Quest Level 75" then
 		workspace.Map.NPCs.Josuke.Done:FireServer() wait(.1)
 		workspace.Map.NPCs.Josuke.QuestDone:FireServer()
 		plr.Character.StandEvents.M1:FireServer()
 		local Mob = "Angelo" -- Mob Name
+		task.spawn(function ()
+			repeat task.wait()
+				Enemies = game:GetService("Workspace").Living:GetChildren()
+				for i = 1, #Enemies do
+				    local v = Enemies[i]
+				    if
+				        v.Name == Mob and v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and
+				            v:FindFirstChildOfClass("Humanoid").Health > 0
+				     then
+				        game.Players.LocalPlayer.Character.PrimaryPart.CFrame =
+				            CFrame.new(v.PrimaryPart.Position + Vector3.new(0, 7, 0), v.PrimaryPart.Position)
+				    end
+				end
+			until 1+1==2
+		end)
+
+
+
+	elseif getgenv().SelectQuests == "Quest Level 100" then
+		workspace.Map.NPCs.Rohan.Done:FireServer() wait(.1)
+		workspace.Map.NPCs.Rohan.QuestDone:FireServer()
+		plr.Character.StandEvents.M1:FireServer()
+		local Mob = "Alien" -- Mob Name
+		task.spawn(function ()
+			repeat task.wait()
+				Enemies = game:GetService("Workspace").Living:GetChildren()
+				for i = 1, #Enemies do
+				    local v = Enemies[i]
+				    if
+				        v.Name == Mob and v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and
+				            v:FindFirstChildOfClass("Humanoid").Health > 0
+				     then
+				        game.Players.LocalPlayer.Character.PrimaryPart.CFrame =
+				            CFrame.new(v.PrimaryPart.Position + Vector3.new(0, 7, 0), v.PrimaryPart.Position)
+				    end
+				end
+			until 1+1==2
+		end)
+
+
+
+	elseif getgenv().SelectQuests == "Quest Level 125" then
+		workspace.Map.NPCs.DIO.Done:FireServer() wait(.1)
+		workspace.Map.NPCs.DIO.QuestDone:FireServer()
+		plr.Character.StandEvents.M1:FireServer()
+		local Mob = "Jotaro Part 4" -- Mob Name
 		task.spawn(function ()
 			repeat task.wait()
 				Enemies = game:GetService("Workspace").Living:GetChildren()
