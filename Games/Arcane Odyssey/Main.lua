@@ -130,7 +130,7 @@ end
 
 G.Save = function()
     pcall(function()
-        writefile("V.G Hub//" .. Name, HttpService:JSONEncode(Settings))
+        writefile("Infinite Hub//" .. Name, HttpService:JSONEncode(Settings))
     end)
 end 
 
