@@ -518,7 +518,7 @@ local Toggle = Tab:CreateToggle({
 })
 
 local Section = Tab:CreateSection("--// Options: Normal Farm Mob ", true)
-local Paragraph = Tab:CreateParagraph({Title = "Bem Vindo", Content = [[
+local Paragraph = Tab:CreateParagraph({Title = "Normal Farm", Content = [[
 Uma recomendação, se for a jubi compre o: Ice Death Senbons
 E se for o jogan compre o: Frang Driller
 ]]})
