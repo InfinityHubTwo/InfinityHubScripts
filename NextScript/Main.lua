@@ -257,7 +257,7 @@ Aqui você pode farmar seu level e as quests
 Tome cuidado para ninguem te ver pois podem acabar te denunciando :<
 ]]})
 
-local Section = Tab:CreateSection("--// Farming Options: Auto Farm Level", true)
+local Section = Tab:CreateSection("--// Farming Options: Auto Farm Quest", true)
 local Dropdown = Tab:CreateDropdown({
    Name = "Select Quest:",
    Options = Quests,
@@ -268,7 +268,7 @@ local Dropdown = Tab:CreateDropdown({
    end,
 })
 local Toggle = Tab:CreateToggle({
-   Name = "Auto Level",
+   Name = "Auto Quest ",
    CurrentValue = false,
    Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(State)
