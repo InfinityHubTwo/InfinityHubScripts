@@ -247,8 +247,8 @@ end
 getgenv().NormalBossesFarmG = nil
 NormalBossesFarm = {
 	"Tenth Beast",
-	"Jigan		-- Faze 1",
-	"Nisshiki Otsutsushi		-- Faze 2",
+	"Jigan		-- Jigan fase 1",
+	"Nisshiki Otsutsushi		-- Jigan fase 2",
 	"Sound Ninja",
 }
 local function NormalFarm()
