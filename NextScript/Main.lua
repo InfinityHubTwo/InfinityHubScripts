@@ -16,7 +16,8 @@ Quests = {
 	"Quest Level 75",
 	"Quest Level 100",
 	"Quest Level 125",
-	"Quest Level 1--"
+	"Quest Level 175",
+	"Quest Level 200",
 }
 local function AutoFarmLevel()
 	if getgenv().SelectQuests == "Quest Level 1" then
