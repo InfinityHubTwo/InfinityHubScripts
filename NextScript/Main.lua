@@ -1,4 +1,4 @@
---// Importand
+--// Important
 local plr = game.Players.LocalPlayer
 local Settings
 
