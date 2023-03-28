@@ -8,6 +8,7 @@ local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/Infi
 
 --// Var
 local plr = game.Players.LocalPlayer
+time = 1.2
 local KeyPress = function(v)
    return game:GetService("VirtualInputManager"):SendKeyEvent(true, v, false, game)
 end
@@ -20,8 +21,20 @@ local Bosses = {
 	Oroshimaro				=				game:GetService("Workspace").Oroshimaro,
 	Pain 					=				game:GetService("Workspace").Pain,
 	SoundNinja				=				game:GetService("Workspace")["Sound Ninja"],
---  	TenthBeast 				=				game:GetService("Workspace")["Tenth Beast"].BossAbility
+--  TenthBeast 				=				game:GetService("Workspace")["Tenth Beast"].BossAbility
 }
+
+local function CollectAllScrolls()
+	if game:GetService("Workspace").CashScroll then
+		plr.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").CashScroll.CFrame
+		KeyPress("F")
+	end
+	if game:GetService("Workspace").EScroll then
+		plr.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").EScroll.CFrame
+		KeyPress("F")
+	end
+end
+
 getgenv().InstaKillBosses = nil
 BossesInstaKill = {
 	"Coldjason",
@@ -31,6 +44,7 @@ BossesInstaKill = {
 	"Nadara",
 	"Oroshimaro",
 	"Pain",
+	"Sound Ninja",
 }
 local function InstaKillBosses()
 	if getgenv().InstaKillBosses == "Coldjason" then
@@ -242,6 +256,35 @@ local function InstaKillBosses()
 				)
 			until 1+1==2
 		end)
+
+
+	elseif getgenv().InstaKillBosses == "Sound Ninja" then
+		local Mob = "Sound Ninja"
+		task.spawn(function ()
+			repeat task.wait()
+				Enemies = game:GetService("Workspace"):GetChildren()
+				for i = 1, #Enemies do
+				    local v = Enemies[i]
+				    if
+				        v.Name == Mob and v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and
+				            v:FindFirstChildOfClass("Humanoid").Health > 0
+				     then
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace")["Sound Ninja"].HumanoidRootPart.CFrame
+				    end
+				end
+				pcall(
+					function ()
+    					for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+    					    if v.name == "Combat" then
+    					        v.Parent = game.Players.LocalPlayer.Character
+    					    end
+    					end
+						plr.Character.Combat.Attack:FireServer() wait(time)
+						game:GetService("Workspace")["Sound Ninja"].Head:Destroy()
+					end
+				)
+			until 1+1==2
+		end)
 	end
 end
 
@@ -250,7 +293,6 @@ NormalBossesFarm = {
 	"Tenth Beast",
 	"Jigan		-- Jigan fase 1",
 	"Nisshiki Otsutsushi		-- Jigan fase 2",
-	"Sound Ninja",
 }
 local function NormalFarm()
 	if getgenv().NormalBossesFarmG == "Tenth Beast" then
@@ -303,43 +345,6 @@ local function NormalFarm()
 						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace")["Nisshiki Otsutsushi"].HumanoidRootPart.CFrame
 				    end
 				end
-			until 1+1==2
-		end)
-
-
-	elseif getgenv().NormalBossesFarmG == "Sound Ninja" then
-		local Mob = "Sound Ninja"
-		task.spawn(function ()
-			repeat task.wait()
-				Enemies = game:GetService("Workspace"):GetChildren()
-				for i = 1, #Enemies do
-				    local v = Enemies[i]
-				    if
-				        v.Name == Mob and v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and
-				            v:FindFirstChildOfClass("Humanoid").Health > 0
-				     then
-						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace")["Sound Ninja"].HumanoidRootPart.CFrame
-				    end
-				end
-				pcall(
-					function ()
-    					for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-    					    if v.name == "Combat" then
-    					        v.Parent = game.Players.LocalPlayer.Character
-    					    end
-    					end
-						plr.Character.Combat.Attack:FireServer()
-
-						if game:GetService("Workspace").CashScroll then
-							plr.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").CashScroll.CFrame
-							KeyPress("F")
-						end
-						if game:GetService("Workspace").EScroll then
-							plr.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").EScroll.CFrame
-							KeyPress("F")
-						end
-					end
-				)
 			until 1+1==2
 		end)
 	end
@@ -493,6 +498,20 @@ Aqui tem o InstaKill e o Normal.
 Obs: O InstaKillMob não funciona na jubi, infelizmente :<
 ]]})
 
+local Section = Tab:CreateSection("--// Option: Collect Scrolls", true)
+local Toggle = Tab:CreateToggle({
+   Name = "Auto Collect Scroll",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(State)
+		Settings = State 
+		if Settings then
+			while wait() and Settings do
+				CollectAllScrolls()
+			end
+		end
+   end,
+})
 
 local Section = Tab:CreateSection("--// Options: Insta Kill ", true)
 local Dropdown = Tab:CreateDropdown({
@@ -577,3 +596,4 @@ local Tab = Window:CreateTab("Settings", 7734053495)
 local Paragraph = Tab:CreateParagraph({Title = "Settings", Content = [[
 Em Breve 💤
 ]]})
+
