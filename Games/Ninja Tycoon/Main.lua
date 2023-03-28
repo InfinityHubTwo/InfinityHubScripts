@@ -19,7 +19,8 @@ local Bosses = {
 	Nadara					=				game:GetService("Workspace").Nadara,
 	Oroshimaro				=				game:GetService("Workspace").Oroshimaro,
 	Pain 					=				game:GetService("Workspace").Pain,
---  TenthBeast 				=				game:GetService("Workspace")["Tenth Beast"].BossAbility
+	SoundNinja				=				game:GetService("Workspace")["Sound Ninja"],
+--  	TenthBeast 				=				game:GetService("Workspace")["Tenth Beast"].BossAbility
 }
 getgenv().InstaKillBosses = nil
 BossesInstaKill = {
