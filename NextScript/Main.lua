@@ -16,6 +16,7 @@ Quests = {
 	"Quest Level 75",
 	"Quest Level 100",
 	"Quest Level 125",
+	"Quest Level 150",
 	"Quest Level 175",
 	"Quest Level 200",
 }
@@ -195,6 +196,29 @@ local function AutoFarmLevel()
 		workspace.Map.NPCs.DIO.QuestDone:FireServer()
 		plr.Character.StandEvents.M1:FireServer()
 		local Mob = "Jotaro Part 4" -- Mob Name
+		task.spawn(function ()
+			repeat task.wait()
+				Enemies = game:GetService("Workspace").Living:GetChildren()
+				for i = 1, #Enemies do
+				    local v = Enemies[i]
+				    if
+				        v.Name == Mob and v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and
+				            v:FindFirstChildOfClass("Humanoid").Health > 0
+				     then
+				        game.Players.LocalPlayer.Character.PrimaryPart.CFrame =
+				            CFrame.new(v.PrimaryPart.Position + Vector3.new(0, 7, 0), v.PrimaryPart.Position)
+				    end
+				end
+			until 1+1==2
+		end)
+
+
+
+	elseif getgenv().SelectQuests == "Quest Level 150" then
+		workspace.Map.NPCs["Muhammed Avdol"].Done:FireServer() wait(.1)
+		workspace.Map.NPCs["Muhammed Avdol"].QuestDone:FireServer()
+		plr.Character.StandEvents.M1:FireServer()
+		local Mob = "Kakyoin" -- Mob Name
 		task.spawn(function ()
 			repeat task.wait()
 				Enemies = game:GetService("Workspace").Living:GetChildren()
