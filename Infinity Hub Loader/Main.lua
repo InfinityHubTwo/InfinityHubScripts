@@ -39,6 +39,9 @@ local games = {
 
 	-- Ninja Legend
 	[{3956818381}] = "https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Obfuscated/Ninja%20Legend.lua",
+	
+	-- Flee The Facility
+	[{893973440}] = "https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Games/Flee%20The%20Facility/Main.lua",
 }
 
 
