@@ -526,88 +526,112 @@ Regras = {
 
 
 --// Stands Main
-local Tab = Window:CreateTab("Stands", 7072724538)
-local Paragraph = Tab:CreateParagraph({Title = "Stands", Content = [[
+local Stands = Window:CreateTab("Stands", 7072724538)
+local Paragraph = Stands:CreateParagraph({Title = "Stands", Content = [[
 Nesta opções os stands abaixo terão o seus TS(Time Stop) com certa de 15 a 20 segundos.
 ]]})
 
 
-local Section = Tab:CreateSection("--// Options: Stand", true)
-local Button = Tab:CreateButton({
+local StandSection = Tab:CreateSection("--// Options: Stand", true)
+Stands:CreateButton({
    Name = "Shadow Dio",
-   Info = "Active", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
+   Interact = 'Interact.',
    Callback = function()
-      --// 20 == Max
-      game:GetService("ReplicatedStorage").Main.Timestop:FireServer(20, "shadowdio")
-   end,
+	  --// Check Stand
+	  for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+		  if v:IsA("LocalScript") and v.Name ~= "ResetLighting" and v.Name == "ShadowTheWorld" then
+			  game:GetService("ReplicatedStorage").Main.Timestop:FireServer(20, "shadowdio")
+		  end
+	  end
+   end
 })
-local Button = Tab:CreateButton({
+Stands:CreateButton({
    Name = "JSP",
-   Info = "Active", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
+   Interact = 'Interact.',
    Callback = function()
-      --// 20 == Max
-      game:GetService("ReplicatedStorage").Main.Timestop:FireServer(20, "jotaro")
-   end,
+	  --// Check Stand
+	  for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+		  if v:IsA("LocalScript") and v.Name ~= "ResetLighting" and v.Name == "JSP" then
+			  game:GetService("ReplicatedStorage").Main.Timestop:FireServer(20, "jotaro")
+		  end
+	  end
+   end
 })
-local Button = Tab:CreateButton({
+Stands:CreateButton({
    Name = "EVA 01",
-   Info = "Active", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
+   Interact = 'Interact.',
    Callback = function()
-      --// 20 == Max
-      game:GetService("ReplicatedStorage").Main.Timestop:FireServer(20, "diooh")
-   end,
+	  --// Check Stand
+	  for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+		  if v:IsA("LocalScript") and v.Name ~= "ResetLighting" and v.Name == "EVA01" then
+			  game:GetService("ReplicatedStorage").Main.Timestop:FireServer(20, "diooh")
+		  end
+	  end
+   end
 })
-local Button = Tab:CreateButton({
-   Name = "The  World Over Heaven",
-   Info = "Active", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
+Stands:CreateButton({
+   Name = "The World Over Heaven",
+   Interact = 'Interact.',
    Callback = function()
-      --// 20 == Max
-      game:GetService("ReplicatedStorage").Main.Timestop:FireServer(20, "diooh")
-   end,
+	  --// Check Stand
+	  for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+		  if v:IsA("LocalScript") and v.Name ~= "ResetLighting" and v.Name == "TheWorldOverHeavenStand" then
+			  game:GetService("ReplicatedStorage").Main.Timestop:FireServer(20, "diooh")
+		  end
+	  end
+   end
 })
-local Button = Tab:CreateButton({
+Stands:CreateButton({
    Name = "Steve",
-   Info = "Active", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
+   Interact = 'Interact.',
    Callback = function()
-      --// 20 == Max
-      game:GetService("ReplicatedStorage").Main.Timestop:FireServer(20, "jotaro")
-   end,
+	  --// Check Stand
+	  for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+		  if v:IsA("LocalScript") and v.Name ~= "ResetLighting" and v.Name == "StevePlatinum" then
+			  game:GetService("ReplicatedStorage").Main.Timestop:FireServer(20, "jotaro")
+		  end
+	  end
+   end
 })
-local Button = Tab:CreateButton({
+Stands:CreateButton({
    Name = "Herobrine",
-   Info = "Active", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
+   Interact = 'Interact.',
    Callback = function()
-      --// 20 == Max
-      game:GetService("ReplicatedStorage").Main.Timestop:FireServer(20, "jotaro")
-   end,
+	  --// Check Stand
+	  for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+		  if v:IsA("LocalScript") and v.Name ~= "ResetLighting" and v.Name == "Herobrine" then
+			  game:GetService("ReplicatedStorage").Main.Timestop:FireServer(20, "jotaro")
+		  end
+	  end
+   end
 })
-local Button = Tab:CreateButton({
-   Name = "The World Au",
-   Info = "Active", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
+Stands:CreateButton({
+   Name = "The World Auternative Universe",
+   Interact = 'Interact.',
    Callback = function()
-      --// 20 == Max
-      game:GetService("ReplicatedStorage").Main.Timestop:FireServer(20, "diego")
-   end,
+	  --// Check Stand
+	  for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+		  if v:IsA("LocalScript") and v.Name ~= "ResetLighting" and v.Name == "TheWorldAlternateUniverseStand" then
+			  game:GetService("ReplicatedStorage").Main.Timestop:FireServer(20, "diego")
+		  end
+	  end
+   end
 })
-local Button = Tab:CreateButton({
+Stands:CreateButton({
    Name = "The World Ova",
-   Info = "Active", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
+   Interact = 'Interact.',
    Callback = function()
-      --// 20 == Max
-      game:GetService("ReplicatedStorage").Main.Timestop:FireServer(20, "dioova")
-   end,
+	  --// Check Stand
+	  for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+		  if v:IsA("LocalScript") and v.Name ~= "ResetLighting" and v.Name == "TheWorldOVAStand" then
+			  game:GetService("ReplicatedStorage").Main.Timestop:FireServer(20, "dioova")
+		  end
+	  end
+   end
 })
 
-local Section = Tab:CreateSection("--// Option: D4C", true)
-local Button = Tab:CreateButton({
+local Section = Stands:CreateSection("--// Option: D4C", true)
+local Button = Stands:CreateButton({
    Name = "D4C Clones",
    Info = "Spawn 1 Clone", -- Speaks for itself, Remove if none.
    Interact = 'Changable',
