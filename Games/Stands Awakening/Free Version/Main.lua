@@ -25,6 +25,143 @@ local ts = Lighting.TS
 
 
 
+-- function
+getgenv().SelectOptions = nil
+local function DoStuff()
+	if getgenv().SelectOptions == "Arrow" then
+	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
+        	if v:IsA("Tool") and v.Name == "Arrow" then
+            	pcall(function()
+                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+            	end)
+        	end
+    	end
+
+
+	elseif getgenv().SelectOptions == "Requiem Arrow" then
+	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
+        	if v:IsA("Tool") and v.Name == "Requiem Arrow" then
+            	pcall(function()
+                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+            	end)
+        	end
+    	end
+
+
+	elseif getgenv().SelectOptions == "Rokakaka Fruit" then
+	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
+        	if v:IsA("Tool") and v.Name == "Rokakaka Fruit" then
+            	pcall(function()
+                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+            	end)
+        	end
+    	end
+
+
+	elseif getgenv().SelectOptions == "Vampire Mask" then
+	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
+        	if v:IsA("Tool") and v.Name == "Vampire Mask" then
+            	pcall(function()
+                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+            	end)
+        	end
+    	end
+
+
+	elseif getgenv().SelectOptions == "Frog" then
+	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
+        	if v:IsA("Tool") and v.Name == "Frog" then
+            	pcall(function()
+                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+            	end)
+        	end
+    	end
+
+
+	elseif getgenv().SelectOptions == "Banknote" then
+	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
+        	if v:IsA("Tool") and v.Name == "Banknote" then
+            	pcall(function()
+                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+            	end)
+        	end
+    	end
+
+	elseif getgenv().SelectOptions == "DIO's Diary" then
+	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
+        	if v:IsA("Tool") and v.Name == "DIO's Diary" then
+            	pcall(function()
+                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+            	end)
+        	end
+    	end
+
+	elseif getgenv().SelectOptions == "Dio's Skull" then
+	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
+        	if v:IsA("Tool") and v.Name == "Dio's Skull" then
+            	pcall(function()
+                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+            	end)
+        	end
+    	end
+
+	elseif getgenv().SelectOptions == "Camera" then
+	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
+        	if v:IsA("Tool") and v.Name == "Camera" then
+            	pcall(function()
+                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+            	end)
+        	end
+    	end
+
+	elseif getgenv().SelectOptions == "Pot Platinum’s Diary" then
+	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
+        	if v:IsA("Tool") and v.Name == "Pot Platinum’s Diary" then
+            	pcall(function()
+                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+            	end)
+        	end
+    	end
+
+	elseif getgenv().SelectOptions == "Red Heart" then
+	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
+        	if v:IsA("Tool") and v.Name == "Red Heart" then
+            	pcall(function()
+                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+            	end)
+        	end
+    	end
+
+	elseif getgenv().SelectOptions == "True Requiem Arrow" then
+	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
+        	if v:IsA("Tool") and v.Name == "True Requiem Arrow" then
+            	pcall(function()
+                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+            	end)
+        	end
+    	end
+
+	elseif getgenv().SelectOptions == "Ornstein's Spear" then
+	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
+        	if v:IsA("Tool") and v.Name == "Ornstein's Spear" then
+            	pcall(function()
+                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+            	end)
+        	end
+    	end
+
+	elseif getgenv().SelectOptions == "Aja Mask" then
+	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
+        	if v:IsA("Tool") and v.Name == "Aja Mask" then
+            	pcall(function()
+                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+            	end)
+        	end
+    	end
+	end
+end
+
+
 -- libray
 local Mercury = loadstring(game:HttpGet("https://raw.githubusercontent.com/deeeity/mercury-lib/master/src.lua"))()
 local GUI = Mercury:Create{
@@ -39,12 +176,11 @@ local Notify = AkaliNotif.Notify;
 
 -- prompt and credits
 GUI:Prompt{
-	Followup = false,
+	Followup = true,
 	Title = "Aviso!",
 	Text = "Está gui esta em beta ainda, então qualquer erro avise no Discord. Obrigado e aproveite.",
 	Buttons = {
 		ok = function()
-			return true
 		end
 	}
 }
@@ -68,6 +204,10 @@ local lp = GUI:Tab{
 	Name = "LocalPlayer",
 	Icon = "rbxassetid://8797391485"
 }
+local ItemFarm = GUI:Tab{
+	Name = "Item Farm",
+	Icon = "rbxassetid://13000794611"
+}
 local at = GUI:Tab{
 	Name = "Auto Boss",
 	Icon = "rbxassetid://12828636851"
@@ -75,7 +215,7 @@ local at = GUI:Tab{
 
 
 
--- tabs: Main code
+-- tab: Main code
 Main:Button{
 	Name = "Player Info",
 	Description = nil,
@@ -129,7 +269,7 @@ Main:Toggle{
 }	
 
 
--- tabs: Stands code
+-- tab: Stands code
 Stands:Button{
 	Name = "Shadow Dio",
 	Description = nil,
@@ -209,7 +349,7 @@ Stands:Button{
 }
 
 
--- tabs: LocalPlayer Code
+-- tab: LocalPlayer Code
 lp:Slider{
 	Name = "Walk Speed",
 	Default = 16,
@@ -230,7 +370,7 @@ lp:Slider{
 }
 
 
--- tabs: Auto Boss code
+-- tab: Auto Boss code
 at:Button{
 	Name = "Start Auto Boss",
 	Description = nil,
@@ -321,6 +461,51 @@ at:Toggle{
 			CreateESPPart(game:GetService("Workspace").TrollPrism, Color3.fromRGB(0,255,0)) 
 		else
 			game:GetService("Workspace").TrollPrism.ESPPart:Destroy()
+		end
+	end
+}
+
+
+-- tab: Item Farm Code
+local MyDropdown = ItemFarm:Dropdown{
+	Name = "Item Sniper",
+	StartingText = "Select Item",
+	Description = nil,
+	Items = {
+		"Arrow", "Requiem Arrow", "Rokakaka Fruit",  "Vampire Mask", "Frog", "Banknote", "DIO's Diary",  "Dio's Skull",  "Camera",  "Pot Platinum’s Diary", "Red Heart", "True Requiem Arrow", "Ornstein's Spear", "Aja Mask"
+	},
+	Callback = function(item)
+		getgenv().SelectOptions = item
+	end
+}
+ItemFarm:Button{
+	Name = "Sniper",
+	Description = nil,
+	Callback = function()
+		DoStuff()
+	end
+}
+ItemFarm:Toggle{
+	Name = "Grab Tools",
+	StartingState = false,
+	Description = nil,
+	Callback = function(state) 
+		Settings = state 
+		if Settings then
+			while wait() and Settings do
+				local Human = game:GetService("Players").LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid")
+				for _, v in ipairs(workspace:GetChildren()) do
+					if game:GetService("Players").LocalPlayer.Character and v:IsA("BackpackItem") and v:FindFirstChild("Handle") then
+						Human:EquipTool(v)
+					end
+				end
+				if grabtoolsFunc then grabtoolsFunc:Disconnect() end
+				grabtoolsFunc = workspace.ChildAdded:Connect(function(v)
+					if game:GetService("Players").LocalPlayer.Character and v:IsA("BackpackItem") and v:FindFirstChild("Handle") then
+						game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):EquipTool(v)
+					end
+				end)
+			end
 		end
 	end
 }
