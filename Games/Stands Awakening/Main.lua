@@ -11,6 +11,13 @@ local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/Ki
 local Notify = AkaliNotif.Notify;
 
 
+-- Services
+local Lighting 				= game:GetService("Lighting");
+local ReplicatedStorage 	= game:GetService("ReplicatedStorage");
+local workspace 			= game:GetService("Workspace");
+local Players 				= game:GetService("Players");
+local LocalPlayer 			= Players.LocalPlayer;
+local Humanoid 				= LocalPlayer.Character.Humanoid
 
 --// Variables
 local plr = game:GetService("Players").LocalPlayer
@@ -358,6 +365,17 @@ local function AutoItemSlot()
 			end
 		)
 	end
+end
+local function AfkPosition()
+	local Float = Instance.new("Part")
+	Float.Parent = game.Workspace
+	Float.Size = Vector3.new(5,1,5)
+	Float.Anchored = true
+	Float.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, -3, 0)
+	Float.Transparency = 1
+
+	HumanoidRootPart.CFrame = CFrame.new(588, 1700, -317)
+	Humanoid.WalkSpeed = 0
 end
 --// End \\--
 
@@ -2325,6 +2343,7 @@ local Toggle = Tab:CreateToggle({
 			while wait() and Settings do
 				AutoItemSlot()
 				AutoCollectSlots()
+				AfkPosition()
 
 				-- Anti Afk
 				pcall(
