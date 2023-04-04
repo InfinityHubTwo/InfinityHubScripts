@@ -4,7 +4,9 @@ local ReplicatedStorage 	= game:GetService("ReplicatedStorage");
 local workspace 			= game:GetService("Workspace");
 local Players 				= game:GetService("Players");
 local LocalPlayer 			= Players.LocalPlayer;
-local Humanoid 				= LocalPlayer.Character.Humanoid
+local Character				= LocalPlayer.Character
+local Humanoid 				= Character.Humanoid
+local HumanoidRootPart	 	= Character.HumanoidRootPart
 local Settings
 
 
@@ -161,6 +163,130 @@ local function DoStuff()
 	end
 end
 
+getgenv().AutoItemSlot = nil
+getgenv().SlotsSelect = nil
+local function AutoCollectSlots()
+	if getgenv().SlotsSelect == "Slot 1" then
+		game:GetService("ReplicatedStorage").Bank:FireServer("Slot1", false, false)
+
+
+	elseif getgenv().SlotsSelect == "Slot 2" then
+		game:GetService("ReplicatedStorage").Bank:FireServer("Slot2", false, false)
+
+
+	elseif getgenv().SlotsSelect == "Slot 3" then
+		game:GetService("ReplicatedStorage").Bank:FireServer("Slot3", false, false)
+
+
+	elseif getgenv().SlotsSelect == "Slot 4" then
+		game:GetService("ReplicatedStorage").Bank:FireServer("Slot4", false, false)
+
+
+	elseif getgenv().SlotsSelect == "Slot 5" then
+		game:GetService("ReplicatedStorage").Bank:FireServer("Slot5", false, false)
+
+
+	elseif getgenv().SlotsSelect == "Slot 6" then
+		game:GetService("ReplicatedStorage").Bank:FireServer("Slot6", false, false)
+
+
+	elseif getgenv().SlotsSelect == "Slot 7" then
+		game:GetService("ReplicatedStorage").Bank:FireServer("Slot7", false, false)
+
+
+	elseif getgenv().SlotsSelect == "Slot 8" then
+		game:GetService("ReplicatedStorage").Bank:FireServer("Slot8", false, false)
+	end
+end
+local function AutoItemSlot()
+	if getgenv().AutoItemSlot == "Dio's Skull" then
+		for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
+			if v:IsA("Tool") and v.Name == "DIO's Skull 2" then
+		    	pcall(function()
+		        	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+		    	end)
+			end
+		end
+		pcall(
+			function ()
+    			for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+    			    if v.name == "DIO's Skull 2" then
+    			        v.Parent = game.Players.LocalPlayer.Character
+    			    end
+    			end
+			end
+		)
+
+
+	elseif getgenv().AutoItemSlot == "Camera" then
+		for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
+			if v:IsA("Tool") and v.Name == "Camera" then
+		    	pcall(function()
+		        	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+		    	end)
+			end
+		end
+		pcall(
+			function ()
+    			for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+    			    if v.name == "Camera" then
+    			        v.Parent = game.Players.LocalPlayer.Character
+    			    end
+    			end
+			end
+		)
+
+
+	elseif getgenv().AutoItemSlot == "Pot Platinum's Diary" then
+		for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
+			if v:IsA("Tool") and v.Name == "Pot Platinum's Diary" then
+		    	pcall(function()
+		        	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+		    	end)
+			end
+		end
+		pcall(
+			function ()
+    			for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+    			    if v.name == "Pot Platinum's Diary" then
+    			        v.Parent = game.Players.LocalPlayer.Character
+    			    end
+    			end
+			end
+		)
+
+
+	elseif getgenv().AutoItemSlot == "Uncanny Key" then
+		for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
+			if v:IsA("Tool") and v.Name == "Uncanny Key" then
+		    	pcall(function()
+		        	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+		    	end)
+			end
+		end
+		pcall(
+			function ()
+    			for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+    			    if v.name == "Uncanny Key" then
+    			        v.Parent = game.Players.LocalPlayer.Character
+    			    end
+    			end
+			end
+		)
+	end
+end
+local function AfkPosition()
+	local Float = Instance.new("Part")
+	Float.Parent = game.Workspace
+	Float.Size = Vector3.new(5,1,5)
+	Float.Anchored = true
+	Float.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, -3, 0)
+	Float.Transparency = 1
+
+	HumanoidRootPart.CFrame = CFrame.new(588, 1700, -317)
+	Humanoid.WalkSpeed = 0
+end
+
 
 -- libray
 local Mercury = loadstring(game:HttpGet("https://raw.githubusercontent.com/deeeity/mercury-lib/master/src.lua"))()
@@ -174,19 +300,10 @@ local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/Ki
 local Notify = AkaliNotif.Notify;
 
 
--- prompt and credits
-GUI:Prompt{
-	Followup = true,
-	Title = "Aviso!",
-	Text = "Está gui esta em beta ainda, então qualquer erro avise no Discord. Obrigado e aproveite.",
-	Buttons = {
-		ok = function()
-		end
-	}
-}
+-- credits
 GUI:Credit{
 	Name = "Darkzin",
-	Description = "Criador da Infinity Hub",
+	Description = "Creator of Infinity Hub",
 	Discord = "𝓓𝓪𝓻𝓴 ☪#9908"
 }
 
@@ -211,6 +328,10 @@ local ItemFarm = GUI:Tab{
 local at = GUI:Tab{
 	Name = "Auto Boss",
 	Icon = "rbxassetid://12828636851"
+}
+local Afk = GUI:Tab{
+	Name = "Afk Farm",
+	Icon = "rbxassetid://12876835994"
 }
 
 
@@ -379,58 +500,6 @@ at:Button{
 	    loadstring(game:HttpGet("https://raw.githubusercontent.com/sunexn/standsawakening/main/uncanny.lua",true))()
 	end
 }
-at:Toggle{
-	Name = "Op Auto Boss (Beta)  -- Kick/Ban Risc",
-	StartingState = false,
-	Description = nil,
-	Callback = function(state) 
-		Settings = state 
-		if Settings then
-			-- Sword Size
-			if LocalPlayer.Backpack:FindFirstChild("KnightsSword") then
-			    LocalPlayer.Backpack["KnightsSword"].Parent = Character
-			    if Character:FindFirstChild("KnightsSword") then
-			        local Sword            =  Character:FindFirstChild("KnightsSword")
-			        local Box              =  Instance.new("SelectionBox")
-			        Box.Name               =  "SelectionBoxCreated"
-			        Box.Parent             =  Sword.Handle
-			        Box.Adornee            =  Sword.Handle
-			        Sword.Handle.Massless  =  true
-			        Sword.GripPos          =  Vector3.new(0,0,0)
-			        Character:FindFirstChildOfClass("Humanoid"):UnequipTools()
-			        LocalPlayer.Backpack["KnightsSword"].Parent = Character
-			        Character.KnightsSword.Handle.Size = Vector3.new(20, 20, 500)
-			    end
-			elseif Character:FindFirstChild("KnightsSword") then
-			    local Sword            =  Character:FindFirstChild("KnightsSword")
-			    local Box              =  Instance.new("SelectionBox")
-			    Box.Name               =  "SelectionBoxCreated"
-			    Box.Parent             =  Sword.Handle
-			    Box.Adornee            =  Sword.Handle
-			    Sword.Handle.Massless  =  true
-			    Sword.GripPos          =  Vector3.new(0,0,0)
-			    Character:FindFirstChildOfClass("Humanoid"):UnequipTools()
-			    LocalPlayer.Backpack["KnightsSword"].Parent = Character
-			    Character.KnightsSword.Handle.Size = Vector3.new(20, 20, 500)
-			end
-			wait(1.2)
-			-- Sword No Cooldown
-			loadstring(game:HttpGet(('https://raw.githubusercontent.com/itsyouranya/free/main/Anya%20Stands%20Awakening%20Helper.lua'),true))()
-			wait(1.2)
-			-- Attack
-			while wait() do
-				task.spawn(function()
-				    if Character:FindFirstChild("KnightsSword") then
-				        Character.KnightsSword:Activate()
-				    end
-				end)
-			end
-			wait(1.2)
-			-- Mob Farm
-			LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").TrollPrism.Chat.CFrame 
-		end
-	end
-}
 at:Button{
 	Name = "Sword No Cooldown",
 	Description = nil,
@@ -506,6 +575,75 @@ ItemFarm:Toggle{
 					end
 				end)
 			end
+		end
+	end
+}
+
+
+-- tab: Afk Farm Code
+local MyDropdown = Afk:Dropdown{
+	Name = "Select Slot",
+	StartingText = "Slots",
+	Description = nil,
+	Items = {
+		"Slot 1",
+		"Slot 2",
+		"Slot 3",
+		"Slot 4",
+		"Slot 5",
+		"Slot 6",
+		"Slot 7",
+		"Slot 8",
+	},
+	Callback = function(Slot)
+		getgenv().SlotsSelect = Slot
+	end
+}
+local MyDropdown = Afk:Dropdown{
+	Name = "Select Item (More Soon)",
+	StartingText = "Items",
+	Description = nil,
+	Items = {
+		"Dio's Skull",
+		"Camera",
+		"Pot Platinum's Diary",
+		"Uncanny Key",
+	},
+	Callback = function(Items)
+		getgenv().AutoItemSlot = Items
+	end
+}
+Afk:Toggle{
+	Name = "Start + Anti Afk",
+	StartingState = false,
+	Description = nil,
+	Callback = function(state) 
+		Settings = state 
+		if Settings then
+			GUI:Notification{
+				Title = "Afk Farm 💤",
+				Text = "Afk Farm Started",
+				Duration = 6,
+				Callback = function() 
+
+				end
+			}
+			while wait() and Settings do
+				AfkPosition()
+				AutoCollectSlots()
+				AutoItemSlot()
+			end
+		else
+			GUI:Notification{
+				Title = "Afk Farm 💤",
+				Text = "Afk Farm Ended",
+				Duration = 6,
+				Callback = function() 
+
+				end
+			}
+			HumanoidRootPart.CFrame = CFrame.new(1339, 672, -452)
+			Humanoid.WalkSpeed = 20
 		end
 	end
 }
