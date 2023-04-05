@@ -373,9 +373,6 @@ local function AfkPosition()
 	Float.Anchored = true
 	Float.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, -3, 0)
 	Float.Transparency = 1
-
-	HumanoidRootPart.CFrame = CFrame.new(588, 1700, -317)
-	Humanoid.WalkSpeed = 0
 end
 --// End \\--
 
@@ -2340,10 +2337,13 @@ local Toggle = Tab:CreateToggle({
    Callback = function(State)
 		Settings = State 
 		if Settings then
+			HumanoidRootPart.CFrame = CFrame.new(588, 1700, -317)
+			AfkPosition()
 			while wait() and Settings do
+				HumanoidRootPart.CFrame = CFrame.new(588, 1700, -317)
+				Humanoid.WalkSpeed = 0
 				AutoItemSlot()
 				AutoCollectSlots()
-				AfkPosition()
 
 				-- Anti Afk
 				pcall(
