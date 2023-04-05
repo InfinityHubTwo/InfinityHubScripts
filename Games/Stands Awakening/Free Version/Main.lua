@@ -281,7 +281,7 @@ local function AfkPosition()
 	Float.Size = Vector3.new(5,1,5)
 	Float.Anchored = true
 	Float.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, -3, 0)
-	Float.Transparency = 0.5
+	Float.Transparency = 1
 end
 
 local function AntiAfk()
