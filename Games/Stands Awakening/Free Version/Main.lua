@@ -282,9 +282,6 @@ local function AfkPosition()
 	Float.Anchored = true
 	Float.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, -3, 0)
 	Float.Transparency = 1
-
-	HumanoidRootPart.CFrame = CFrame.new(588, 1700, -317)
-	Humanoid.WalkSpeed = 0
 end
 
 
@@ -628,8 +625,10 @@ Afk:Toggle{
 
 				end
 			}
+			HumanoidRootPart.CFrame = CFrame.new(588, 1700, -317)
+			AfkPosition()
 			while wait() and Settings do
-				AfkPosition()
+				Humanoid.WalkSpeed = 0
 				AutoCollectSlots()
 				AutoItemSlot()
 			end
