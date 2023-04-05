@@ -284,6 +284,18 @@ local function AfkPosition()
 	Float.Transparency = 1
 end
 
+local function AntiAfk()
+repeat
+	wait()
+until game:IsLoaded()
+wait()
+
+if getconnections then
+    for _, v in next, getconnections(game:GetService("Players").LocalPlayer.Idled) do
+        v:Disable()
+    end
+end
+end
 
 -- libray
 local Mercury = loadstring(game:HttpGet("https://raw.githubusercontent.com/deeeity/mercury-lib/master/src.lua"))()
@@ -625,9 +637,11 @@ Afk:Toggle{
 
 				end
 			}
+			AntiAfk()
 			HumanoidRootPart.CFrame = CFrame.new(588, 1700, -317)
 			AfkPosition()
 			while wait() and Settings do
+				HumanoidRootPart.CFrame = CFrame.new(588, 1700, -317)
 				Humanoid.WalkSpeed = 0
 				AutoCollectSlots()
 				AutoItemSlot()
