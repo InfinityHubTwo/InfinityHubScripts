@@ -18,6 +18,8 @@ local workspace 			= game:GetService("Workspace");
 local Players 				= game:GetService("Players");
 local LocalPlayer 			= Players.LocalPlayer;
 local Humanoid 				= LocalPlayer.Character.Humanoid
+local Character 			= LocalPlayer.Character
+local HumanoidRootPart 		= Character.HumanoidRootPart
 
 --// Variables
 local plr = game:GetService("Players").LocalPlayer
@@ -547,7 +549,7 @@ Nesta opções os stands abaixo terão o seus TS(Time Stop) com certa de 15 a 20
 ]]})
 
 
-local StandSection = Tab:CreateSection("--// Options: Stand", true)
+local StandSection = Stands:CreateSection("--// Options: Stand", true)
 Stands:CreateButton({
    Name = "Shadow Dio",
    Interact = 'Interact.',
@@ -2337,10 +2339,15 @@ local Toggle = Tab:CreateToggle({
    Callback = function(State)
 		Settings = State 
 		if Settings then
-			HumanoidRootPart.CFrame = CFrame.new(588, 1700, -317)
+			Notify({
+				Description = "Afk Farm Started.";
+				Title = "Afk Farm";
+				Duration = 5;
+			});
+			HumanoidRootPart.CFrame = CFrame.new(623, 1866, 174)
 			AfkPosition()
 			while wait() and Settings do
-				HumanoidRootPart.CFrame = CFrame.new(588, 1700, -317)
+				HumanoidRootPart.CFrame = CFrame.new(623, 1866, 174)
 				Humanoid.WalkSpeed = 0
 				AutoItemSlot()
 				AutoCollectSlots()
@@ -2348,9 +2355,6 @@ local Toggle = Tab:CreateToggle({
 				-- Anti Afk
 				pcall(
 					function ()
-						plr.Character.Humanoid.WalkSpeed = 0
-						plr.Character.HumanoidRootPart.CFrame = CFrame.new(1335.813, 592.817, -355.57)
-					
 						for _, v in next, getconnections(game:GetService("Players").LocalPlayer.Idled) do
         					v:Disable()
    					    end
@@ -2358,12 +2362,13 @@ local Toggle = Tab:CreateToggle({
 				)
 			end
 		else
-			FeKill()
 			Notify({
-				Description = "Jogador Resetado para desativar o Afk Farm.";
-				Title = "Player Reseted";
+				Description = "Afk Farm Ended.";
+				Title = "Afk Farm";
 				Duration = 5;
 			});
+			HumanoidRootPart.CFrame = CFrame.new(1343, 633, -481)
+			Humanoid.WalkSpeed = 20
 		end
    end,
 })
