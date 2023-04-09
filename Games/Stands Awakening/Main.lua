@@ -447,19 +447,6 @@ end
 
 
 local function KillAllPlayers()
-	-- Teleport All
-	local player = game.Players.LocalPlayer
-	local timewait = 4
-	for i,v in pairs(game.Players:GetChildren()) do
-	   if v.Name ~= player.Name then
-	       pcall(function()
-	              player.Character.HumanoidRootPart.CFrame = v.Character.HumanoidRootPart.CFrame
-	       end)
-	   end
-	   wait(timewait)
-	end
-
-
 	-- Kill All (Loop)
 	for i,v in pairs(game:GetService("Players"):GetChildren()) do
 		if v.Name ~= game.Players.LocalPlayer.Name then
