@@ -2287,6 +2287,90 @@ local Button = Tab:CreateButton({
       game:GetService("Players").LocalPlayer.Data.Money.Value = 4198237189273980213
    end,
 })
+local Toggle = Tab:CreateToggle({
+   Name = 'Fake Ts',
+   CurrentValue = false,
+   Flag = "Fake_Ts",
+   Callback = function(state)
+		Settings = state
+		if Settings then
+			for i, v in pairs (game:GetService("ReplicatedStorage").Effects:GetChildren()) do
+			    if v:IsA("MeshPart") and v.Name == "TSEffect" then
+					-- clone
+					v:Clone()
+					v.Parent = game:GetService("Workspace")
+					v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+
+					-- size
+					if v.Size then
+						v.Size = Vector3.new(750, 750, 750)
+					end
+			    end
+			end
+
+		else
+			
+			for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
+				if v:IsA("MeshPart") and v.Name == "TSEffect" then
+					-- clone
+					v:Clone()
+					v.Parent = game:GetService("ReplicatedStorage").Effects
+
+					-- normal size
+					if v.Size then
+						v.Size = Vector3.new(1.27, 1.27, 1.27)
+					end
+				end
+			end
+		end
+   end,
+})
+local Toggle = Tab:CreateToggle({
+   Name = 'Boss Map',
+   CurrentValue = false,
+   Flag = "Fake_Ts",
+   Callback = function(state)
+		Settings = state
+		if Settings then
+			-- Enable Boss
+			if game:GetService("Players").LocalPlayer.Data.BossTP.Value == false then
+				game:GetService("Players").LocalPlayer.Data.BossTP.Value = true
+			end
+			if game:GetService("Workspace").Map.Arena.Checker.Enabled.Value == false then
+				game:GetService("Workspace").Map.Arena.Checker.Enabled.Value = true
+			end
+
+
+			-- Size Map
+			for _, v in pairs(game:GetService("ReplicatedStorage").ZonePlusWorldModel.Model:GetChildren()) do
+				if v:IsA("Part") and v.Name == "Part" then
+					v.Size = Vector3.new(2000, 2000, 2000)
+				end
+			end
+
+
+		else
+
+			-- Disable Boss
+			if game:GetService("Players").LocalPlayer.Data.BossTP.Value == true then
+				game:GetService("Players").LocalPlayer.Data.BossTP.Value = false
+			end
+			if game:GetService("Workspace").Map.Arena.Checker.Enabled.Value == true then
+				game:GetService("Workspace").Map.Arena.Checker.Enabled.Value = false
+			end
+
+
+			-- Normal Size Map
+			for _, v in pairs(game:GetService("ReplicatedStorage").ZonePlusWorldModel.Model:GetChildren()) do
+				if v:IsA("Part") and v.Name == "Part" then
+					v.Size = Vector3.new(150, 150, 150)
+				end
+			end
+		end
+   end,
+})
+
+
 
 
 
@@ -2368,6 +2452,7 @@ local Tab = Window:CreateTab("Settings", 7734053495)
 local Paragraph = Tab:CreateParagraph({Title = "Settings", Content = [[
 Em Breve 💤
 ]]})
+
 
 
 
