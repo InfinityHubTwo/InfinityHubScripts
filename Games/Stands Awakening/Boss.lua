@@ -82,33 +82,6 @@ local Toggle = Tab:CreateToggle({
    Callback = function(State)
 		Settings = State
 		if Settings then
-			-- Sword Size
-			if LocalPlayer.Backpack:FindFirstChild("KnightsSword") then
-			    LocalPlayer.Backpack["KnightsSword"].Parent = Character
-			    if Character:FindFirstChild("KnightsSword") then
-			        local Sword            =  Character:FindFirstChild("KnightsSword")
-			        local Box              =  Instance.new("SelectionBox")
-			        Box.Name               =  "SelectionBoxCreated"
-			        Box.Parent             =  Sword.Handle
-			        Box.Adornee            =  Sword.Handle
-			        Sword.Handle.Massless  =  true
-			        Sword.GripPos          =  Vector3.new(0,0,0)
-			        Character:FindFirstChildOfClass("Humanoid"):UnequipTools()
-			        LocalPlayer.Backpack["KnightsSword"].Parent = Character
-			        Character.KnightsSword.Handle.Size = Vector3.new(20, 20, 500)
-			    end
-			elseif Character:FindFirstChild("KnightsSword") then
-			    local Sword            =  Character:FindFirstChild("KnightsSword")
-			    local Box              =  Instance.new("SelectionBox")
-			    Box.Name               =  "SelectionBoxCreated"
-			    Box.Parent             =  Sword.Handle
-			    Box.Adornee            =  Sword.Handle
-			    Sword.Handle.Massless  =  true
-			    Sword.GripPos          =  Vector3.new(0,0,0)
-			    Character:FindFirstChildOfClass("Humanoid"):UnequipTools()
-			    LocalPlayer.Backpack["KnightsSword"].Parent = Character
-			    Character.KnightsSword.Handle.Size = Vector3.new(20, 20, 500)
-			end
 			wait(1.2)
 			-- Sword No Cooldown
 			loadstring(game:HttpGet(('https://raw.githubusercontent.com/itsyouranya/free/main/Anya%20Stands%20Awakening%20Helper.lua'),true))()
