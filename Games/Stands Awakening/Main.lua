@@ -21,6 +21,7 @@ local Humanoid 				= LocalPlayer.Character.Humanoid
 local Character 			= LocalPlayer.Character
 local HumanoidRootPart 		= Character.HumanoidRootPart
 
+
 --// Variables
 local plr = game:GetService("Players").LocalPlayer
 local plrId = plr.UserId
