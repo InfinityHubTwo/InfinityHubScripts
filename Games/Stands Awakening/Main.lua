@@ -2369,6 +2369,29 @@ local Toggle = Tab:CreateToggle({
 		end
    end,
 })
+local Toggle = Tab:CreateToggle({
+   Name = 'Btools Op',
+   CurrentValue = false,
+   Flag = "Fake_Ts",
+   Callback = function(state)
+		Settings = state
+		if Settings then
+			Notify({
+				Description = "Destroy Part: Left Control; Replace Part: Left Alt";
+				Title = "Btools Op";
+				Duration = 5;
+			});
+			local HoldToSelect  = Enum.KeyCode.LeftControl
+			local HoldToUndoAll = Enum.KeyCode.LeftAlt
+			local Mouse = game:GetService("Players").LocalPlayer:GetMouse()
+			local Parts = {}
+			local Box = Instance.new("SelectionBox",game.Workspace)
+			local Sound0 = Instance.new("Sound")
+			local Sound1 = Instance.new("Sound")
+			Box.Name="Box"Box.LineThickness=0.01;Box.Adornee=nil;Box.Color3=Color3.fromRGB(255,0,0)Box.Visible=true;Sound1.Name="Sound"Sound1.SoundId="http://www.roblox.com/asset/?id=773858658"Sound1.Volume=1;Sound1.Looped=false;Sound1.archivable=false;Sound1.Parent=game.CoreGui;Sound0.Name="Sound"Sound0.SoundId="http://www.roblox.com/asset/?id=4676738150"Sound0.Volume=1;Sound0.Looped=false;Sound0.archivable=false;Sound0.Parent=game.CoreGui;for a,b in pairs(game.Workspace:GetDescendants())do if b.ClassName=="Part"then b.Locked=false end end;Mouse.Button1Down:connect(function()if game:GetService("UserInputService"):IsKeyDown(HoldToSelect)then table.insert(Parts,Mouse.Target)Mouse.Target.Parent=game.CoreGui;Sound0:Play()end end)while wait()do Box.Adornee=nil;if game:GetService("UserInputService"):IsKeyDown(HoldToSelect)then Box.Adornee=Mouse.Target or nil end;if game:GetService("UserInputService"):IsKeyDown(HoldToUndoAll)then local c=0;for a,b in pairs(Parts)do c=a end;pcall(function()Parts[c].Parent=workspace;table.remove(Parts,c)Sound1:Play()end)wait(.1)end end
+		end
+   end,
+})
 
 
 
