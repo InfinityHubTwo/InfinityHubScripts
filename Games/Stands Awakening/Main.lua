@@ -2283,7 +2283,6 @@ local Button = Tab:CreateButton({
    Info = "Click this get inf money.", -- Speaks for itself, Remove if none.
    Interact = 'Changable',
    Callback = function()
-      Notification.new("success", "Infinite Money", "Sucesso :> (Lembrando que é visual)")
       game:GetService("Players").LocalPlayer.Data.Money.Value = 4198237189273980213
    end,
 })
@@ -2326,9 +2325,9 @@ local Toggle = Tab:CreateToggle({
    end,
 })
 local Toggle = Tab:CreateToggle({
-   Name = 'Boss Map',
+   Name = 'Boss Map ( Beta )',
    CurrentValue = false,
-   Flag = "Fake_Ts",
+   Flag = "toggle",
    Callback = function(state)
 		Settings = state
 		if Settings then
@@ -2372,7 +2371,7 @@ local Toggle = Tab:CreateToggle({
 local Toggle = Tab:CreateToggle({
    Name = 'Btools Op',
    CurrentValue = false,
-   Flag = "Fake_Ts",
+   Flag = "a",
    Callback = function(state)
 		Settings = state
 		if Settings then
