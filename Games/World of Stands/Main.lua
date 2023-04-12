@@ -21,7 +21,7 @@ local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/
 getgenv().SecureMode = true
 local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Ui%20Libray/Rayfield/Main.lua'))()
 local Window = Rayfield:CreateWindow({
-   Name = "Wos Farmming Test",
+   Name = "Infinity Hub  |  @Darkzin",
    LoadingTitle = "Infinity Hub",
    LoadingSubtitle = "by darkzin",
    ConfigurationSaving = {
@@ -47,131 +47,6 @@ local Window = Rayfield:CreateWindow({
 })
 
 
-local Player 			= 		game.Players.LocalPlayer
-local TweenService 		= 		game:GetService('TweenService')
-local Player 			= 		game.Players.LocalPlayer
-local Char 				= 		Player.Character or Player.CharacterAdded:wait()
-
-
---// Function
-local FarmOption = {
-	"Auto Farm lvl",
-	"Auto Farm Chest",
-	"Stand Farm",
-}
-
-getgenv().NotificationOption = nil
-local function FeKill()
-	game:GetService("Players").LocalPlayer.Character.Humanoid.Health = 0
-end
-local function NotOp()
-	if getgenv().NotificationOption == "Auto Farm lvl" then
-		Notification.new("info", "Auto Farm lvl", "Auto Farm lvl soon..")
-
-	elseif getgenv().NotificationOption == "Auto Farm Chest" then
-		Notification.new("success", "Auto Farm Chest", "Farm Chest selected")
-		
-	elseif getgenv().NotificationOption == "Stand Farm" then
-		Notification.new("info", "Stand Farm", "Stand Farm Soon..")
-	end
-end
---------------------------------------------------------
-
-getgenv().AutoFarm = nil
-local function AutoChes()
-	if getgenv().AutoFarm == "Auto Farm Chest" then
-		FeKill()
-		Notification.new("info", "Returning to spawn", "Player reseted.")
-		 wait(8)
-		Notification.new("success", "Auto Farm Chest", "Stanting Auto Chest")
-		 wait(1)
-		Notification.new("warning", "Warning! ", "Dont Move and desactive your stand.")
-		 wait(.2)
-		loadstring(
-			game:HttpGet"https://raw.githubusercontent.com/InfinityHubTwo/8917328917238971982346/main/Games/World%20of%20Stand/AutoChest.lua"
-		)()
-	end
-end
-local function FeKillAutoChest()
-	if getgenv().AutoFarm == "Auto Farm Chest" then
-		Notification.new("success", "Kill", "player killed for desactive AutoFarm.")
-		 wait(.1)
-		game:GetService("Players").LocalPlayer.Character.Humanoid.Health = 0
-	end
-end
-
-
---[[ Auto Farm Level;
-
-local function AutoClicker()
-	local cps = 0.5 -- Clicks per second here
-    mouse1click()    
-	wait(1/cps)
-end
-local function KillThugs()
-    pcall(function()
-        for i,v in pairs(game.Workspace:GetChildren()) do --enemy location
-            if v:IsA("Model") and v.Name == "Thug" then --remove this if you want farm all mobs 
-                if v.Humanoid.Health > 0 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-                    repeat
-                        wait()
-                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,5,0) * CFrame.Angles(math.rad(-30),0,0) --distance and angles
-                    until v.Humanoid.Health <= 0 or getgenv().autofarm == false
-                end
-            end
-        end
-    end)
-	AutoClicker()
-end
-local function AutoPunch()
-	getgenv().Settings = {
-	    ["Auto Click Keybind"] = "V", -- Use an UpperCase letter or KeyCode Enum. Ex: Enum.KeyCode.Semicolon
-	    ["Lock Mouse Position Keybind"] = "B",
-	    ["Right Click"] = false,
-	    ["GUI"] = false, -- A drawing gui that tells you what is going on with the autoclicker.
-	    ["Delay"] = 0 -- 0 for RenderStepped, other numbers go to regular wait timings.
-	}
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/BimbusCoder/Script/main/Auto%20Clicker.lua"))()
-end
-local Level = game:GetService("Players").LocalPlayer.Level
-
-local Position1 	= 	  	Vector3.new(488.87, 10.814, 201.354)
-local t1 	  		= 		TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(4), {CFrame = CFrame.new(Position1)}  )
-local Position2 	= 	  	Vector3.new(306.019, 10.2, 226.434)
-local t2 	  		= 		TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(4), {CFrame = CFrame.new(Position2)}  )
-
-
-local function AutoFarmLevel()
-	if getgenv().AutoFarm == "Auto Farm lvl" then
-		task.spawn(function ()
-			if Level.Value <= 5 then
-				t1:Play()
-				wait(6)
-				local KeyPress = function(v)
-				   return game:GetService("VirtualInputManager"):SendKeyEvent(true, v, false, game)
-				end
-				KeyPress("E")
-				wait(1)
-				AutoClicker()
-				wait(8)
-				t2:Play()
-				wait(2)
-				KillThugs()
-				AutoPunch()
-				wait(20)
-			end
-		end)
-	end
-end
-local function AutoFarmLvl()
-	if getgenv().AutoFarm == "Auto Farm lvl" then
-		Notification.new("info", "Auto Farm Level", "Auto Farm Level in coming soon...")
-	end
-end
-
---]]
-
-
 
 
 --// Variables
@@ -182,140 +57,135 @@ local Hum = Char.Humanoid
 local Speed = Hum.WalkSpeed
 local Jump = Hum.JumpPower
 local Health = Hum.Health
+local hrp 					= game.Players.LocalPlayer.Character.HumanoidRootPart
+local TweenService 			= game:GetService('TweenService')
+local Player 				= game.Players.LocalPlayer
+local LocalPlayer 			= Player
+local Char 					= Player.Character or Player.CharacterAdded:wait()
 
 
+--// Function
+local function ChestFarm(a) 
+	for _, v in pairs(game:GetService("Workspace"):GetChildren()) do
+		if v:IsA("Model") and v.Name == a then
+			--< Plr Speed >--
+			pcall(
+				function ()
+					Char.Humanoid.WalkSpeed = 0
+				end
+			)
 
+			--< Move to Chest >--
+			local MoveToChect = TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(12), {CFrame = CFrame.new(v.Top.Position)})
+			MoveToChect:Play()
+			wait(12.2)
 
---// Tabs: Info 
-local Tab = Window:CreateTab("Info")
-local Paragraph = Tab:CreateParagraph({Title = "Aviso", Content = [[
-	Lembrando que esta Gui ainda esta em Beta.
-	Então qualquer erro será corrigido em breve.
-	Auto Farm Level esta sendo desenvolvido, junto com o Auto Farm Stands.
-
-
-	Atenciosamente Infinity Hub Support 😄
-]]})
-
-
-
---// Tabs: Farming 
-local Tab = Window:CreateTab("LocalPlayer")
-
-local Section = Tab:CreateSection("--// Local Player Scripts patched for AntiCheat :<", true)
-local Toggle = Tab:CreateToggle({
-   Name = "Loop Kill Player",
-   CurrentValue = false,
-   Flag = "Toggle1",
-   Callback = function(State)
-		Settings = State
-		if Settings then
-			while wait() and Settings do
-				FeKill()
-			end
-		else
-			print(Settings)
+			--< Collect Chest >--
+			fireproximityprompt(v.Inside.ProximityPrompt)
 		end
-   end,
-})
-
-
-
-
-
-local Tab = Window:CreateTab("Farming")
-local Paragraph = Tab:CreateParagraph({Title = "Aviso", Content = [[
-	Opções que estão funcionando:
-
-	[=] - Auto Farm Chest: 		✅
-	[=] - Auto Farm Level: 		Soon.. 😴
-	[=] - Stands Farm:			Soon.. 😴
-	
-	Infinity Hub.
-]]})
-
-local Dropdown = Tab:CreateDropdown({
-   Name = "Select Option Farm",
-   Options = FarmOption,
-   CurrentOption = "",
-   Flag = "Dropdown1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(Option)
-		getgenv().NotificationOption = Option
-		getgenv().AutoFarm = Option
-		NotOp()
-   end,
-})
-local Toggle = Tab:CreateToggle({
-   Name = "Start AutoFarm",
-   CurrentValue = false,
-   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(State)
-		Settings = State
-		if Settings then
-			AutoChes()
-		else
-			FeKillAutoChest()
-		end
-   end,
-})
-local Toggle = Tab:CreateToggle({
-   Name = "Chest Esp",
-   CurrentValue = false,
-   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(State)
-	Settings = State
-	if Settings then
-	-- Esp Function
-function CreateESPPart(BodyPart,color)
-local ESPPartparent = BodyPart
-local Box = Instance.new("BoxHandleAdornment")
-Box.Size = BodyPart.Size + Vector3.new(0.1, 0.1, 0.1)
-Box.Name = "ESPPart"
-Box.Adornee = ESPPartparent
-Box.Color3 = color
-Box.AlwaysOnTop = true
-Box.ZIndex = 5
-Box.Transparency = 0.8
-Box.Parent = BodyPart
-end
-
-CreateESPPart(game:GetService("Workspace").ChestSpawns["1"], Color3.fromRGB(255,255,0)) 
-CreateESPPart(game:GetService("Workspace").ChestSpawns["2"], Color3.fromRGB(255,255,0)) 
-CreateESPPart(game:GetService("Workspace").ChestSpawns["3"], Color3.fromRGB(255,255,0)) 
-CreateESPPart(game:GetService("Workspace").ChestSpawns["4"], Color3.fromRGB(255,255,0)) 
-CreateESPPart(game:GetService("Workspace").ChestSpawns["5"], Color3.fromRGB(255,255,0)) 
-CreateESPPart(game:GetService("Workspace").ChestSpawns["6"], Color3.fromRGB(255,255,0)) 
-CreateESPPart(game:GetService("Workspace").ChestSpawns["7"], Color3.fromRGB(255,255,0)) 
-CreateESPPart(game:GetService("Workspace").ChestSpawns["8"], Color3.fromRGB(255,255,0)) 
-CreateESPPart(game:GetService("Workspace").ChestSpawns["9"], Color3.fromRGB(255,255,0)) 
-CreateESPPart(game:GetService("Workspace").ChestSpawns["10"], Color3.fromRGB(255,255,0))
-CreateESPPart(game:GetService("Workspace").ChestSpawns["11"], Color3.fromRGB(255,255,0))
-CreateESPPart(game:GetService("Workspace").ChestSpawns["12"], Color3.fromRGB(255,255,0))
-CreateESPPart(game:GetService("Workspace").ChestSpawns["13"], Color3.fromRGB(255,255,0))
-CreateESPPart(game:GetService("Workspace").ChestSpawns["14"], Color3.fromRGB(255,255,0))
-CreateESPPart(game:GetService("Workspace").ChestSpawns["15"], Color3.fromRGB(255,255,0))
-CreateESPPart(game:GetService("Workspace").ChestSpawns["16"], Color3.fromRGB(255,255,0))
-
-
-
--- Name esp
-for __,v in pairs(game:GetService("Workspace").ChestSpawns:GetChildren()) do
-if v:IsA("Model") or v:IsA("Part") or v:IsA("MeshPart") then
-local a = Instance.new("BillboardGui",v)
-a.Size = UDim2.new(1,0, 1,0)
-a.Name = "A"
-a.AlwaysOnTop = true
-local b = Instance.new("Frame",a)
-b.Size = UDim2.new(1,0, 1,0)
-b.BackgroundTransparency = 1
-b.BorderSizePixel = 0
-local c = Instance.new("TextLabel",b)
-c.Text = v.Name
-c.Size = UDim2.new(1,0, 1,0)
-c.BackgroundTransparency = 1
-c.BorderSizePixel = 0
-end
-end		
 	end
+end
+local function CheckChest(a)
+	for _, v in pairs(game:GetService("Workspace"):GetChildren()) do
+		if v:IsA("Model") and v.Name == a then
+			print(a)
+			ChestFarm(a)
+			
+		else
+			
+			print("Chest:", a, "Not Spawned")
+		end
+	end
+end
+local function AutoAllChests()
+	if CheckChest("1") then
+		print(".")
+	end
+	if CheckChest("2") then
+		print(".")
+	end
+	if CheckChest("3") then
+		print(".")
+	end
+	if CheckChest("4") then
+		print(".")
+	end
+	if CheckChest("5") then
+		print(".")
+	end
+	if CheckChest("6") then
+		print(".")
+	end
+	if CheckChest("7") then
+		print(".")
+	end
+	if CheckChest("8") then
+		print(".")
+	end
+	if CheckChest("9") then
+		print(".")
+	end
+	if CheckChest("10") then
+		print(".")
+	end
+	if CheckChest("11") then
+		print(".")
+	end
+	if CheckChest("12") then
+		print(".")
+	end
+	if CheckChest("13") then
+		print(".")
+	end
+	if CheckChest("14") then
+		print(".")
+	end
+	if CheckChest("15") then
+		print(".")
+	end
+	if CheckChest("16") then
+		print(".")
+	end
+end
+local function FeRespawn()
+	if game:GetService("Workspace").FilteringEnabled == true then
+		game:GetService("StarterGui"):SetCore("SendNotification", {
+			Title 	= 	" Player Respawn ";
+			Text 	= 	" Player Respawned for desactive Chest Farm. ";
+			Icon 	= 	"http://www.roblox.com/asset/?id=12828674545";
+		})
+	end
+	game.Players.LocalPlayer.Character.Head:Destroy()
+end
+
+
+--// Libray Windown 
+local Tab = Window:CreateTab("Farming", 7743866529)
+local Paragraph = Tab:CreateParagraph({Title = "Chests Name:", Content = [[
+
+	--< 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 >--
+]]})
+
+local Input = Tab:CreateInput({
+   Name = "Select the chest you want to farm.",
+   PlaceholderText = "Chest Name",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(Text)
+		CheckChest(Text)
    end,
+})
+local Toggle = Tab:CreateToggle({
+   Name = "Farm All Chests",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(State)
+		Settings = State
+		if Settings then
+			AutoAllChests()
+
+		else
+			
+			FeRespawn()
+		end
+	end,
 })
