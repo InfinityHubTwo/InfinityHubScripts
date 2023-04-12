@@ -97,6 +97,21 @@ local function CheckChest(a)
 		end
 	end
 end
+local function CheckChest16(a)
+	game.Players.LocalPlayer.Character.Head:Destroy()
+	wait(6)
+	
+	for _, v in pairs(game:GetService("Workspace"):GetChildren()) do
+		if v:IsA("Model") and v.Name == a then
+			local MoveToChect = TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(12), {CFrame = CFrame.new(v.Top.Position)})
+			MoveToChect:Play()
+
+		else
+			
+			print("Check", a, "Not Spawned")
+		end
+	end
+end
 local function AutoAllChests()
 	if CheckChest("1") then
 		print(".")
@@ -143,7 +158,7 @@ local function AutoAllChests()
 	if CheckChest("15") then
 		print(".")
 	end
-	if CheckChest("16") then
+	if CheckChest16("16") then
 		print(".")
 	end
 end
