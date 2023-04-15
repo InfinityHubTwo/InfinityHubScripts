@@ -174,6 +174,20 @@ local function FeRespawn()
 end
 
 
+--// Anti Teleport
+local mt = getrawmetatable(game)
+local oldhook = mt.__namecall
+
+setreadonly(mt, false)
+mt.__namecall = newcclosure(function(self, ...)
+if not checkcaller() and getnamecallmethod() == "Teleport" then
+return nil
+end
+return oldhook(self, ...)
+end)
+setreadonly(mt, true)
+
+
 --// Libray Windown 
 local Tab = Window:CreateTab("Farming", 7743866529)
 local Paragraph = Tab:CreateParagraph({Title = "Chests Name:", Content = [[
