@@ -84,10 +84,11 @@ local function ChestFarm(a)
 
 			
 			--< Teleport Chest >--
-			Character:PivotTo(v:GetPivot());
+			Char:PivotTo(v:GetPivot());
 			
 			
 			--< Collect Chest >--
+			wait(4)
 			fireproximityprompt(v.Inside.ProximityPrompt)
 		end
 	end
@@ -108,48 +109,62 @@ local function AutoAllChests()
 	if CheckChest("1") then
 		print(".")
 	end
+	wait(6)
 	if CheckChest("2") then
 		print(".")
 	end
+	wait(6)
 	if CheckChest("3") then
 		print(".")
 	end
+	wait(6)
 	if CheckChest("4") then
 		print(".")
 	end
+	wait(6)
 	if CheckChest("5") then
 		print(".")
 	end
+	wait(6)
 	if CheckChest("6") then
 		print(".")
 	end
+	wait(6)
 	if CheckChest("7") then
 		print(".")
 	end
+	wait(6)
 	if CheckChest("8") then
 		print(".")
 	end
+	wait(6)
 	if CheckChest("9") then
 		print(".")
 	end
+	wait(6)
 	if CheckChest("10") then
 		print(".")
 	end
 	if CheckChest("11") then
 		print(".")
 	end
+	wait(6)
 	if CheckChest("12") then
 		print(".")
 	end
+	wait(6)
 	if CheckChest("13") then
 		print(".")
 	end
+	wait(6)
 	if CheckChest("14") then
 		print(".")
 	end
+	wait(6)
 	if CheckChest("15") then
 		print(".")
 	end
+	wait(6)
 	if CheckChest("16") then
 		print(".")
 	end
