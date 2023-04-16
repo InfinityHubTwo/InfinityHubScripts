@@ -979,7 +979,7 @@ local Toggle = Tab:CreateToggle({
 
 
 
---// Server Remotes
+--// Server
 local Tab = Window:CreateTab("Server", 12828674545)
 local Paragraph = Tab:CreateParagraph({Title = "Server", Content = [[
 Aqui as opções que você iniciar irá prejuticar o servidor EX Lag Server
@@ -1046,7 +1046,7 @@ Obs: Se você desativa a toggle o seu Player respawnará.
 local playerName = "";
 local Input = Tab:CreateInput({
    Name = "Player Name",
-   PlaceholderText = "Player Name",
+   PlaceholderText = "Name",
    RemoveTextAfterFocusLost = false,
    Callback = function(Text)
 		playerName = string.lower(Text);
@@ -1077,7 +1077,7 @@ local Toggle = Tab:CreateToggle({
 						function ()
 							repeat task.wait(.1)
 								Character:PivotTo(p.Character:GetPivot());
-							until Humanoid.Health == 0
+							until game.Players.LocalPlayer.Character.Humanoid.Health == 0
 						end
 					)
 				end
@@ -1092,20 +1092,63 @@ local Toggle = Tab:CreateToggle({
 							local ohInstance5 = p.Character.Humanoid
 							local ohCFrame6 = CFrame.new(1558.67346, 582.916504, -507.343048, 0.869462848, 0.278027803, 0.408332586, 0.407284677, 0.0643314645, -0.911033034, -0.279561013, 0.958416581, -0.0573026538)
 							game:GetService("ReplicatedStorage").Main.Input:FireServer(ohString1, ohString2, ohNil3, ohNil4, ohInstance5, ohCFrame6)
-						until Humanoid.Health == 0
+						until game.Players.LocalPlayer.Character.Humanoid.Health == 0
 					end
 				)
-				--< End Task >--
-				wait(15)
-				Humanoid.Health = 0
 			end
 
 		else
 			
-			Character.Head:Destroy()
+			game.Players.LocalPlayer.Character.Humanoid.Health = 0
 		end
    end,
 })
+
+local Section = Tab:CreateSection("--// Options: Crash Player", true)
+local Paragraph = Tab:CreateParagraph({Title = "Crash Player ( Em Breve )", Content = [[
+Lembrando que esta opção ainda esta em Beta.
+
+Aviso: Ele ira pegar todos os item no mapa e do teu inventario e depois mandará todos para a pessoa que deseja crashar, tenha um despositivo bom pois pode acabar crashando você mesmo.
+Obs: Verifica se não tem nenhum item de valor pois pode acabar perdendo-o.
+]]})
+
+local playerNameCrash = "";
+local Input = Tab:CreateInput({
+   Name = "Player Name",
+   PlaceholderText = "Name",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(Text)
+		playerNameCrash = string.lower(Text);
+   end,
+})
+local Toggle = Tab:CreateToggle({
+   Name = "Crash Player",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(state)
+		Settings = state 
+		if Settings then
+			--< Detect Player >--
+			for _, plr in next, Players:GetPlayers() do
+				if string.find(string.lower(plr.Name), playerName) then
+					player = plr;
+				end
+			end
+
+
+			--< Equip all tools >--
+			for _, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+				v.Parent = game.Players.LocalPlayer.Character
+			end
+			wait(2)
+			
+
+			--< Give All Tools >--
+			game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("!giveitem".. player .. "All")
+		end
+   end,
+})
+
 
 
 
@@ -1272,8 +1315,10 @@ local Toggle = Tab:CreateToggle({
 		if GrabTools then
 			getgenv().ToggleGrabTools = true
 			while getgenv().ToggleGrabTools do
-				wait(1)
 				local Human = game:GetService("Players").LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid")
+				
+				wait(.5)
+
 				for _, v in ipairs(workspace:GetChildren()) do
 					if game:GetService("Players").LocalPlayer.Character and v:IsA("BackpackItem") and v:FindFirstChild("Handle") then
 						Human:EquipTool(v)
