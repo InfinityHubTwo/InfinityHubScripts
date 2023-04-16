@@ -84,7 +84,7 @@ local function ChestFarm(a)
 
 			
 			--< Teleport Chest >--
-			LocalPlayer.Character.HumanoidRootPart.CFrame = v.Top.CFrame
+			Character:PivotTo(v:GetPivot());
 			
 			
 			--< Collect Chest >--
@@ -178,6 +178,14 @@ end
 return oldhook(self, ...)
 end)
 setreadonly(mt, true)
+local f
+f = hookmetamethod(game:GetService("TeleportService"), "__namecall", function(...)
+    if getnamecallmethod() == "Teleport" then
+        return
+    end
+
+    return f(...)
+end)
 
 
 --// Libray Windown 
