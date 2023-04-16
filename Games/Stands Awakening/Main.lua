@@ -447,21 +447,6 @@ local function AutoUseBanknote()
 end
 
 
-local function KillAllPlayers()
-	-- Kill All (Loop)
-	for i,v in pairs(game:GetService("Players"):GetChildren()) do
-		if v.Name ~= game.Players.LocalPlayer.Name then
-			local ohString1 = "Damage"
-			local ohString2 = "Fly"
-			local ohNil3 = nil
-			local ohNil4 = nil
-			local ohInstance5 = v.Character.Humanoid
-			game:GetService("ReplicatedStorage").Main.Input:FireServer(ohString1, ohString2, ohNil3, ohNil4, ohInstance5)
-		end
-	end
-end
-
-
 
 --// Prints
 print[[
@@ -1050,24 +1035,74 @@ local Button = Tab:CreateButton({
    end,
 })
 
-local Section = Tab:CreateSection("--// Options: Kill All", true)
-local Paragraph = Tab:CreateParagraph({Title = "Bem Vindo", Content = [[
-Bem, nesta opção para você poder usa você precisa ter o Sonic/Exe
-Depois disso é so executar esta opção.
-		
-Obs: Cuidado, pois podem te denunciar 
+local Section = Tab:CreateSection("--// Options: Kill Player", true)
+local Paragraph = Tab:CreateParagraph({Title = "Kill Player", Content = [[
+Lembrando que esta opção ainda esta em Beta.
+
+Instruções: Coloque o nome do Player na caixa de texto, apos 15 segundos da execução você morrerá para que o script seja desativado.
+Obs: Se você desativa a toggle o seu Player respawnará.
 ]]})
 
+local playerName = "";
+local Input = Tab:CreateInput({
+   Name = "Player Name",
+   PlaceholderText = "Player Name",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(Text)
+		playerName = string.lower(Text);
+   end,
+})
 local Toggle = Tab:CreateToggle({
-   Name = "Kill All Players (Beta)",
+   Name = "Kill Player",
    CurrentValue = false,
-   Flag = "Toggle1",
-   Callback = function(State)
-		Settings = State
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(state)
+		Settings = state 
 		if Settings then
 			while wait() and Settings do
-				KillAllPlayers()
+				--< Variables >--
+				local Players 			= game:GetService("Players");
+				local LocalPlayer 		= Players.LocalPlayer
+				local Character			= LocalPlayer.Character	
+				local Humanoid			= Character.Humanoid		
+				local hrp 				= game.Players.LocalPlayer.Character.HumanoidRootPart
+				--< Teleport Player >--
+				for _, plr in next, Players:GetPlayers() do
+					if string.find(string.lower(plr.Name), playerName) then
+						p = plr;
+					end
+				end
+				if p then
+					task.spawn(
+						function ()
+							repeat task.wait(.1)
+								Character:PivotTo(p.Character:GetPivot());
+							until Humanoid.Health == 0
+						end
+					)
+				end
+				--< Kill Player >--
+				task.spawn(
+					function ()
+						repeat task.wait(.1)
+							local ohString1 = "Damage"
+							local ohString2 = "Punch"
+							local ohNil3 = nil
+							local ohNil4 = nil
+							local ohInstance5 = p.Character.Humanoid
+							local ohCFrame6 = CFrame.new(1558.67346, 582.916504, -507.343048, 0.869462848, 0.278027803, 0.408332586, 0.407284677, 0.0643314645, -0.911033034, -0.279561013, 0.958416581, -0.0573026538)
+							game:GetService("ReplicatedStorage").Main.Input:FireServer(ohString1, ohString2, ohNil3, ohNil4, ohInstance5, ohCFrame6)
+						until Humanoid.Health == 0
+					end
+				)
+				--< End Task >--
+				wait(15)
+				Humanoid.Health = 0
 			end
+
+		else
+			
+			Character.Head:Destroy()
 		end
    end,
 })
