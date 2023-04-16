@@ -21,7 +21,7 @@ local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/
 getgenv().SecureMode = true
 local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Ui%20Libray/Rayfield/Main.lua'))()
 local Window = Rayfield:CreateWindow({
-   Name = "Infinity Hub  |  @Darkzin",
+   Name = "Infinity Hub  |  @Darkzin  ( Beta )",
    LoadingTitle = "Infinity Hub",
    LoadingSubtitle = "by darkzin",
    ConfigurationSaving = {
@@ -65,7 +65,12 @@ local Char 					= Player.Character or Player.CharacterAdded:wait()
 
 
 --// Function
+local KeyPress = function(v)
+   return game:GetService("VirtualInputManager"):SendKeyEvent(true, v, false, game)
+end
 local function ChestFarm(a) 
+	KeyPress("W")
+	wait(2)
 	for _, v in pairs(game:GetService("Workspace"):GetChildren()) do
 		if v:IsA("Model") and v.Name == a then
 			--< Plr Speed >--
@@ -76,19 +81,16 @@ local function ChestFarm(a)
 			)
 
 			--< Move to Chest >--
-			--[[
 			local MoveToChect = TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(12), {CFrame = CFrame.new(v.Top.Position)})
 			MoveToChect:Play()
-			wait(12.2)
-			--]]
+			wait(14)
 
 			
 			--< Teleport Chest >--
-			Char:PivotTo(v:GetPivot());
+			--Char:PivotTo(v:GetPivot());
 			
 			
 			--< Collect Chest >--
-			wait(4)
 			fireproximityprompt(v.Inside.ProximityPrompt)
 		end
 	end
@@ -109,62 +111,48 @@ local function AutoAllChests()
 	if CheckChest("1") then
 		print(".")
 	end
-	wait(6)
 	if CheckChest("2") then
 		print(".")
 	end
-	wait(6)
 	if CheckChest("3") then
 		print(".")
 	end
-	wait(6)
 	if CheckChest("4") then
 		print(".")
 	end
-	wait(6)
 	if CheckChest("5") then
 		print(".")
 	end
-	wait(6)
 	if CheckChest("6") then
 		print(".")
 	end
-	wait(6)
 	if CheckChest("7") then
 		print(".")
 	end
-	wait(6)
 	if CheckChest("8") then
 		print(".")
 	end
-	wait(6)
 	if CheckChest("9") then
 		print(".")
 	end
-	wait(6)
 	if CheckChest("10") then
 		print(".")
 	end
 	if CheckChest("11") then
 		print(".")
 	end
-	wait(6)
 	if CheckChest("12") then
 		print(".")
 	end
-	wait(6)
 	if CheckChest("13") then
 		print(".")
 	end
-	wait(6)
 	if CheckChest("14") then
 		print(".")
 	end
-	wait(6)
 	if CheckChest("15") then
 		print(".")
 	end
-	wait(6)
 	if CheckChest("16") then
 		print(".")
 	end
