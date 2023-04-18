@@ -290,6 +290,9 @@ local ItemsAfkFarm = {
 	"Dio's Skull",
 	"Camera",
 	"Pot Platinum's Diary",
+	"True Requiem Arrow",
+	"Red Heart",
+	"Camera",
 	"Uncanny Key",
 }
 local function AutoItemSlot()
@@ -362,6 +365,64 @@ local function AutoItemSlot()
 			function ()
     			for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
     			    if v.name == "Uncanny Key" then
+    			        v.Parent = game.Players.LocalPlayer.Character
+    			    end
+    			end
+			end
+		)
+
+
+	elseif getgenv().AutoItemSlot == "True Requiem Arrow" then
+		for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
+			if v:IsA("Tool") and v.Name == "True Requiem Arrow" then
+		    	pcall(function()
+		        	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+		    	end)
+			end
+		end
+		pcall(
+			function ()
+    			for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+					if v.name == "True Requiem Arrow" then
+    			        v.Parent = game.Players.LocalPlayer.Character
+    			    end
+    			end
+			end
+		)
+
+
+	elseif getgenv().AutoItemSlot == "Red Heart" then
+		for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
+			if v:IsA("Tool") and v.Name == "Red Heart" then
+		    	pcall(function()
+		        	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+		    	end)
+			end
+		end
+		pcall(
+			function ()
+    			for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+    			    if v.name == "Red Heart" then
+    			        v.Parent = game.Players.LocalPlayer.Character
+    			    end
+    			end
+			end
+		)
+
+
+
+	elseif getgenv().AutoItemSlot == "Camera" then
+		for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
+			if v:IsA("Tool") and v.Name == "Camera" then
+		    	pcall(function()
+		        	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+		    	end)
+			end
+		end
+		pcall(
+			function ()
+    			for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+    			    if v.name == "Camera" then
     			        v.Parent = game.Players.LocalPlayer.Character
     			    end
     			end
@@ -453,9 +514,9 @@ print[[
 	.
 
 	--<>---<>---<>---<>---<>---<>---<>---<>---<>---<>---<>---<>---<>---<>---<>
-	|	Infinity Hub Loaded v 1.0.2					 						|
-	|	Have fun							 								|
-	|	Credits libray: Rayfield Libray / Discord Server: Sirus		 		|
+	|.	Infinity Hub Loaded v 1.0.2					 						.|
+	|.	Have fun							 								.|
+	|.	Credits libray: Rayfield Libray / Discord Server: Sirius		 	.|
 	--<>---<>---<>---<>---<>---<>---<>---<>---<>---<>---<>---<>---<>---<>---<>
 ]]
 
@@ -1106,11 +1167,14 @@ local Toggle = Tab:CreateToggle({
 
 local Section = Tab:CreateSection("--// Options: Crash Player", true)
 local Paragraph = Tab:CreateParagraph({Title = "Crash Player ( Em Breve )", Content = [[
+]]})
+
+--[[
 Lembrando que esta opção ainda esta em Beta.
 
 Aviso: Ele ira pegar todos os item no mapa e do teu inventario e depois mandará todos para a pessoa que deseja crashar, tenha um despositivo bom pois pode acabar crashando você mesmo.
 Obs: Verifica se não tem nenhum item de valor pois pode acabar perdendo-o.
-]]})
+
 
 local playerNameCrash = "";
 local Input = Tab:CreateInput({
@@ -1148,7 +1212,7 @@ local Toggle = Tab:CreateToggle({
 		end
    end,
 })
-
+--]]
 
 
 
@@ -2484,14 +2548,14 @@ local Section = Tab:CreateSection("--// Options: Afk Item Farm", true)
 local Paragraph = Tab:CreateParagraph({Title = "Afk Farm", Content = [[
 Nesta opção você seleciona o item que quer que ele pegue automaticamente para você e guarda no seu slot que você selecionou.
 
-
-Obs: Se o item que você selecionou estiver spawnado no mapa ele coleta pro teu inventario e ja guarda no slot que selecionou (Feito para pessoa com problema de conexão)
+Obs: Se o item que você selecionou estiver spawnado no mapa ele coleta pro teu inventario e ja guarda no slot que selecionou (Feito para pessoa com problema de conexão). MultiSelection da para selecionar mais opções na Dropdown.
 ]]})
 
 local Dropdown = Tab:CreateDropdown({
    Name = "Select Slots",
    Options = slots,
    CurrentOption = "",
+   MultipleOptions = true,
    Flag = "Dropdown1",
    Callback = function(Option)
 		getgenv().SlotsSelect = Option
@@ -2501,6 +2565,7 @@ local Dropdown = Tab:CreateDropdown({
    Name = "Select Item",
    Options = ItemsAfkFarm,
    CurrentOption = "",
+   MultipleOptions = true,
    Flag = "Dropdown1",
    Callback = function(Option)
 		getgenv().AutoItemSlot = Option
