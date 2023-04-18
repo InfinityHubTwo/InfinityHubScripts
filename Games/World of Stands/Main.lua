@@ -78,7 +78,7 @@ local function ChestFarm(a)
 			--< Move to Chest >--
 			local MoveToChect = TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(12), {CFrame = CFrame.new(v.Top.Position)})
 			MoveToChect:Play()
-			wait(12.5)
+			wait(12.8)
 
 			
 			--< Teleport Chest >--
