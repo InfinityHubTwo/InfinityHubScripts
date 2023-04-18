@@ -65,12 +65,7 @@ local Char 					= Player.Character or Player.CharacterAdded:wait()
 
 
 --// Function
-local KeyPress = function(v)
-   return game:GetService("VirtualInputManager"):SendKeyEvent(true, v, false, game)
-end
 local function ChestFarm(a) 
-	KeyPress("W")
-	wait(2)
 	for _, v in pairs(game:GetService("Workspace"):GetChildren()) do
 		if v:IsA("Model") and v.Name == a then
 			--< Plr Speed >--
@@ -83,7 +78,7 @@ local function ChestFarm(a)
 			--< Move to Chest >--
 			local MoveToChect = TweenService:create(Char.Humanoid.RootPart,TweenInfo.new(12), {CFrame = CFrame.new(v.Top.Position)})
 			MoveToChect:Play()
-			wait(14)
+			wait(12.5)
 
 			
 			--< Teleport Chest >--
