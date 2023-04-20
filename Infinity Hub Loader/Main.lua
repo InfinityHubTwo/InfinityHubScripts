@@ -43,7 +43,7 @@ local games = {
 	[{893973440}] = "https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Games/Flee%20The%20Facility/Main.lua",
 	
 	-- Destruction Simulator
-	[{2248408710}] = "https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Obfuscated/Destruction%20Sim.lua"
+	[{2248408710}] = "https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Obfuscated/Destruction%20Sim.lua",
 }
 
 
