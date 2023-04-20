@@ -20,6 +20,7 @@ local LocalPlayer 			= Players.LocalPlayer;
 local Humanoid 				= LocalPlayer.Character.Humanoid
 local Character 			= LocalPlayer.Character
 local HumanoidRootPart 		= Character.HumanoidRootPart
+local vim 					= game:service("VirtualInputManager");
 
 
 --// Variables
@@ -508,6 +509,28 @@ local function AutoUseBanknote()
 end
 
 
+local function hold(keyCode, time)
+  vim:SendKeyEvent(true, keyCode, false, game)
+  task.wait(time)
+  vim:SendKeyEvent(false, keyCode, false, game)
+end
+getgenv().SkillsExecute = nil
+Skills = {
+	"Time Stop",
+	"Heavy Punch",
+}
+local function Execute_Skill_Function()
+	if getgenv().SkillsExecute == "Time Stop" then
+		game:GetService("ReplicatedStorage").Main.Timestop:FireServer(
+			20, "shadowdio"
+		)
+
+
+	elseif getgenv().SkillsExecute == "Heavy Punch" then
+		hold(Enum.KeyCode.R, 1)
+	end
+end
+
 
 --// Prints
 print[[
@@ -678,6 +701,21 @@ Stands:CreateButton({
 			  game:GetService("ReplicatedStorage").Main.Timestop:FireServer(20, "dioova")
 		  end
 	  end
+   end
+})
+Stands:CreateButton({
+   Name = "Neo The World Auternative Universe",
+   Interact = 'Interact.',
+   Callback = function()
+	   --//	Neo The World Auternative Universe	//--
+	   for _, v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+	   	if v:IsA("LocalScript") and v.Name == "NTWAU" then
+	   		Time = 20
+	   		game:GetService("ReplicatedStorage").Main.Timestop:FireServer(
+	   			Time, "diego"
+	   		)
+	   	end
+	   end
    end
 })
 
@@ -1100,7 +1138,7 @@ local Section = Tab:CreateSection("--// Options: Kill Player", true)
 local Paragraph = Tab:CreateParagraph({Title = "Kill Player", Content = [[
 Lembrando que esta opção ainda esta em Beta.
 
-Instruções: Coloque o nome do Player na caixa de texto, apos 15 segundos da execução você morrerá para que o script seja desativado.
+Instruções: Coloque o nome do Player na caixa de texto, coloque o nome da pessoa se nao ele seleciona alguem aleatorio no mapa e mata.
 Obs: Se você desativa a toggle o seu Player respawnará.
 ]]})
 
@@ -1111,6 +1149,15 @@ local Input = Tab:CreateInput({
    RemoveTextAfterFocusLost = false,
    Callback = function(Text)
 		playerName = string.lower(Text);
+   end,
+})
+local Dropdown = Tab:CreateDropdown({
+   Name = "Skills  ( Beta )",
+   Options = Skills,
+   CurrentOption = "",
+   Flag = "Dropdown1",
+   Callback = function(Option)
+		getgenv().SkillsExecute = Option
    end,
 })
 local Toggle = Tab:CreateToggle({
@@ -1158,6 +1205,9 @@ local Toggle = Tab:CreateToggle({
 				)
 			end
 
+
+			--< Skills >--
+			Execute_Skill_Function()
 		else
 			
 			game.Players.LocalPlayer.Character.Humanoid.Health = 0
@@ -2545,17 +2595,16 @@ local Toggle = Tab:CreateToggle({
 --// Afk Farm
 local Tab = Window:CreateTab("Afk Farm", 12876835994)
 local Section = Tab:CreateSection("--// Options: Afk Item Farm", true)
-local Paragraph = Tab:CreateParagraph({Title = "Afk Farm", Content = [[
+local Paragraph = Tab:CreateParagraph({Title = "Afk Farm  ( Patched )", Content = [[
 Nesta opção você seleciona o item que quer que ele pegue automaticamente para você e guarda no seu slot que você selecionou.
 
-Obs: Se o item que você selecionou estiver spawnado no mapa ele coleta pro teu inventario e ja guarda no slot que selecionou (Feito para pessoa com problema de conexão). MultiSelection da para selecionar mais opções na Dropdown.
+Obs: Se o item que você selecionou estiver spawnado no mapa ele coleta pro teu inventario e ja guarda no slot que selecionou (Feito para pessoa com problema de conexão).
 ]]})
 
 local Dropdown = Tab:CreateDropdown({
    Name = "Select Slots",
    Options = slots,
    CurrentOption = "",
-   MultipleOptions = true,
    Flag = "Dropdown1",
    Callback = function(Option)
 		getgenv().SlotsSelect = Option
@@ -2565,14 +2614,13 @@ local Dropdown = Tab:CreateDropdown({
    Name = "Select Item",
    Options = ItemsAfkFarm,
    CurrentOption = "",
-   MultipleOptions = true,
    Flag = "Dropdown1",
    Callback = function(Option)
 		getgenv().AutoItemSlot = Option
    end,
 })
 local Toggle = Tab:CreateToggle({
-   Name = "Start + Anti Afk",
+   Name = "Start + Anti Afk  ( Working... )",
    CurrentValue = false,
    Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(State)
