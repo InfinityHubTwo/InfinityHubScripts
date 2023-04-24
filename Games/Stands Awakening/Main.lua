@@ -464,19 +464,6 @@ local function SelectSound()
 end
 
 
-local function get_plrs()
-   local plrs = {}
-   
-   for i,v in pairs(game.Players:GetPlayers()) do
-       if v ~= game.Players.LocalPlayer then
-           table.insert(plrs, v.Name)
-       end
-   end
-   
-   return plrs
-end
-
-
 local function AutoUseBanknote()
 	task.spawn(
 		function ()
@@ -509,26 +496,26 @@ local function AutoUseBanknote()
 end
 
 
-local function hold(keyCode, time)
-  vim:SendKeyEvent(true, keyCode, false, game)
-  task.wait(time)
-  vim:SendKeyEvent(false, keyCode, false, game)
-end
-getgenv().SkillsExecute = nil
-Skills = {
-	"Time Stop",
-	"Heavy Punch",
+-- settings
+getgenv().Settings = {
+    Kill_Player = {
+        Player_Name = "",
+    },
+    Skill ={
+        e = false,
+        r = false,
+        t = false,
+        f = false,
+        h = false,
+        v = false,
+        b = false,
+    }
 }
-local function Execute_Skill_Function()
-	if getgenv().SkillsExecute == "Time Stop" then
-		game:GetService("ReplicatedStorage").Main.Timestop:FireServer(
-			20, "shadowdio"
-		)
 
 
-	elseif getgenv().SkillsExecute == "Heavy Punch" then
-		hold(Enum.KeyCode.R, 1)
-	end
+-- functions
+local KeyPress = function(v)
+    return game:GetService("VirtualInputManager"):SendKeyEvent(true, v, false, game)
 end
 
 
@@ -1135,29 +1122,19 @@ local Button = Tab:CreateButton({
 })
 
 local Section = Tab:CreateSection("--// Options: Kill Player", true)
-local Paragraph = Tab:CreateParagraph({Title = "Kill Player", Content = [[
+local Paragraph = Tab:CreateParagraph({Title = "Kill Player ( Skills Soon )", Content = [[
 Lembrando que esta opção ainda esta em Beta.
 
 Instruções: Coloque o nome do Player na caixa de texto, coloque o nome da pessoa se nao ele seleciona alguem aleatorio no mapa e mata.
 Obs: Se você desativa a toggle o seu Player respawnará.
 ]]})
 
-local playerName = "";
 local Input = Tab:CreateInput({
    Name = "Player Name",
    PlaceholderText = "Name",
    RemoveTextAfterFocusLost = false,
    Callback = function(Text)
-		playerName = string.lower(Text);
-   end,
-})
-local Dropdown = Tab:CreateDropdown({
-   Name = "Skills  ( Beta )",
-   Options = Skills,
-   CurrentOption = "",
-   Flag = "Dropdown1",
-   Callback = function(Option)
-		getgenv().SkillsExecute = Option
+    getgenv().Settings.Kill_Player.Player_Name = Text;
    end,
 })
 local Toggle = Tab:CreateToggle({
@@ -1167,49 +1144,44 @@ local Toggle = Tab:CreateToggle({
    Callback = function(state)
 		Settings = state 
 		if Settings then
-			while wait() and Settings do
-				--< Variables >--
-				local Players 			= game:GetService("Players");
-				local LocalPlayer 		= Players.LocalPlayer
-				local Character			= LocalPlayer.Character	
-				local Humanoid			= Character.Humanoid		
-				local hrp 				= game.Players.LocalPlayer.Character.HumanoidRootPart
-				--< Teleport Player >--
-				for _, plr in next, Players:GetPlayers() do
-					if string.find(string.lower(plr.Name), playerName) then
-						p = plr;
-					end
-				end
-				if p then
-					task.spawn(
-						function ()
-							repeat task.wait(.1)
-								Character:PivotTo(p.Character:GetPivot());
-							until game.Players.LocalPlayer.Character.Humanoid.Health == 0
-						end
-					)
-				end
-				--< Kill Player >--
-				task.spawn(
-					function ()
-						repeat task.wait(.1)
-							local ohString1 = "Damage"
-							local ohString2 = "Punch"
-							local ohNil3 = nil
-							local ohNil4 = nil
-							local ohInstance5 = p.Character.Humanoid
-							local ohCFrame6 = CFrame.new(1558.67346, 582.916504, -507.343048, 0.869462848, 0.278027803, 0.408332586, 0.407284677, 0.0643314645, -0.911033034, -0.279561013, 0.958416581, -0.0573026538)
-							game:GetService("ReplicatedStorage").Main.Input:FireServer(ohString1, ohString2, ohNil3, ohNil4, ohInstance5, ohCFrame6)
-						until game.Players.LocalPlayer.Character.Humanoid.Health == 0
-					end
-				)
-			end
+            task.spawn(function()
+                repeat task.wait()
+                    -- kill player
+                    plr.Character.HumanoidRootPart.CFrame = game.Players[getgenv().Settings.Kill_Player. Player_Name].Character.HumanoidRootPart.CFrame
+                    local ohString1 = "Damage"
+                    local ohString2 = "Punch"
+                    local ohNil3 = nil
+                    local ohNil4 = nil
+                    local ohInstance5 = game.Players[getgenv().Settings.Kill_Player.Player_Name].Character.Humanoid
+                    game:GetService("ReplicatedStorage").Main.Input:FireServer(ohString1, ohString2, ohNil3, ohNil4, ohInstance5)
+                    
+                    -- active skills
+                    if getgenv().Settings.Skill.e then
+                        KeyPress("E")
+                    end
+                    if getgenv().Settings.Skill.r then
+                        KeyPress("R")
+                    end
+                    if getgenv().Settings.Skill.t then
+                        KeyPress("T")
+                    end
+                    if getgenv().Settings.Skill.f then
+                        KeyPress("F")
+                    end
+                    if getgenv().Settings.Skill.h then
+                        KeyPress("H")
+                    end
+                    if getgenv().Settings.Skill.v then
+                        KeyPress("V")
+                    end
+                    if getgenv().Settings.Skill.b then
+                        KeyPress("B")
+                    end
+                until plr.Character.Humanoid.Health == 0 or game.Players[getgenv().Settings.Kill_Player.Player_Name].Character.Humanoid.Health == 0
+            end)
 
+        else
 
-			--< Skills >--
-			Execute_Skill_Function()
-		else
-			
 			game.Players.LocalPlayer.Character.Humanoid.Health = 0
 		end
    end,
