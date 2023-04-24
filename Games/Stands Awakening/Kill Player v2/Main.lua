@@ -151,7 +151,7 @@ local Toggle = Select_player:CreateToggle({
                     local ohString2 = "Punch"
                     local ohNil3 = nil
                     local ohNil4 = nil
-                    local ohInstance5 = game.Players[getgenv().Settings.Kill_Player. Player_Name].Character.Humanoid
+                    local ohInstance5 = game.Players[getgenv().Settings.Kill_Player.Player_Name].Character.Humanoid
                     game:GetService("ReplicatedStorage").Main.Input:FireServer(ohString1, ohString2, ohNil3, ohNil4, ohInstance5)
                     
                     -- active skills
