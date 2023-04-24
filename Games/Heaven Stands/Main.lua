@@ -33,6 +33,7 @@ local Welcome       = Window:CreateTab("Welcome", 12827783428)
 local Box_Farm      = Window:CreateTab("Box Farm", 7733964370)
 local Boss          = Window:CreateTab("Insta Kill Bosses", 12828636851)
 local Teleports     = Window:CreateTab("Teleport", 10090587519)
+local Misc          = Window:CreateTab("Misc")
 
 
 --< Variables >--
@@ -68,54 +69,23 @@ local function Box_Rename()
     Spawners.Boxes.Box8.Name = "Box8";
     Spawners.Boxes.Box9.Name = "Box9";
 end
-Box_Rename()
-local function Teleport_Boxes(a)
+-- Box_Rename()
+local function Collect_All_Boxes()
     for _, v in pairs(game:GetService("Workspace").Item_Spawnner.Box:GetChildren()) do
-        if v:IsA("MeshPart") and v.Name == a then
-            hrp.CFrame = v.CFrame wait(.5)
-            fireclickdetector(v.Box.Base.ClickDetector)
+        if v:IsA("MeshPart") and v.Name == "Spawn_Location" then
+            if v then  hrp:PivotTo(v:GetPivot()); end
         end
     end
 end
-local function Check_Box(a)
-    for _, v  in pairs(game:GetService("Workspace").Item_Spawnner.Box:GetChildren()) do
-        if v:IsA("MeshPart") and v.Name == a then
-            print(a)
-            Teleport_Boxes(a)
+local function Fire_Click_Detector()
+    for v, i in pairs(game:GetService("Workspace").Item_Spawnner.Box.Base:GetChildren()) do
+        if i:IsA("ClickDetector") then
+            if i then  fireclickdetector(i) end
 
         else
 
-            print("Box: ", a, "Not Spawned")
+            print(".")
         end
-    end
-end
-local function Collect_Boxes()
-    if Check_Box("Box1") then
-        print(".")
-    end
-    if Check_Box("Box2") then
-        print(".")
-    end
-    if Check_Box("Box3") then
-        print(".")
-    end
-    if Check_Box("Box4") then
-        print(".")
-    end
-    if Check_Box("Box5") then
-        print(".")
-    end
-    if Check_Box("Box6") then
-        print(".")
-    end
-    if Check_Box("Box7") then
-        print(".")
-    end
-    if Check_Box("Box8") then
-        print(".")
-    end
-    if Check_Box("Box9") then
-        print(".")
     end
 end
 function CreateESPPart(BodyPart, color)
@@ -143,14 +113,17 @@ Have Fun :>
 
 
 local Toggle = Box_Farm:CreateToggle({
-    Name = "Box Farm",
+    Name = "Box Farm ( Working... )",
     CurrentValue = false,
     Flag = "Toggle1",
     Callback = function(state)
         Settings = state
         if Settings then
             while wait() and Settings do
-                Collect_Boxes()
+                Collect_All_Boxes()
+                if Fire_Click_Detector() then
+                    print(".")
+                end
             end
         end
     end,
@@ -162,27 +135,27 @@ local Toggle = Box_Farm:CreateToggle({
     Callback = function(state)
         Settings = state
         if Settings then
-			CreateESPPart(game:GetService("Workspace").Item_Spawnner.Box.Box1, Color3.fromRGB(0, 255, 42))
-            CreateESPPart(game:GetService("Workspace").Item_Spawnner.Box.Box2, Color3.fromRGB(0, 255, 42))
-            CreateESPPart(game:GetService("Workspace").Item_Spawnner.Box.Box3, Color3.fromRGB(0, 255, 42))
-            CreateESPPart(game:GetService("Workspace").Item_Spawnner.Box.Box4, Color3.fromRGB(0, 255, 42))
-            CreateESPPart(game:GetService("Workspace").Item_Spawnner.Box.Box5, Color3.fromRGB(0, 255, 42))
-            CreateESPPart(game:GetService("Workspace").Item_Spawnner.Box.Box6, Color3.fromRGB(0, 255, 42))
-            CreateESPPart(game:GetService("Workspace").Item_Spawnner.Box.Box7, Color3.fromRGB(0, 255, 42))
-            CreateESPPart(game:GetService("Workspace").Item_Spawnner.Box.Box8, Color3.fromRGB(0, 255, 42))
-            CreateESPPart(game:GetService("Workspace").Item_Spawnner.Box.Box9, Color3.fromRGB(0, 255, 42))
+			CreateESPPart(game:GetService("Workspace").Item_Spawnner.Box.Spawn_Location, Color3.fromRGB(0, 255, 42))
+            CreateESPPart(game:GetService("Workspace").Item_Spawnner.Box.Spawn_Location, Color3.fromRGB(0, 255, 42))
+            CreateESPPart(game:GetService("Workspace").Item_Spawnner.Box.Spawn_Location, Color3.fromRGB(0, 255, 42))
+            CreateESPPart(game:GetService("Workspace").Item_Spawnner.Box.Spawn_Location, Color3.fromRGB(0, 255, 42))
+            CreateESPPart(game:GetService("Workspace").Item_Spawnner.Box.Spawn_Location, Color3.fromRGB(0, 255, 42))
+            CreateESPPart(game:GetService("Workspace").Item_Spawnner.Box.Spawn_Location, Color3.fromRGB(0, 255, 42))
+            CreateESPPart(game:GetService("Workspace").Item_Spawnner.Box.Spawn_Location, Color3.fromRGB(0, 255, 42))
+            CreateESPPart(game:GetService("Workspace").Item_Spawnner.Box.Spawn_Location, Color3.fromRGB(0, 255, 42))
+            CreateESPPart(game:GetService("Workspace").Item_Spawnner.Box.Spawn_Location, Color3.fromRGB(0, 255, 42))
         
         else
 
-            game:GetService("Workspace").Item_Spawnner.Box.Box1.ESPPart:Destroy()
-            game:GetService("Workspace").Item_Spawnner.Box.Box2.ESPPart:Destroy()
-            game:GetService("Workspace").Item_Spawnner.Box.Box3.ESPPart:Destroy()
-            game:GetService("Workspace").Item_Spawnner.Box.Box4.ESPPart:Destroy()
-            game:GetService("Workspace").Item_Spawnner.Box.Box5.ESPPart:Destroy()
-            game:GetService("Workspace").Item_Spawnner.Box.Box6.ESPPart:Destroy()
-            game:GetService("Workspace").Item_Spawnner.Box.Box7.ESPPart:Destroy()
-            game:GetService("Workspace").Item_Spawnner.Box.Box8.ESPPart:Destroy()
-            game:GetService("Workspace").Item_Spawnner.Box.Box9.ESPPart:Destroy()
+            game:GetService("Workspace").Item_Spawnner.Box.Spawn_Location.ESPPart:Destroy()
+            game:GetService("Workspace").Item_Spawnner.Box.Spawn_Location.ESPPart:Destroy()
+            game:GetService("Workspace").Item_Spawnner.Box.Spawn_Location.ESPPart:Destroy()
+            game:GetService("Workspace").Item_Spawnner.Box.Spawn_Location.ESPPart:Destroy()
+            game:GetService("Workspace").Item_Spawnner.Box.Spawn_Location.ESPPart:Destroy()
+            game:GetService("Workspace").Item_Spawnner.Box.Spawn_Location.ESPPart:Destroy()
+            game:GetService("Workspace").Item_Spawnner.Box.Spawn_Location.ESPPart:Destroy()
+            game:GetService("Workspace").Item_Spawnner.Box.Spawn_Location.ESPPart:Destroy()
+            game:GetService("Workspace").Item_Spawnner.Box.Spawn_Location.ESPPart:Destroy()
         end
     end,
 })
@@ -253,5 +226,23 @@ local Button = Teleports:CreateButton({
     Interact = 'Changable',
     Callback = function()
         hrp.CFrame = game:GetService("Workspace").NPC["Ability Storage"].HumanoidRootPart.CFrame
+    end,
+})
+
+
+
+
+
+local Toggle = Misc:CreateToggle({
+    Name = "Disable Character Functions",
+    CurrentValue = false,
+    Flag = "Toggle1",
+    Callback = function(state)
+        Settings = state
+        if Settings then
+            while wait() and Settings do
+                game:GetService("Players").LocalPlayer.Character.Character_Functions.Disabled = true
+            end
+        end
     end,
 })
