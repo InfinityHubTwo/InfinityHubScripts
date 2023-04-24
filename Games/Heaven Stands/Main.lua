@@ -243,6 +243,10 @@ local Toggle = Misc:CreateToggle({
             while wait() and Settings do
                 game:GetService("Players").LocalPlayer.Character.Character_Functions.Disabled = true
             end
+				
+	else
+				
+	    game:GetService("Players").LocalPlayer.Character.Character_Functions.Disabled = false
         end
     end,
 })
