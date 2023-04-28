@@ -172,7 +172,7 @@ local Toggle = Boss:CreateToggle({
     Callback = function(state)
         Settings = state
         if Settings then
-            local Mob = "AI-Boss" -- Mob Name
+            local Mob = "Vergil" -- Mob Name
             task.spawn(function ()
                 repeat task.wait()
                     Enemies = game:GetService("Workspace").Enemies:GetChildren()
