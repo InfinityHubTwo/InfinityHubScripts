@@ -191,7 +191,7 @@ local Toggle = Boss:CreateToggle({
             local ohString1 = "MouseButton1"
             game:GetService("ReplicatedStorage").Remote_Events.Input_Remote:InvokeServer(ohString1)
             wait(.25)
-            game:GetService("Workspace").Enemies["AI-Boss"].Head:Destroy()
+            workspace.Enemies.Vergil.Head:Destroy()
         end
     end,
 })
