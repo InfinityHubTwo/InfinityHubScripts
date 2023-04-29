@@ -41,6 +41,7 @@ local plr = game:GetService("Players").LocalPlayer;
 local char = plr.Character;
 local hum = plr.Character.Humanoid;
 local hrp = plr.Character.HumanoidRootPart;
+local TweenService = game:GetService('TweenService');
 local Settings
 local Spawners = {
     Boxes = {
@@ -102,11 +103,41 @@ function CreateESPPart(BodyPart, color)
 end
 
 
+local Move_To_Npc1 = TweenService:create(char.Humanoid.RootPart,TweenInfo.new(2), {CFrame = CFrame.new(418.96612548828125, 179.6881866455078, -818.6992797851562)})
+local Move_To_Npc2 = TweenService:create(char.Humanoid.RootPart,TweenInfo.new(2), {CFrame = CFrame.new(445.36578369140625, 179.6881866455078, -948.6686401367188)})
+local Move_To_Npc3 = TweenService:create(char.Humanoid.RootPart,TweenInfo.new(2), {CFrame = CFrame.new(302.77813720703125, 179.4150848388672, -820.0785522460938)})
+local Move_To_Npc4 = TweenService:create(char.Humanoid.RootPart,TweenInfo.new(2), {CFrame = CFrame.new(317.7178955078125, 179.90565490722656, -854.4478149414062)})
+
+
 --< Libray Settings >--
 local Paragraph = Welcome:CreateParagraph({Title = "Welcome To Infinity Hub ", Content = [[
 Game: Heaven Stands
 Have Fun :>
 ]]})
+local Boss_Section = Welcome:CreateSection("--// Auto Gui", false)
+local Paragraph = Welcome:CreateParagraph({Title = "Auto Gui ", Content = [[
+Por conta do anti cheat poderoso que o jogo agora tem decidi fazer esta opção.
+Basicamente se vc morre no jogo ele destroi todas as opções e para de funcionar tudo, então fiz isso para quando morrer ele reseta aa gui para funcionar tudo corretamente.
+
+Obs: Lembre de desativar as opções pois pode buga.
+]]})
+local Toggle = Welcome:CreateToggle({
+    Name = "Auto Gui",
+    CurrentValue = false,
+    Flag = "Toggle1",
+    Callback = function(state)
+        Settings = state
+        if Settings then
+            while wait() and Settings do
+                if hum.Health == 0 then
+                    loadstring(
+                        game:HttpGetAsync('https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Obfuscated/Heaven%20Stands.lua', true)
+                    )()
+                end
+            end
+        end
+    end,
+})
 
 
 
@@ -123,6 +154,8 @@ local Toggle = Box_Farm:CreateToggle({
                 Collect_All_Boxes()
                 if Fire_Click_Detector() then
                     print(".")
+                else
+                    print("ain")
                 end
             end
         end
@@ -166,7 +199,7 @@ local Toggle = Box_Farm:CreateToggle({
 
 local Boss_Section = Boss:CreateSection("Bosses", false)
 local Toggle = Boss:CreateToggle({
-    Name = "Insta Kill All Bosses",
+    Name = "Insta Kill ( Vergil )",
     CurrentValue = false,
     Flag = "Toggle1",
     Callback = function(state)
@@ -175,7 +208,7 @@ local Toggle = Boss:CreateToggle({
             local Mob = "Vergil" -- Mob Name
             task.spawn(function ()
                 repeat task.wait()
-                    Enemies = game:GetService("Workspace").Enemies:GetChildren()
+                    Enemies = workspace.Enemies:GetChildren()
                     for i = 1, #Enemies do
                         local v = Enemies[i]
                         if
@@ -195,6 +228,36 @@ local Toggle = Boss:CreateToggle({
         end
     end,
 })
+local Toggle = Boss:CreateToggle({
+    Name = "Insta Kill ( DIO )",
+    CurrentValue = false,
+    Flag = "Toggle1",
+    Callback = function(state)
+        Settings = state
+        if Settings then
+            local Mob = "DIO" -- Mob Name
+            task.spawn(function ()
+                repeat task.wait()
+                    Enemies = workspace.Enemies:GetChildren()
+                    for i = 1, #Enemies do
+                        local v = Enemies[i]
+                        if
+                            v.Name == Mob and v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and
+                                v:FindFirstChildOfClass("Humanoid").Health > 0
+                         then
+                            game.Players.LocalPlayer.Character.PrimaryPart.CFrame =
+                                CFrame.new(v.PrimaryPart.Position + Vector3.new(0, 7, 0), v.PrimaryPart.Position)
+                        end
+                    end
+                until 1+1==2
+            end)
+            local ohString1 = "MouseButton1"
+            game:GetService("ReplicatedStorage").Remote_Events.Input_Remote:InvokeServer(ohString1)
+            wait(.25)
+            workspace.Enemies.DIO.Head:Destroy()
+        end
+    end,
+})
 
 
 
@@ -204,28 +267,28 @@ local Button = Teleports:CreateButton({
     Name = "Teleport to Shop",
     Interact = 'Changable',
     Callback = function()
-        hrp.CFrame = game:GetService("Workspace").NPC.Shop.HumanoidRootPart.CFrame
+        Move_To_Npc1:Play()
     end,
 })
 local Button = Teleports:CreateButton({
     Name = "Teleport to Item Storage",
     Interact = 'Changable',
     Callback = function()
-        hrp.CFrame = game:GetService("Workspace").NPC["Item Storage"].HumanoidRootPart.CFrame
+        Move_To_Npc2:Play()
     end,
 })
 local Button = Teleports:CreateButton({
     Name = "Teleport to Item Seller",
     Interact = 'Changable',
     Callback = function()
-        hrp.CFrame = game:GetService("Workspace").NPC["Item Seller"].HumanoidRootPart.CFrame
+        Move_To_Npc3:Play()
     end,
 })
 local Button = Teleports:CreateButton({
     Name = "Teleport to Ability Storage",
     Interact = 'Changable',
     Callback = function()
-        hrp.CFrame = game:GetService("Workspace").NPC["Ability Storage"].HumanoidRootPart.CFrame
+        Move_To_Npc4:Play()
     end,
 })
 
