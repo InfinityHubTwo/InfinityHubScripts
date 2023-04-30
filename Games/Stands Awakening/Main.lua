@@ -1520,6 +1520,14 @@ local Button = Tab:CreateButton({
 		game.Players.LocalPlayer.Character:MoveTo(Vector3.new(1617.95, 588.23, -755.87))
    end,
 })
+local Button = Tab:CreateButton({
+   Name = "Started Place",
+   Info = "Click to teleport", -- Speaks for itself, Remove if none.
+   Interact = 'Changable',
+   Callback = function()
+		game.Players.LocalPlayer.Character:MoveTo(Vector3.new(2113.084716796875, 643.97119140625, -576.4493408203125))
+   end,
+})
 
 
 
