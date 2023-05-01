@@ -757,30 +757,6 @@ local Toggle = Tab:CreateToggle({
 		end
    end,
 })
-local Button = Tab:CreateButton({
-   Name = "Infinite Pose",
-   Info = "Player infinite pose", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-		local args = {
-			[1] = true
-		}
-	
-		game:GetService("ReplicatedStorage").Main.Menacing:FireServer(unpack(args))
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Death",
-   Info = "Player death", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-		local args = {
-	    	[1] = false
-	    }
-	
-	    game:GetService("ReplicatedStorage").Main.Death:FireServer(unpack(args))
-   end,
-})
 local Toggle = Tab:CreateToggle({
    Name = "Anti Time Stop",
    CurrentValue = false,
@@ -794,7 +770,56 @@ local Toggle = Tab:CreateToggle({
 		end
    end,
 })
+local Toggle = Tab:CreateToggle({
+   Name = "Anti Knock",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(State)
+		Settings = State 
+		if Settings then
+			while wait() and Settings do
+				for _, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+                    if v:IsA("BoolValue") and v.Name == "Knock" then
+                        v:Destroy()
+                    end
+                end
+			end
+		end
+   end,
+})
+local Toggle = Tab:CreateToggle({
+   Name = "God Mode",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(State)
+		Settings = State 
+		if Settings then
+			while wait() and Settings do
+				for _, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+                    if v:IsA("BoolValue") then
+                        v:Destroy()
+                    end
+                end
+			end
 
+        else
+
+            plr.Character.Head:Destroy()
+		end
+   end,
+})
+local Button = Tab:CreateButton({
+   Name = "Infinite Pose",
+   Info = "Player infinite pose", -- Speaks for itself, Remove if none.
+   Interact = 'Changable',
+   Callback = function()
+		local args = {
+			[1] = true
+		}
+	
+		game:GetService("ReplicatedStorage").Main.Menacing:FireServer(unpack(args))
+   end,
+})
 
 local Section = Tab:CreateSection("--// Options: GER, GE", true)
 local Button = Tab:CreateButton({
