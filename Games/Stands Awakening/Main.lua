@@ -672,7 +672,7 @@ Stands:CreateButton({
    Callback = function()
 	  --// Check Stand
 	  for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
-		  if v:IsA("LocalScript") and v.Name ~= "ResetLighting" and v.Name == "TheWorldAlternateUniverseStand" then
+		  if v:IsA("LocalScript") and v.Name ~= "ResetLighting" and v.Name == "TheWorldAlternateUniverse" then
 			  game:GetService("ReplicatedStorage").Main.Timestop:FireServer(20, "diego")
 		  end
 	  end
@@ -684,17 +684,30 @@ Stands:CreateButton({
    Callback = function()
 	  --// Check Stand
 	  for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
-		  if v:IsA("LocalScript") and v.Name ~= "ResetLighting" and v.Name == "TheWorldOVAStand" then
+		  if v:IsA("LocalScript") and v.Name ~= "ResetLighting" and v.Name == "TheWorldOVA" then
 			  game:GetService("ReplicatedStorage").Main.Timestop:FireServer(20, "dioova")
 		  end
 	  end
    end
 })
 Stands:CreateButton({
+   Name = "The World Ova ( Over Heaven )",
+   Interact = 'Interact.',
+   Callback = function()
+	   for _, v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+	   	if v:IsA("LocalScript") and v.Name == "TheWorldOVAH" then
+	   		Time = 20
+	   		game:GetService("ReplicatedStorage").Main.Timestop:FireServer(
+	   			Time, "diooh"
+	   		)
+	   	end
+	   end
+   end
+})
+Stands:CreateButton({
    Name = "Neo The World Auternative Universe",
    Interact = 'Interact.',
    Callback = function()
-	   --//	Neo The World Auternative Universe	//--
 	   for _, v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
 	   	if v:IsA("LocalScript") and v.Name == "NTWAU" then
 	   		Time = 20
