@@ -258,6 +258,37 @@ local Toggle = Boss:CreateToggle({
         end
     end,
 })
+local Toggle = Boss:CreateToggle({
+    Name = "Insta Kill ( Garou )",
+    CurrentValue = false,
+    Flag = "Toggle1",
+    Callback = function(state)
+        Settings = state
+        if Settings then
+            local Mob = "Garou" -- Mob Name
+            task.spawn(function ()
+                repeat task.wait()
+                    Enemies = workspace.Enemies:GetChildren()
+                    for i = 1, #Enemies do
+                        local v = Enemies[i]
+                        if
+                            v.Name == Mob and v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and
+                                v:FindFirstChildOfClass("Humanoid").Health > 0
+                         then
+                            game.Players.LocalPlayer.Character.PrimaryPart.CFrame =
+                                CFrame.new(v.PrimaryPart.Position + Vector3.new(0, 7, 0), v.PrimaryPart.Position)
+                        end
+                    end
+                until 1+1==2
+            end)
+            local ohString1 = "MouseButton1"
+            game:GetService("ReplicatedStorage").Remote_Events.Input_Remote:InvokeServer(ohString1)
+            wait(.25)
+            workspace.Enemies.Garou.Head:Destroy()
+        end
+    end,
+})
+
 
 
 
