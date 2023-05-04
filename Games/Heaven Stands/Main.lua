@@ -212,11 +212,11 @@ local Toggle = Box_Farm:CreateToggle({
         if Settings then
 			while wait() and Settings do
 				hrp.CFrame = Cosmic_Gates.Cosmic_Gate1.CFrame
-				for _, v in pairs(Cosmic_Gate.Spawn_Location:GetChildren()) do
-					if  then
+				--for _, v in pairs(Cosmic_Gate.Spawn_Location:GetChildren()) do
+					--if  then
 						
-					end
-				end
+					--end
+				--end
 			end
         end
     end,
