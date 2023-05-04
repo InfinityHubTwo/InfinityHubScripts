@@ -30,7 +30,7 @@ local Window = Rayfield:CreateWindow({
 
 --< Tabs >--
 local Welcome       = Window:CreateTab("Welcome", 12827783428)
-local Box_Farm      = Window:CreateTab("Box Farm", 7733964370)
+local Box_Farm      = Window:CreateTab("Farming", 7733964370)
 local Boss          = Window:CreateTab("Insta Kill Bosses", 12828636851)
 local Teleports     = Window:CreateTab("Teleport", 10090587519)
 local Misc          = Window:CreateTab("Misc")
@@ -108,6 +108,15 @@ local Move_To_Npc2 = TweenService:create(char.Humanoid.RootPart,TweenInfo.new(2)
 local Move_To_Npc3 = TweenService:create(char.Humanoid.RootPart,TweenInfo.new(2), {CFrame = CFrame.new(302.77813720703125, 179.4150848388672, -820.0785522460938)})
 local Move_To_Npc4 = TweenService:create(char.Humanoid.RootPart,TweenInfo.new(2), {CFrame = CFrame.new(317.7178955078125, 179.90565490722656, -854.4478149414062)})
 
+-- Cosmic Gate
+local Cosmic_Gate = workspace.Item_Spawnner.Cosmic_Gate
+local Cosmic_Gates = {
+	Cosmic_Gate1 = workspace.Item_Spawnner.Cosmic_Gate:GetChildren()[3],
+	Cosmic_Gate2 = workspace.Item_Spawnner.Cosmic_Gate:GetChildren()[4],
+	Cosmic_Gate3 = workspace.Item_Spawnner.Cosmic_Gate.Spawn_Location,
+	Cosmic_Gate4 = workspace.Item_Spawnner.Cosmic_Gate:GetChildren()[2],
+}
+
 
 --< Libray Settings >--
 local Paragraph = Welcome:CreateParagraph({Title = "Welcome To Infinity Hub ", Content = [[
@@ -143,6 +152,7 @@ local Toggle = Welcome:CreateToggle({
 
 
 
+local Boss_Section = Box_Farm:CreateSection("Box Farm", false)
 local Toggle = Box_Farm:CreateToggle({
     Name = "Box Farm ( Working... )",
     CurrentValue = false,
@@ -189,6 +199,25 @@ local Toggle = Box_Farm:CreateToggle({
             game:GetService("Workspace").Item_Spawnner.Box.Spawn_Location.ESPPart:Destroy()
             game:GetService("Workspace").Item_Spawnner.Box.Spawn_Location.ESPPart:Destroy()
             game:GetService("Workspace").Item_Spawnner.Box.Spawn_Location.ESPPart:Destroy()
+        end
+    end,
+})
+local Boss_Section = Box_Farm:CreateSection("Cosmic Gate Farm", false)
+local Toggle = Box_Farm:CreateToggle({
+    Name = "Check Cosmic Gate",
+    CurrentValue = false,
+    Flag = "Toggle1",
+    Callback = function(state)
+        Settings = state
+        if Settings then
+			while wait() and Settings do
+				hrp.CFrame = Cosmic_Gates.Cosmic_Gate1.CFrame
+				for _, v in pairs(Cosmic_Gate.Spawn_Location:GetChildren()) do
+					if  then
+						
+					end
+				end
+			end
         end
     end,
 })
@@ -294,6 +323,7 @@ local Toggle = Boss:CreateToggle({
 
 
 
+local Boss_Section = Teleports:CreateSection("Teleports Options", false)
 local Button = Teleports:CreateButton({
     Name = "Teleport to Shop",
     Interact = 'Changable',
