@@ -1,8 +1,6 @@
 -- variables
-local variables = {
-	lp = game:GetService("Players").LocalPlayer,
-	ts = game:GetService("Lighting").TS,
-}
+lp = game:GetService("Players").LocalPlayer
+ts = game:GetService("Lighting").TS
 
 
 -- code
@@ -28,9 +26,9 @@ PvPTab:CreateToggle("Anti Ts", function(state)
 	    while wait() and Settings do
 			for i, v in pairs(game:GetService("Lighting"):GetChildren()) do
 				if v:IsA("BoolValue") and v.Name == "TS" then
-					if variables.ts.Value == true then
+					if ts.Value == true then
 						wait(1.2)
-						variables.ts.Value = false
+						ts.Value = false
 					end
 				end
 			end
@@ -63,7 +61,7 @@ PvPTab:CreateToggle("God Mode", function(state)
 
 	else
 		
-		variables.lp.Character.Head:Destroy()
+		lp.Character.Head:Destroy()
 	end
 end)
 PvPTab:CreateToggle("God Mode", function(state)
