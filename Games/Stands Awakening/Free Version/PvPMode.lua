@@ -1,6 +1,6 @@
 -- variables
-lp = game:GetService("Players").LocalPlayer
-ts = game:GetService("Lighting").TS
+local lp = game:GetService("Players").LocalPlayer
+local ts = game:GetService("Lighting").TS
 
 
 -- code
