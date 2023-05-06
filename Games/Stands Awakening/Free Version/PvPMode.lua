@@ -1,46 +1,55 @@
--- variables
-local lp = game:GetService("Players").LocalPlayer
-local ts = game:GetService("Lighting").TS
-
-
--- code
-local CoastingLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/GhostDuckyy/UI-Libraries/main/Coasting%20Ui%20Lib/source.lua"))()
-local PvPTab = CoastingLibrary:CreateTab("PvP")
-
-
-PvPTab:CreateToggle("Auto Block", function(state)
-	Settings = state
-	if Settings then
-	    while wait() and Settings do
-			local args = {
-				[1] = "Alternate",
-				[2] = "Block"
-			}
-			game:GetService("ReplicatedStorage").Main.Input:FireServer(unpack(args))
+local Material = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/MaterialLua/master/Module.lua"))()
+local Window = Material.Load({
+	Title = "Infinity Hub Mobile",
+	Style = 3,
+	SizeX = 300,
+	SizeY = 300,
+	Theme = "Light",
+	ColorOverrides = {
+		MainFrame = Color3.fromRGB(235,235,235)
+	}
+})
+local lptab = Window.New({
+	Title = "Player"
+})
+local Toggle = lptab.Toggle({
+	Text = "Auto Block",
+	Callback = function(state)
+		if state then
+			while wait() and state do
+				local args = {
+					[1] = "Alternate",
+					[2] = "Block"
+				}
+				game:GetService("ReplicatedStorage").Main.Input:FireServer(unpack(args))
+			end
 		end
-	end
-end)
-PvPTab:CreateToggle("Anti Ts", function(state)
-	Settings = state
-	if Settings then
-	    while wait() and Settings do
-			for i, v in pairs(game:GetService("Lighting"):GetChildren()) do
-				if v:IsA("BoolValue") and v.Name == "TS" then
-					if ts.Value == true then
-						wait(1.2)
-						ts.Value = false
+	end,
+	Enabled = false
+})
+local Toggle = lptab.Toggle({
+	Text = "Anti Time Stop",
+	Callback = function(state)
+		if state then
+			while wait() and state do
+				for i,v in pairs(game:GetService("Lighting"):GetChildren()) do
+					if v:IsA("BoolValue") and v.Name == "TS" then
+						if game:GetService("Lighting").TS.Value == true then
+							wait(1.2)
+							game:GetService("Lighting").TS.Value = false
+						end
 					end
 				end
 			end
 		end
-	end
-end)
-PvPTab:CreateToggle("God Mode", function(state)
-	Settings = state
-	if Settings then
-	    while wait() and Settings do
-		if Settings then
-			while wait() and Settings do
+	end,
+	Enabled = false
+})
+local Toggle = lptab.Toggle({
+	Text = "God Mode",
+	Callback = function(state)
+		if state then
+			while wait() and state do
 				for _, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
                     if v:IsA("BoolValue") and v.Name == "Block" then
                         v:Destroy()
@@ -58,24 +67,6 @@ PvPTab:CreateToggle("God Mode", function(state)
                 end
 			end
 		end
-
-	else
-		
-		lp.Character.Head:Destroy()
-	end
-end)
-PvPTab:CreateToggle("God Mode", function(state)
-	Settings = state
-	if Settings then
-	    while wait() and Settings do
-		if Settings then
-			while wait() and Settings do
-				for _, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-                    if v:IsA("StringValue") and v.Name == "Marked" then
-                        v:Destroy()
-                    end
-                end
-			end
-		end
-	end
-end)
+	end,
+	Enabled = false
+})
