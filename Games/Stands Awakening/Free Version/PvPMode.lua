@@ -15,7 +15,7 @@ PvPTab:CreateToggle("Auto Block", function(state)
 			local args = {
 				[1] = "Alternate",
 				[2] = "Block"
-			
+			}
 			game:GetService("ReplicatedStorage").Main.Input:FireServer(unpack(args))
 		end
 	end
