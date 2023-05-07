@@ -53,21 +53,9 @@ lp:AddToggle({
 		Settings = state
 		if Settings then
 			while wait() and Settings do
-				for _, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-                    if v:IsA("BoolValue") and v.Name == "Block" then
-                        v:Remove()
-                    end
-                end
-				for _, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-                    if v:IsA("NumberValue") and v.Name == "BlockReduction" then
-                        v:Remove()
-                    end
-                end
-				for _, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-                    if v:IsA("BoolValue") and v.Name == "BootlegRTZ" then
-                        v:Remove()
-                    end
-                end
+				game:GetService("Players").LocalPlayer.Character.Block:Remove()
+				game:GetService("Players").LocalPlayer.Character.BlockReduction:Remove()
+				game:GetService("Players").LocalPlayer.Character.BootlegRTZ:Remove()
 			end
 		end
 	end    
