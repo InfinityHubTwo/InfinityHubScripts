@@ -81,7 +81,7 @@ lp:AddToggle({
 			while wait() and Settings do
 				for _, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
                     if v:IsA("StringValue") and v.Name == "Marked" then
-                        v:Destroy()
+                        v:Remove()
                     end
                 end
 			end
