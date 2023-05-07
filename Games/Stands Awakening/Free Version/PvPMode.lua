@@ -47,21 +47,33 @@ lp:AddToggle({
 	end    
 })
 lp:AddToggle({
-	Name = "God Mode",
+	Name = "God Mode ( Mobile Dont Work )",
 	Default = false,
 	Callback = function(state)
 		Settings = state
 		if Settings then
 			while wait() and Settings do
-				game:GetService("Players").LocalPlayer.Character.Block:Remove()
-				game:GetService("Players").LocalPlayer.Character.BlockReduction:Remove()
-				game:GetService("Players").LocalPlayer.Character.BootlegRTZ:Remove()
+				for _, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+                    if v:IsA("BoolValue") and v.Name == "Block" then
+                        v:Remove()
+                    end
+                end
+				for _, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+                    if v:IsA("NumberValue") and v.Name == "BlockReduction" then
+                        v:Remove()
+                    end
+                end
+				for _, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+                    if v:IsA("BoolValue") and v.Name == "BootlegRTZ" then
+                        v:Remove()
+                    end
+                end
 			end
 		end
 	end    
 })
 lp:AddToggle({
-	Name = "Anti Sans Marked",
+	Name = "Anti Sans Marked ( Mobile Dont Work )",
 	Default = false,
 	Callback = function(state)
 		Settings = state
@@ -75,4 +87,46 @@ lp:AddToggle({
 			end
 		end
 	end    
+})
+
+
+
+local ts = Window:MakeTab({
+	Name = "Ts Universal",
+	Icon = "rbxassetid://8797391485",
+	PremiumOnly = false
+})
+local Section = ts:AddSection({
+	Name = "Time Stop Universal"
+})
+
+ts:AddButton({
+	Name = "Shadow Dio",
+	Callback = function()
+      	game:GetService("ReplicatedStorage").Main.Timestop:FireServer(20, "shadowdio")
+  	end    
+})
+
+
+
+local boss = Window:MakeTab({
+	Name = "Boss",
+	Icon = "rbxassetid://8797391485",
+	PremiumOnly = false
+})
+local Section = boss:AddSection({
+	Name = "Auto Boss Options"
+})
+boss:AddButton({
+	Name = "Start Auto boss",
+	Callback = function()
+  	    getgenv().WaitTime = 240
+	    loadstring(game:HttpGet("https://raw.githubusercontent.com/sunexn/standsawakening/main/uncanny.lua",true))()
+  	end    
+})
+boss:AddButton({
+	Name = "Sword No Cooldown",
+	Callback = function()
+		loadstring(game:HttpGet(('https://raw.githubusercontent.com/itsyouranya/free/main/Anya%20Stands%20Awakening%20Helper.lua'),true))()
+  	end    
 })
