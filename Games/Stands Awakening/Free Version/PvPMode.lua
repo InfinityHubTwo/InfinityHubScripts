@@ -1,37 +1,39 @@
-local Material = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/MaterialLua/master/Module.lua"))()
-local Window = Material.Load({
-	Title = "Infinity Hub Mobile",
-	Style = 3,
-	SizeX = 300,
-	SizeY = 300,
-	Theme = "Light",
-	ColorOverrides = {
-		MainFrame = Color3.fromRGB(235,235,235)
-	}
+-- libray
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "InfHub", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest", IntroText = "Infinity Hub", IntroIcon = "rbxassetid://7733964640"})
+
+local lp = Window:MakeTab({
+	Name = "local Player",
+	Icon = "rbxassetid://8797391485",
+	PremiumOnly = false
 })
-local lptab = Window.New({
-	Title = "Player"
+local Section = lp:AddSection({
+	Name = "Local Player Script"
 })
-local Toggle = lptab.Toggle({
-	Text = "Auto Block",
+lp:AddToggle({
+	Name = "Auto Block",
+	Default = false,
 	Callback = function(state)
-		if state then
-			while wait() and state do
-				local args = {
+		Settings = state
+		if Settings then
+			while wait() and Settings do
+				wait(1)
+	    		local args = {
 					[1] = "Alternate",
 					[2] = "Block"
 				}
 				game:GetService("ReplicatedStorage").Main.Input:FireServer(unpack(args))
 			end
 		end
-	end,
-	Enabled = false
+	end    
 })
-local Toggle = lptab.Toggle({
-	Text = "Anti Time Stop",
+lp:AddToggle({
+	Name = "Anti Time Stop",
+	Default = false,
 	Callback = function(state)
-		if state then
-			while wait() and state do
+		Settings = state
+		if Settings then
+			while wait() and Settings do
 				for i,v in pairs(game:GetService("Lighting"):GetChildren()) do
 					if v:IsA("BoolValue") and v.Name == "TS" then
 						if game:GetService("Lighting").TS.Value == true then
@@ -42,14 +44,15 @@ local Toggle = lptab.Toggle({
 				end
 			end
 		end
-	end,
-	Enabled = false
+	end    
 })
-local Toggle = lptab.Toggle({
-	Text = "God Mode",
+lp:AddToggle({
+	Name = "God Mode",
+	Default = false,
 	Callback = function(state)
-		if state then
-			while wait() and state do
+		Settings = state
+		if Settings then
+			while wait() and Settings do
 				for _, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
                     if v:IsA("BoolValue") and v.Name == "Block" then
                         v:Destroy()
@@ -67,6 +70,21 @@ local Toggle = lptab.Toggle({
                 end
 			end
 		end
-	end,
-	Enabled = false
+	end    
+})
+lp:AddToggle({
+	Name = "Anti Sans Marked",
+	Default = false,
+	Callback = function(state)
+		Settings = state
+		if Settings then
+			while wait() and Settings do
+				for _, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+                    if v:IsA("StringValue") and v.Name == "Marked" then
+                        v:Destroy()
+                    end
+                end
+			end
+		end
+	end    
 })
