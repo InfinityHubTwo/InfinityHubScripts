@@ -801,28 +801,14 @@ local Toggle = Tab:CreateToggle({
    end,
 })
 local Toggle = Tab:CreateToggle({
-   Name = "God Mode",
+   Name = "God Mode ( Patched )",
    CurrentValue = false,
    Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(State)
 		Settings = State 
 		if Settings then
 			while wait() and Settings do
-				for _, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-                    if v:IsA("BoolValue") and v.Name == "Block" then
-                        v:Destroy()
-                    end
-                end
-				for _, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-                    if v:IsA("NumberValue") and v.Name == "BlockReduction" then
-                        v:Destroy()
-                    end
-                end
-				for _, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-                    if v:IsA("BoolValue") and v.Name == "BootlegRTZ" then
-                        v:Destroy()
-                    end
-                end
+				
 			end
 
         else
@@ -832,7 +818,7 @@ local Toggle = Tab:CreateToggle({
    end,
 })
 local Toggle = Tab:CreateToggle({
-   Name = "Anti Sans Marked",
+   Name = "Anti Sans Marked ( Patched )",
    CurrentValue = false,
    Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(State)
@@ -2300,36 +2286,6 @@ local Button = Tab:CreateButton({
    end,
 })
 local Button = Tab:CreateButton({
-   Name = "Shadow The World Requiem",
-   Info = "Need Dtw or Dtw Ova", -- Speaks for itself, Remove if none.
-   Interact = 'Changable',
-   Callback = function()
-      Rayfield:Notify({
-         Title = "Select",
-         Content = "Por favor selecione o seu stand, Dtw ova ou dtw normal. Lembrando que tem que selecionar mesmo, se não buga.",
-         Duration = 6.5,
-         Image = 4483362458,
-         Actions = { -- Notification Buttons
-             Ignore = {
-                 Name = "Dtw",
-                 Callback = function()
-                     --// Dtw Destroy Legs
-                     game:GetService("Players").LocalPlayer.Character.Stand["Stand Left Leg"]:Destroy()
-                     game:GetService("Players").LocalPlayer.Character.Stand["Stand Right Leg"]:Destroy()
-                 end
-             },
-             Hi = {
-                 Name = "Dtw Ova",
-                 Callback = function()
-                     game:GetService("Players").LocalPlayer.Character.Stand["Stand Left Leg"]:Destroy()
-                     game:GetService("Players").LocalPlayer.Character.Stand["Stand Right Leg"]:Destroy()
-                 end
-             },
-         },
-     })
-   end,
-})
-local Button = Tab:CreateButton({
    Name = "Money Locker",
    Info = "Click to lock your money.", -- Speaks for itself, Remove if none.
    Interact = 'Changable',
@@ -2421,60 +2377,6 @@ local Button = Tab:CreateButton({
              },
          },
      })
-   end,
-})
-local Toggle = Tab:CreateToggle({
-   Name = "Black Dtw, Dtw Ova",
-   CurrentValue = false,
-   Flag = "Toggle1",
-   Callback = function(ActiveBD)
-      if ActiveBD then
-         getgenv().ActiveBDToggle = true
-         game:GetService("Players").LocalPlayer.Character.Stand["Meshes/18"].Name = "Neon"
-         game:GetService("Players").LocalPlayer.Character.Stand["Meshes/18"].Name = "Neon"
-         while getgenv().ActiveBDToggle do
-            wait(0.01)
-            game:GetService("Players").LocalPlayer.Character.Stand.Neon:Remove()
-         end
-      else
-         getgenv().ActiveBDToggle = false
-         plr.Character:Destroy()
-      end
-   end,
-})
-local Toggle = Tab:CreateToggle({
-   Name = '"Cosmic" JSP',
-   CurrentValue = false,
-   Flag = "Toggle1",
-   Callback = function(ActiveCMB)
-      if ActiveCMB then
-         getgenv().ActiveCMBToggle = true
-         while getgenv().ActiveCMBToggle do
-            wait(0.01)
-            game:GetService("Players").LocalPlayer.Character.Stand["Neon."]:Destroy()
-         end
-      else
-         getgenv().ActiveCMBToggle = false
-         plr.Character:Destroy()
-      end
-   end,
-})
-local Toggle = Tab:CreateToggle({
-   Name = 'Ws Au 😳',
-   CurrentValue = false,
-   Flag = "Toggle1",
-   Callback = function(ActiveWsAuT)
-      if ActiveWsAuT then
-         getgenv().ActiveWsAuTToggle = true
-         while getgenv().ActiveWsAuTToggle do
-            game:GetService("Players").LocalPlayer.Character.Stand.Gold:Remove()
-            game:GetService("Players").LocalPlayer.Character.Stand.Leather:Remove() 
-            game:GetService("Players").LocalPlayer.Character.Stand.Leather:Remove()
-         end
-      else
-         getgenv().ActiveWsAuTToggle = false
-         plr.Character:Destroy()
-      end
    end,
 })
 
@@ -2629,6 +2531,60 @@ local Toggle = Tab:CreateToggle({
 			local Sound1 = Instance.new("Sound")
 			Box.Name="Box"Box.LineThickness=0.01;Box.Adornee=nil;Box.Color3=Color3.fromRGB(255,0,0)Box.Visible=true;Sound1.Name="Sound"Sound1.SoundId="http://www.roblox.com/asset/?id=773858658"Sound1.Volume=1;Sound1.Looped=false;Sound1.archivable=false;Sound1.Parent=game.CoreGui;Sound0.Name="Sound"Sound0.SoundId="http://www.roblox.com/asset/?id=4676738150"Sound0.Volume=1;Sound0.Looped=false;Sound0.archivable=false;Sound0.Parent=game.CoreGui;for a,b in pairs(game.Workspace:GetDescendants())do if b.ClassName=="Part"then b.Locked=false end end;Mouse.Button1Down:connect(function()if game:GetService("UserInputService"):IsKeyDown(HoldToSelect)then table.insert(Parts,Mouse.Target)Mouse.Target.Parent=game.CoreGui;Sound0:Play()end end)while wait()do Box.Adornee=nil;if game:GetService("UserInputService"):IsKeyDown(HoldToSelect)then Box.Adornee=Mouse.Target or nil end;if game:GetService("UserInputService"):IsKeyDown(HoldToUndoAll)then local c=0;for a,b in pairs(Parts)do c=a end;pcall(function()Parts[c].Parent=workspace;table.remove(Parts,c)Sound1:Play()end)wait(.1)end end
 		end
+   end,
+})
+local Toggle = Tab:CreateToggle({
+   Name = "Black Dtw, Dtw Ova",
+   CurrentValue = false,
+   Flag = "Toggle1",
+   Callback = function(ActiveBD)
+      if ActiveBD then
+         getgenv().ActiveBDToggle = true
+         game:GetService("Players").LocalPlayer.Character.Stand["Meshes/18"].Name = "Neon"
+         game:GetService("Players").LocalPlayer.Character.Stand["Meshes/18"].Name = "Neon"
+         while getgenv().ActiveBDToggle do
+            wait(0.01)
+            game:GetService("Players").LocalPlayer.Character.Stand.Neon:Remove()
+         end
+      else
+         getgenv().ActiveBDToggle = false
+         plr.Character:Destroy()
+      end
+   end,
+})
+local Toggle = Tab:CreateToggle({
+   Name = '"Cosmic" JSP',
+   CurrentValue = false,
+   Flag = "Toggle1",
+   Callback = function(ActiveCMB)
+      if ActiveCMB then
+         getgenv().ActiveCMBToggle = true
+         while getgenv().ActiveCMBToggle do
+            wait(0.01)
+            game:GetService("Players").LocalPlayer.Character.Stand["Neon."]:Destroy()
+         end
+      else
+         getgenv().ActiveCMBToggle = false
+         plr.Character:Destroy()
+      end
+   end,
+})
+local Toggle = Tab:CreateToggle({
+   Name = 'Ws Au 😳',
+   CurrentValue = false,
+   Flag = "Toggle1",
+   Callback = function(ActiveWsAuT)
+      if ActiveWsAuT then
+         getgenv().ActiveWsAuTToggle = true
+         while getgenv().ActiveWsAuTToggle do
+            game:GetService("Players").LocalPlayer.Character.Stand.Gold:Remove()
+            game:GetService("Players").LocalPlayer.Character.Stand.Leather:Remove() 
+            game:GetService("Players").LocalPlayer.Character.Stand.Leather:Remove()
+         end
+      else
+         getgenv().ActiveWsAuTToggle = false
+         plr.Character:Destroy()
+      end
    end,
 })
 
