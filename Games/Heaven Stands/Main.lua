@@ -7,6 +7,9 @@ getgenv().Settings = {
         ["Vergil"] = false,
         ["DIO"] = false,
         ["Garou"] = false,
+    },
+    CharacterFunctions = {
+        ["Disable Character Functions"] = false,
     }
 }
 
