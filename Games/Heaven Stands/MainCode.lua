@@ -218,4 +218,8 @@ if getgenv().Settings.InstaKillBosses["Garou"] then
 end
 if getgenv().Settings.CharacterFunctions["Disable Character Functions"] then
     workspace.Enemies.InfinityMercury.Character_Functions.Disabled = true;
+
+else
+
+    workspace.Enemies.InfinityMercury.Character_Functions.Enabled = true;
 end
