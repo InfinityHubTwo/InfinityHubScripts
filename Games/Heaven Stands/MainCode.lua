@@ -13,7 +13,7 @@ local Notify = AkaliNotif.Notify;
 -- code
 if getgenv().Settings.Farming["Box Farm"] then
     Notify({
-        Description = "Lembrando ele não farma todas as boxes pois as vezes é muito rapido, então quando o seu perso reseta execute novamente para coletar tudo dnv";
+        Description = "Lembrando ele não farma todas as boxes pois as vezes é muito rapido, então quando o seu personagem reseta execute novamente para coletar tudo dnv";
         Title = "Aviso";
         Duration = 5;
     });
