@@ -1,4 +1,7 @@
 --< Libray >--
+local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/Dynissimo/main/Scripts/AkaliNotif.lua"))();
+local Notify = AkaliNotif.Notify;
+
 getgenv().SecureMode = true
 local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Ui%20Libray/Rayfield/Main.lua'))()
 local Window = Rayfield:CreateWindow({
@@ -152,75 +155,8 @@ local Toggle = Welcome:CreateToggle({
 
 
 
-local Boss_Section = Box_Farm:CreateSection("Box Farm", false)
-local Toggle = Box_Farm:CreateToggle({
-    Name = "Box Farm ( Working... )",
-    CurrentValue = false,
-    Flag = "Toggle1",
-    Callback = function(state)
-        Settings = state
-        if Settings then
-            while wait() and Settings do
-                Collect_All_Boxes()
-                if Fire_Click_Detector() then
-                    print(".")
-                else
-                    print("ain")
-                end
-            end
-        end
-    end,
-})
-local Toggle = Box_Farm:CreateToggle({
-    Name = "Box Spawn Esp",
-    CurrentValue = false,
-    Flag = "Toggle1",
-    Callback = function(state)
-        Settings = state
-        if Settings then
-			CreateESPPart(game:GetService("Workspace").Item_Spawnner.Box.Spawn_Location, Color3.fromRGB(0, 255, 42))
-            CreateESPPart(game:GetService("Workspace").Item_Spawnner.Box.Spawn_Location, Color3.fromRGB(0, 255, 42))
-            CreateESPPart(game:GetService("Workspace").Item_Spawnner.Box.Spawn_Location, Color3.fromRGB(0, 255, 42))
-            CreateESPPart(game:GetService("Workspace").Item_Spawnner.Box.Spawn_Location, Color3.fromRGB(0, 255, 42))
-            CreateESPPart(game:GetService("Workspace").Item_Spawnner.Box.Spawn_Location, Color3.fromRGB(0, 255, 42))
-            CreateESPPart(game:GetService("Workspace").Item_Spawnner.Box.Spawn_Location, Color3.fromRGB(0, 255, 42))
-            CreateESPPart(game:GetService("Workspace").Item_Spawnner.Box.Spawn_Location, Color3.fromRGB(0, 255, 42))
-            CreateESPPart(game:GetService("Workspace").Item_Spawnner.Box.Spawn_Location, Color3.fromRGB(0, 255, 42))
-            CreateESPPart(game:GetService("Workspace").Item_Spawnner.Box.Spawn_Location, Color3.fromRGB(0, 255, 42))
-        
-        else
+local Boss_Section = Box_Farm:CreateSection("Farming in soon....", false)
 
-            game:GetService("Workspace").Item_Spawnner.Box.Spawn_Location.ESPPart:Destroy()
-            game:GetService("Workspace").Item_Spawnner.Box.Spawn_Location.ESPPart:Destroy()
-            game:GetService("Workspace").Item_Spawnner.Box.Spawn_Location.ESPPart:Destroy()
-            game:GetService("Workspace").Item_Spawnner.Box.Spawn_Location.ESPPart:Destroy()
-            game:GetService("Workspace").Item_Spawnner.Box.Spawn_Location.ESPPart:Destroy()
-            game:GetService("Workspace").Item_Spawnner.Box.Spawn_Location.ESPPart:Destroy()
-            game:GetService("Workspace").Item_Spawnner.Box.Spawn_Location.ESPPart:Destroy()
-            game:GetService("Workspace").Item_Spawnner.Box.Spawn_Location.ESPPart:Destroy()
-            game:GetService("Workspace").Item_Spawnner.Box.Spawn_Location.ESPPart:Destroy()
-        end
-    end,
-})
-local Boss_Section = Box_Farm:CreateSection("Cosmic Gate Farm", false)
-local Toggle = Box_Farm:CreateToggle({
-    Name = "Check Cosmic Gate",
-    CurrentValue = false,
-    Flag = "Toggle1",
-    Callback = function(state)
-        Settings = state
-        if Settings then
-			while wait() and Settings do
-				hrp.CFrame = Cosmic_Gates.Cosmic_Gate1.CFrame
-				--for _, v in pairs(Cosmic_Gate.Spawn_Location:GetChildren()) do
-					--if  then
-						
-					--end
-				--end
-			end
-        end
-    end,
-})
 
 
 
@@ -357,6 +293,7 @@ local Button = Teleports:CreateButton({
 
 
 
+local Section = Misc:CreateSection("Misc Scripts", false)
 local Toggle = Misc:CreateToggle({
     Name = "Disable Character Functions",
     CurrentValue = false,
@@ -373,4 +310,39 @@ local Toggle = Misc:CreateToggle({
 	    game:GetService("Players").LocalPlayer.Character.Character_Functions.Disabled = false
         end
     end,
+})
+local Button = Misc:CreateButton({
+   Name = "Fake Money",
+   Callback = function()
+		game:GetService("Players").LocalPlayer.Data.Cash.Value = 9e9
+   end,
+})
+local Section = Misc:CreateSection("Unlock Stands", false)
+getgenv().UnlockStands = {
+	UnlockGarouCosmic = true,
+}
+local Button = Misc:CreateButton({
+   Name = "Unlock Garou Cosmic",
+   Callback = function()
+		if getgenv().UnlockStands.UnlockGarouCosmic then
+			for _, v in pairs(game:GetService("Players").LocalPlayer.Data:GetChildren()) do
+			if v:IsA("StringValue") and v.Name == "Ability" then
+				print("Ok")
+				if v.Value == "Garou" then
+					game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.NPC.Cosmic_God.HumanoidRootPart.CFrame
+					wait(.5)
+					fireclickdetector(workspace.NPC.Cosmic_God.ClickDetector)
+			
+				else
+		
+						Notify({
+							Description = "You dont have Garou ability :/";
+							Title = "Ability";
+							Duration = 5;
+						});
+					end
+				end
+			end
+		end
+   end,
 })
