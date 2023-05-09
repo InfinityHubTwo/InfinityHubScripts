@@ -117,7 +117,7 @@ if getgenv().Settings.Farming["Box Farm"] then
                 end)
             end
         end
-        wait(6)
+        wait(4)
         hum.Health = 0
     end)
 end
