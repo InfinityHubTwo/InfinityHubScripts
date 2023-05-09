@@ -13,7 +13,7 @@ local Notify = AkaliNotif.Notify;
 -- code
 if getgenv().Settings.Farming["Box Farm"] then
     Notify({
-        Description = "Lembrando ele não farma todas as boxes pois as vezes é muito rapido, então quando o seu personagem reseta execute novamente para coletar tudo dnv";
+        Description = "Lembrando ele não farma todas as boxes pois as vezes é muito rapido, então quando o seu perso reseta execute novamente para coletar tudo dnv";
         Title = "Aviso";
         Duration = 5;
     });
@@ -117,7 +117,7 @@ if getgenv().Settings.Farming["Box Farm"] then
                 end)
             end
         end
-        wait(4)
+        wait(6)
         hum.Health = 0
     end)
 end
@@ -216,5 +216,6 @@ if getgenv().Settings.InstaKillBosses["Garou"] then
         Duration = 5;
     });
 end
-
-
+if getgenv().Settings.CharacterFunctions["Disable Character Functions"] then
+    workspace.Enemies.InfinityMercury.Character_Functions.Disabled = true;
+end
