@@ -801,14 +801,14 @@ local Toggle = Tab:CreateToggle({
    end,
 })
 local Toggle = Tab:CreateToggle({
-   Name = "God Mode ( Patched )",
+   Name = "God Mode :)",
    CurrentValue = false,
    Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(State)
 		Settings = State 
 		if Settings then
 			while wait() and Settings do
-				
+				print('working...')	
 			end
 
         else
