@@ -12,12 +12,6 @@ local Notify = AkaliNotif.Notify;
 
 -- code
 if getgenv().Settings.Farming["Box Farm"] then
-    Notify({
-        Description = "Lembrando ele não farma todas as boxes pois as vezes é muito rapido, então quando o seu perso reseta execute novamente para coletar tudo dnv";
-        Title = "Aviso";
-        Duration = 5;
-    });
-    wait(1.25)
     pcall(function()
         for _, v in pairs(workspace.Item_Spawnner.Box.Spawn_Location:GetChildren()) do
             if v:IsA("Model") then
