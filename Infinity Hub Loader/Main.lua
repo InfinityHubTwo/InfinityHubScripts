@@ -6,7 +6,10 @@ Creators = {
 --]]
 
 
+-- button
+loadstring(game:HttpGetAsync('https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Infinity%20Hub%20Loader/Button/Main.lua'))();
 
+-- games
 local games = {
 	--//    Games    \\--
 	[{5780309044}] = "https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Obfuscated/Stands%20Awakening.lua",
