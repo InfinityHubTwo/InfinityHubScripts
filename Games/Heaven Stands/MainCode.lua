@@ -117,7 +117,7 @@ if getgenv().Settings.Farming["Box Farm"] then
                 end)
             end
         end
-        wait(6)
+        wait(2.8)
         hum.Health = 0
     end)
 end
@@ -150,7 +150,7 @@ if getgenv().Settings.InstaKillBosses["Vergil"] then
     game:GetService("ReplicatedStorage").Remote_Events.Input_Remote:InvokeServer(ohString1)
     wait(.25)
     workspace.Enemies.Vergil.Head:Destroy()
-    wait(.25)
+    wait(2.8)
     hrp.CFrame = workspace.Map.Collisions.Assets:GetChildren()[315].Part.CFrame
     Notify({
         Description = "Boss Morto";
@@ -179,7 +179,7 @@ if getgenv().Settings.InstaKillBosses["DIO"] then
     game:GetService("ReplicatedStorage").Remote_Events.Input_Remote:InvokeServer(ohString1)
     wait(.25)
     workspace.Enemies.DIO.Head:Destroy()
-    wait(.25)
+    wait(2.8)
     hrp.CFrame = workspace.Map.Collisions.Assets:GetChildren()[315].Part.CFrame
     Notify({
         Description = "Boss Morto";
@@ -208,7 +208,7 @@ if getgenv().Settings.InstaKillBosses["Garou"] then
     game:GetService("ReplicatedStorage").Remote_Events.Input_Remote:InvokeServer(ohString1)
     wait(.25)
     workspace.Enemies.Garou.Head:Destroy()
-    wait(.25)
+    wait(2.8)
     hrp.CFrame = workspace.Map.Collisions.Assets:GetChildren()[315].Part.CFrame
     Notify({
         Description = "Boss Morto";
