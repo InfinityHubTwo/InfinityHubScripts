@@ -800,40 +800,6 @@ local Toggle = Tab:CreateToggle({
 		end
    end,
 })
-local Toggle = Tab:CreateToggle({
-   Name = "God Mode :)",
-   CurrentValue = false,
-   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(State)
-		Settings = State 
-		if Settings then
-			while wait() and Settings do
-				print('working...')	
-			end
-
-        else
-
-            plr.Character.Head:Destroy()
-		end
-   end,
-})
-local Toggle = Tab:CreateToggle({
-   Name = "Anti Sans Marked ( Patched )",
-   CurrentValue = false,
-   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(State)
-		Settings = State 
-		if Settings then
-			while wait() and Settings do
-				for _, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-                    if v:IsA("StringValue") and v.Name == "Marked" then
-                        v:Destroy()
-                    end
-                end
-            end
-		end
-   end,
-})
 local Button = Tab:CreateButton({
    Name = "Infinite Pose",
    Info = "Player infinite pose", -- Speaks for itself, Remove if none.
