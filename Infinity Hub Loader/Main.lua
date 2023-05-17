@@ -7,7 +7,7 @@ Creators = {
 
 
 -- button
-loadstring(game:HttpGetAsync('https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Infinity%20Hub%20Loader/Button/Main.lua'))();
+--loadstring(game:HttpGetAsync('https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Infinity%20Hub%20Loader/Button/Main.lua'))();
 
 -- games
 local games = {
