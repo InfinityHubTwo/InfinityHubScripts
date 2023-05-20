@@ -36,6 +36,7 @@ local Paragraph = Welcome:CreateParagraph({Title = "Welcome To Infinity Hub ", C
 Bem, devido o anti cheat do jogo a gui não funciona.
 O usuario so precisa colocar (true ou false) para abilitar e desabilitar o codigo da ação.
 
-script: https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Games/Heaven%20Stands/OtherMain.lua
+O Scipt ja foi copiado na sua area de tranferencia, so ir no navegador e colar
 ]]})
 
+setclipboard("https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Games/Heaven%20Stands/OtherMain.lua")
