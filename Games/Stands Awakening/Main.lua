@@ -685,7 +685,10 @@ Stands:CreateButton({
 	  --// Check Stand
 	  for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
 		  if v:IsA("LocalScript") and v.Name ~= "ResetLighting" and v.Name == "TheWorldOVA" then
-			  game:GetService("ReplicatedStorage").Main.Timestop:FireServer(20, "dioova")
+			game:GetService("ReplicatedStorage").Main.Timestop:FireServer(
+    				20, 
+    				"theworldnew"
+			)
 		  end
 	  end
    end
