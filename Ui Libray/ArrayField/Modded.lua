@@ -2,6 +2,7 @@
 
 ArrayField Interface Suite
 by Arrays
+Modded by Darkzin
 
 Original by Sirius
 
@@ -27,7 +28,7 @@ local RayfieldLibrary = {
 			TextColor = Color3.fromRGB(240, 240, 240),
 
 			Background = Color3.fromRGB(25, 25, 25),
-			Topbar = Color3.fromRGB(34, 34, 34),
+			Topbar = Color3.fromRGB(41, 41, 119),
 			Shadow = Color3.fromRGB(20, 20, 20),
 
 			NotificationBackground = Color3.fromRGB(20, 20, 20),
@@ -3600,10 +3601,10 @@ end)
 Topbar.Type.MouseButton1Click:Connect(function()
 	if Debounce or Minimised then return end
 	if SideBarClosed then
-		Topbar.Type.Image = "rbxassetid://"..6023565894
+		Topbar.Type.Image = "rbxassetid://"..7733993211
 		OpenSideBar()
 	else
-		Topbar.Type.Image = "rbxassetid://"..6023565896
+		Topbar.Type.Image = "rbxassetid://"..7733993211
 		CloseSideBar()
 	end
 end)
