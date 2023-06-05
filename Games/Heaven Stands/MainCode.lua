@@ -18,7 +18,7 @@ if getgenv().Heaven_Stands["Farming Options"]["Box Farm"] then
     --notification
     hi:Play() wait(.46)
     Notification:Notify(
-        {Title = "Patched", Description = "Box Farm petcheded sorry (Working)"},
+        {Title = "Patched", Description = "Box Farm is patched sorry (Working)"},
         {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"},
         {Image = "http://www.roblox.com/asset/?id=7733964640", ImageColor = Color3.fromRGB(255, 84, 84), Callback = function(State) print(tostring(State)) end}
     ) wait(.25) workspace.Notification_Sound:Destroy()
