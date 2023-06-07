@@ -21,8 +21,11 @@ getgenv().Heaven_Stands = {
     ["Visual Options"] = {
         ["Destroy Spirits"] = false,
         ["Vergil 2 Swords"] = false,
+        ["RTX Mode"] = false,
     },
 };
 
-loadstring(game:HttpGetAsync('https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Games/Heaven%20Stands/MainCode.lua'))("Heaven_Stands");
 
+loadstring(game:HttpGetAsync(
+        'https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Games/Heaven%20Stands/MainCode.lua'
+))("Heaven_Stands");
