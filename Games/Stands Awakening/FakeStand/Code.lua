@@ -1,5 +1,5 @@
 --[[
-Script made by darkzin
+Script made by InfinityMercury
 How to use:
     in "Stand Name" set a stand name
     if you are in doubt, there is a link below with the names of the stands
@@ -13,7 +13,7 @@ getgenv().Fake_Stand = {
         ["Select Slot"] = "",
     },
     ["Stands Names"] = {
-        "https://pastebin.com/raw/U72TkERs",
+        "https://controlc.com/2b4f1c30",
     }
 };
 
