@@ -48,160 +48,7 @@ local function AntiTs()
 		end
 	end
 end
-local AntiRagdoll = game:GetService("ReplicatedStorage").RagdollClient
-local Fire = game:GetService("ReplicatedStorage").fire
 local Settings
-getgenv().SelectOptions = nil
-local function DoStuff()
-	if getgenv().SelectOptions == "Arrow" then
-	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-        	if v:IsA("Tool") and v.Name == "Arrow" then
-            	pcall(function()
-                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-            	end)
-        	end
-    	end
-
-
-	elseif getgenv().SelectOptions == "Requiem Arrow" then
-	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-        	if v:IsA("Tool") and v.Name == "Requiem Arrow" then
-            	pcall(function()
-                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-            	end)
-        	end
-    	end
-
-
-	elseif getgenv().SelectOptions == "Rokakaka Fruit" then
-	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-        	if v:IsA("Tool") and v.Name == "Rokakaka Fruit" then
-            	pcall(function()
-                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-            	end)
-        	end
-    	end
-
-
-	elseif getgenv().SelectOptions == "Vampire Mask" then
-	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-        	if v:IsA("Tool") and v.Name == "Vampire Mask" then
-            	pcall(function()
-                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-            	end)
-        	end
-    	end
-
-
-	elseif getgenv().SelectOptions == "Frog" then
-	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-        	if v:IsA("Tool") and v.Name == "Frog" then
-            	pcall(function()
-                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-            	end)
-        	end
-    	end
-
-
-	elseif getgenv().SelectOptions == "Banknote" then
-	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-        	if v:IsA("Tool") and v.Name == "Banknote" then
-            	pcall(function()
-                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-            	end)
-        	end
-    	end
-
-	elseif getgenv().SelectOptions == "DIO's Diary" then
-	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-        	if v:IsA("Tool") and v.Name == "DIO's Diary" then
-            	pcall(function()
-                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-            	end)
-        	end
-    	end
-
-	elseif getgenv().SelectOptions == "Dio's Skull" then
-	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-        	if v:IsA("Tool") and v.Name == "Dio's Skull" then
-            	pcall(function()
-                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-            	end)
-        	end
-    	end
-
-	elseif getgenv().SelectOptions == "Camera" then
-	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-        	if v:IsA("Tool") and v.Name == "Camera" then
-            	pcall(function()
-                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-            	end)
-        	end
-    	end
-
-	elseif getgenv().SelectOptions == "Pot Platinum’s Diary" then
-	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-        	if v:IsA("Tool") and v.Name == "Pot Platinum’s Diary" then
-            	pcall(function()
-                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-            	end)
-        	end
-    	end
-
-	elseif getgenv().SelectOptions == "Red Heart" then
-	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-        	if v:IsA("Tool") and v.Name == "Red Heart" then
-            	pcall(function()
-                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-            	end)
-        	end
-    	end
-
-	elseif getgenv().SelectOptions == "True Requiem Arrow" then
-	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-        	if v:IsA("Tool") and v.Name == "True Requiem Arrow" then
-            	pcall(function()
-                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-            	end)
-        	end
-    	end
-
-	elseif getgenv().SelectOptions == "Ornstein's Spear" then
-	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-        	if v:IsA("Tool") and v.Name == "Ornstein's Spear" then
-            	pcall(function()
-                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-            	end)
-        	end
-    	end
-
-	elseif getgenv().SelectOptions == "Aja Mask" then
-	    for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-        	if v:IsA("Tool") and v.Name == "Aja Mask" then
-            	pcall(function()
-                	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-            	end)
-        	end
-    	end
-	end
-end
-local items = {
-	"Arrow",
-	"Requiem Arrow",
-	"Rokakaka Fruit", 
-	"Vampire Mask",
-	"Frog",
-	"Banknote",
-	"DIO's Diary", 
-	"Dio's Skull", 
-	"Camera", 
-	"Pot Platinum’s Diary",
-	"Red Heart",
-	"True Requiem Arrow",
-	"Ornstein's Spear",
-	"Aja Mask",
-
-}
 
 
 local function FeKill()
@@ -236,263 +83,6 @@ local function StandFarm()
 		)()
 
 	end
-end
-
-
---// Afk Farm \\--
-getgenv().AutoItemSlot = nil
-getgenv().SlotsSelect = nil
-slots = {
-	"Slot 1",
-	"Slot 2",
-	"Slot 3",
-	"Slot 4",
-	"Slot 5",
-	"Slot 6",
-	"Slot 7",
-	"Slot 8",
-}
-local function AutoCollectSlots()
-	if getgenv().SlotsSelect == "Slot 1" then
-		game:GetService("ReplicatedStorage").Bank:FireServer("Slot1", false, false)
-
-
-	elseif getgenv().SlotsSelect == "Slot 2" then
-		game:GetService("ReplicatedStorage").Bank:FireServer("Slot2", false, false)
-
-
-	elseif getgenv().SlotsSelect == "Slot 3" then
-		game:GetService("ReplicatedStorage").Bank:FireServer("Slot3", false, false)
-
-
-	elseif getgenv().SlotsSelect == "Slot 4" then
-		game:GetService("ReplicatedStorage").Bank:FireServer("Slot4", false, false)
-
-
-	elseif getgenv().SlotsSelect == "Slot 5" then
-		game:GetService("ReplicatedStorage").Bank:FireServer("Slot5", false, false)
-
-
-	elseif getgenv().SlotsSelect == "Slot 6" then
-		game:GetService("ReplicatedStorage").Bank:FireServer("Slot6", false, false)
-
-
-	elseif getgenv().SlotsSelect == "Slot 7" then
-		game:GetService("ReplicatedStorage").Bank:FireServer("Slot7", false, false)
-
-
-	elseif getgenv().SlotsSelect == "Slot 8" then
-		game:GetService("ReplicatedStorage").Bank:FireServer("Slot8", false, false)
-	end
-end
-
-
-local ItemsAfkFarm = {
-	"Dio's Skull",
-	"Camera",
-	"Pot Platinum's Diary",
-	"True Requiem Arrow",
-	"Red Heart",
-	"Camera",
-	"Uncanny Key",
-}
-local function AutoItemSlot()
-	if getgenv().AutoItemSlot == "Dio's Skull" then
-		for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-			if v:IsA("Tool") and v.Name == "DIO's Skull 2" then
-		    	pcall(function()
-		        	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-		    	end)
-			end
-		end
-		pcall(
-			function ()
-    			for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-    			    if v.name == "DIO's Skull 2" then
-    			        v.Parent = game.Players.LocalPlayer.Character
-    			    end
-    			end
-			end
-		)
-
-
-	elseif getgenv().AutoItemSlot == "Camera" then
-		for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-			if v:IsA("Tool") and v.Name == "Camera" then
-		    	pcall(function()
-		        	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-		    	end)
-			end
-		end
-		pcall(
-			function ()
-    			for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-    			    if v.name == "Camera" then
-    			        v.Parent = game.Players.LocalPlayer.Character
-    			    end
-    			end
-			end
-		)
-
-
-	elseif getgenv().AutoItemSlot == "Pot Platinum's Diary" then
-		for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-			if v:IsA("Tool") and v.Name == "Pot Platinum's Diary" then
-		    	pcall(function()
-		        	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-		    	end)
-			end
-		end
-		pcall(
-			function ()
-    			for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-    			    if v.name == "Pot Platinum's Diary" then
-    			        v.Parent = game.Players.LocalPlayer.Character
-    			    end
-    			end
-			end
-		)
-
-
-	elseif getgenv().AutoItemSlot == "Uncanny Key" then
-		for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-			if v:IsA("Tool") and v.Name == "Uncanny Key" then
-		    	pcall(function()
-		        	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-		    	end)
-			end
-		end
-		pcall(
-			function ()
-    			for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-    			    if v.name == "Uncanny Key" then
-    			        v.Parent = game.Players.LocalPlayer.Character
-    			    end
-    			end
-			end
-		)
-
-
-	elseif getgenv().AutoItemSlot == "True Requiem Arrow" then
-		for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-			if v:IsA("Tool") and v.Name == "True Requiem Arrow" then
-		    	pcall(function()
-		        	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-		    	end)
-			end
-		end
-		pcall(
-			function ()
-    			for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-					if v.name == "True Requiem Arrow" then
-    			        v.Parent = game.Players.LocalPlayer.Character
-    			    end
-    			end
-			end
-		)
-
-
-	elseif getgenv().AutoItemSlot == "Red Heart" then
-		for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-			if v:IsA("Tool") and v.Name == "Red Heart" then
-		    	pcall(function()
-		        	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-		    	end)
-			end
-		end
-		pcall(
-			function ()
-    			for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-    			    if v.name == "Red Heart" then
-    			        v.Parent = game.Players.LocalPlayer.Character
-    			    end
-    			end
-			end
-		)
-
-
-
-	elseif getgenv().AutoItemSlot == "Camera" then
-		for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-			if v:IsA("Tool") and v.Name == "Camera" then
-		    	pcall(function()
-		        	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-		    	end)
-			end
-		end
-		pcall(
-			function ()
-    			for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-    			    if v.name == "Camera" then
-    			        v.Parent = game.Players.LocalPlayer.Character
-    			    end
-    			end
-			end
-		)
-	end
-end
-local function AfkPosition()
-	local Float = Instance.new("Part")
-	Float.Parent = game.Workspace
-	Float.Size = Vector3.new(5,1,5)
-	Float.Anchored = true
-	Float.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, -3, 0)
-	Float.Transparency = 1
-end
---// End \\--
-
-
-getgenv().SansSounds = nil
-SansSoundsOption = {
-	"Vampire Laser ( Dio )", 
-	"Undertale Attack",
-	"Blood Sound",
-}
-local function SelectSound()
-	if getgenv().SansSounds == "Vampire Laser ( Dio )" then
-		game:GetService("ReplicatedStorage").Effects.BoneZone.Primary.reverb.SoundId  = "rbxassetid://5121734927"
-		game:GetService("ReplicatedStorage").Effects.BoneZone.Primary.eoe.SoundId 	  = "rbxassetid://5121734927"
-
-	elseif getgenv().SansSounds == "Undertale Attack" then
-		game:GetService("ReplicatedStorage").Effects.BoneZone.Primary.reverb.SoundId  = "rbxassetid://437475935"
-		game:GetService("ReplicatedStorage").Effects.BoneZone.Primary.eoe.SoundId 	  = "rbxassetid://437475935"
-
-	elseif getgenv().SansSounds == "Blood Sound" then
-		game:GetService("ReplicatedStorage").Effects.BoneZone.Primary.reverb.SoundId  = "rbxassetid://7837536401"
-		game:GetService("ReplicatedStorage").Effects.BoneZone.Primary.eoe.SoundId 	  = "rbxassetid://7837536401"
-	end
-end
-
-
-local function AutoUseBanknote()
-	task.spawn(
-		function ()
-			-- Grab Banknote
-			repeat task.wait(.1)
-				for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-					if v:IsA("Tool") and v.Name == "Banknote" then
-				    	pcall(function()
-				        	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-				    	end)
-					end
-				end
-			until 1+1==2
-
-
-			pcall(
-				function ()
-					-- Grab BankNote in Inventory
-	    			for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-	    			    if v.name == "Banknote" then
-	    			        v.Parent = game.Players.LocalPlayer.Character
-	    			        wait(.5)
-							game:GetService("Players").LocalPlayer.Backpack.Banknote:Active()
-	    			    end
-	    			end
-				end
-			)
-		end
-	)
 end
 
 
@@ -991,30 +581,6 @@ local Button = Tab:CreateButton({
 		game:GetService("ReplicatedStorage").Main.Input:FireServer(unpack(args))
    end,
 })
-local Dropdown = Tab:CreateDropdown({
-   Name = "Sans Sound, Key T/H. Select Sound:",
-   Options = SansSoundsOption,
-   CurrentOption = "",
-   Flag = "Dropdown1", 
-   Callback = function(Option)
-		getgenv().SansSounds = Option
-   end,
-})
-local Toggle = Tab:CreateToggle({
-   Name = "Start Sound",
-   CurrentValue = false,
-   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(State)
-		Settings = State
-		if Settings then
-			SelectSound()
-		else
-			-- Normal
-			game:GetService("ReplicatedStorage").Effects.BoneZone.Primary.reverb.SoundId = "rbxassetid://401680588"
-			game:GetService("ReplicatedStorage").Effects.BoneZone.Primary.eoe.SoundId = "rbxassetid://4264104024"
-		end
-   end,
-})
 
 
 local Section = Tab:CreateSection("--// Options: Made In Heaven", true)
@@ -1226,55 +792,6 @@ local Toggle = Tab:CreateToggle({
    end,
 })
 
-local Section = Tab:CreateSection("--// Options: Crash Player", true)
-local Paragraph = Tab:CreateParagraph({Title = "Crash Player ( Em Breve )", Content = [[
-]]})
-
---[[
-Lembrando que esta opção ainda esta em Beta.
-
-Aviso: Ele ira pegar todos os item no mapa e do teu inventario e depois mandará todos para a pessoa que deseja crashar, tenha um despositivo bom pois pode acabar crashando você mesmo.
-Obs: Verifica se não tem nenhum item de valor pois pode acabar perdendo-o.
-
-
-local playerNameCrash = "";
-local Input = Tab:CreateInput({
-   Name = "Player Name",
-   PlaceholderText = "Name",
-   RemoveTextAfterFocusLost = false,
-   Callback = function(Text)
-		playerNameCrash = string.lower(Text);
-   end,
-})
-local Toggle = Tab:CreateToggle({
-   Name = "Crash Player",
-   CurrentValue = false,
-   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(state)
-		Settings = state 
-		if Settings then
-			--< Detect Player >--
-			for _, plr in next, Players:GetPlayers() do
-				if string.find(string.lower(plr.Name), playerName) then
-					player = plr;
-				end
-			end
-
-
-			--< Equip all tools >--
-			for _, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-				v.Parent = game.Players.LocalPlayer.Character
-			end
-			wait(2)
-			
-
-			--< Give All Tools >--
-			game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("!giveitem".. player .. "All")
-		end
-   end,
-})
---]]
-
 
 
 --// Buy Items
@@ -1290,8 +807,7 @@ local Button = Tab:CreateButton({
    Callback = function()
 		local args = {
 		    [1] = "Arrow"
-		}
-		
+		}		
 		game:GetService("ReplicatedStorage").Purchase:FireServer(unpack(args))
    end,
 })
@@ -1302,8 +818,7 @@ local Button = Tab:CreateButton({
    Callback = function()
 		local args = {
 		    [1] = "Rokakaka Fruit"
-		}
-		
+		}		
 		game:GetService("ReplicatedStorage").Purchase:FireServer(unpack(args))
    end,
 })
@@ -1325,7 +840,6 @@ local Button = Tab:CreateButton({
    Interact = 'Changable',
    Callback = function()
 		local ohString1 = "Ticket"
-
 		game:GetService("ReplicatedStorage").Purchase:FireServer(ohString1)
    end,
 })
@@ -1459,23 +973,6 @@ local Toggle = Tab:CreateToggle({
 		else
 			getgenv().ToggleGrabTools = false
 		end
-   end,
-})
-
-local Section = Tab:CreateSection("--// Option: Item Sniper", true)
-local Dropdown = Tab:CreateDropdown({
-   Name = "Select Item",
-   Options = items,
-   CurrentOption = "",
-   Flag = "Dropdown1",
-   Callback = function(Option)
-		getgenv().SelectOptions = Option
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Item Sniper",
-   Callback = function()
-		DoStuff()
    end,
 })
 
@@ -1665,24 +1162,6 @@ local Button = Tab:CreateButton({
 			Duration = 5;
 		});
 		game:GetService("Players").LocalPlayer.Character:Destroy()
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Anti Ragdoll",
-   Interact = 'Changable',
-   Callback = function()
-		if AntiRagdoll then
-			AntiRagdoll:Destroy()
-		end
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Anti Fire",
-   Interact = 'Changable',
-   Callback = function()
-		if Fire then
-			Fire:Destroy()
-		end
    end,
 })
 local Button = Tab:CreateButton({
@@ -2579,74 +2058,90 @@ local Toggle = Tab:CreateToggle({
 
 
 
-
-
---// Afk Farm
-local Tab = Window:CreateTab("Afk Farm", 12876835994)
-local Section = Tab:CreateSection("--// Options: Afk Item Farm", true)
-local Paragraph = Tab:CreateParagraph({Title = "Afk Farm  ( Patched )", Content = [[
-Nesta opção você seleciona o item que quer que ele pegue automaticamente para você e guarda no seu slot que você selecionou.
-
-Obs: Se o item que você selecionou estiver spawnado no mapa ele coleta pro teu inventario e ja guarda no slot que selecionou (Feito para pessoa com problema de conexão).
-]]})
-
-local Dropdown = Tab:CreateDropdown({
-   Name = "Select Slots",
-   Options = slots,
-   CurrentOption = "",
-   Flag = "Dropdown1",
-   Callback = function(Option)
-		getgenv().SlotsSelect = Option
-   end,
+--// Fake Stand Main
+local ReplicatedStorage = game:GetService("ReplicatedStorage") local Viewports = ReplicatedStorage.Viewports local Stands = Viewports.Stands local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))() local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
+getgenv().Fake_Stand = {
+    ["Settings"] = {
+        ["Stand Name"] = "",
+        ["Select Slot"] = "",
+    },
+};
+local Tab = Window:CreateTab("Fake Stand", 13712116589)
+local Input = Tab:CreateInput({
+    Name = "Stand Name: ",
+    PlaceholderText = "...",
+    RemoveTextAfterFocusLost = false,
+    Callback = function(Text)
+        getgenv().Fake_Stand["Settings"]["Stand Name"] = Text;
+    end,
 })
-local Dropdown = Tab:CreateDropdown({
-   Name = "Select Item",
-   Options = ItemsAfkFarm,
-   CurrentOption = "",
-   Flag = "Dropdown1",
-   Callback = function(Option)
-		getgenv().AutoItemSlot = Option
-   end,
+local Input = Tab:CreateInput({
+    Name = "Select Slot: ",
+    PlaceholderText = "...",
+    RemoveTextAfterFocusLost = false,
+    Callback = function(Text)
+        getgenv().Fake_Stand["Settings"]["Select Slot"] = Text;
+    end,
 })
-local Toggle = Tab:CreateToggle({
-   Name = "Start + Anti Afk  ( Working... )",
-   CurrentValue = false,
-   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(State)
-		Settings = State 
-		if Settings then
-			Notify({
-				Description = "Afk Farm Started.";
-				Title = "Afk Farm";
-				Duration = 5;
-			});
-			HumanoidRootPart.CFrame = CFrame.new(623, 1866, 174)
-			AfkPosition()
-			while wait() and Settings do
-				HumanoidRootPart.CFrame = CFrame.new(623, 1866, 174)
-				Humanoid.WalkSpeed = 0
-				AutoItemSlot()
-				AutoCollectSlots()
-
-				-- Anti Afk
-				pcall(
-					function ()
-						for _, v in next, getconnections(game:GetService("Players").LocalPlayer.Idled) do
-        					v:Disable()
-   					    end
-					end
-				)
-			end
-		else
-			Notify({
-				Description = "Afk Farm Ended.";
-				Title = "Afk Farm";
-				Duration = 5;
-			});
-			HumanoidRootPart.CFrame = CFrame.new(1343, 633, -481)
-			Humanoid.WalkSpeed = 20
-		end
-   end,
+local Button = Tab:CreateButton({
+    Name = "Generate Fake Stand",
+    Callback = function()
+        -- notifications
+        local hi = Instance.new("Sound") hi.Name = "Notification_Sound" hi.SoundId = "http://www.roblox.com/asset/?id=6026984224" hi.Volume = 5 hi.archivable = false hi.Parent = game.Workspace
+        hi:Play() wait(.46)
+        Notification:Notify( {Title = "Fake Stand", Description = "generating stand..."}, {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 3, Type = "image"}, {Image = "http://www.roblox.com/asset/?id=7733964640", ImageColor = Color3.fromRGB(179, 255, 2), Callback = function(State) print(tostring(State)) end} ) wait(.25) workspace.Notification_Sound:Destroy()
+        wait(4)
+            
+            
+            
+        -- destroy stand in slot
+        for _, v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.StandStorage.Right.ImageLabel.ItemSlots.Slots[getgenv().Fake_Stand["Settings"]["Select Slot"]].ViewportFrame.WorldModel:GetChildren()) do
+            if v:IsA("Model") then
+                v:Destroy()
+            end
+        end
+        wait(1)
+        
+        
+        
+        -- dupe stand
+        for _, v in pairs(Stands:GetChildren()) do
+            if v:IsA("Model") and v.Name == getgenv().Fake_Stand["Settings"]["Stand Name"] then
+                local clone = v:Clone() wait(.25)
+                clone.Parent = game:GetService("Players").LocalPlayer.PlayerGui.StandStorage.Right.ImageLabel.ItemSlots.Slots[getgenv().Fake_Stand["Settings"]["Select Slot"]].ViewportFrame.WorldModel
+                game:GetService("Players").LocalPlayer.PlayerGui.StandStorage.Right.ImageLabel.ItemSlots.Slots[getgenv().Fake_Stand["Settings"]["Select Slot"]].ItemName.Value = getgenv().Fake_Stand["Settings"]["Stand Name"]
+                
+                -- rarity
+                game:GetService("Players").LocalPlayer.PlayerGui.StandStorage.Right.ImageLabel.ItemSlots.Slots[getgenv().Fake_Stand["Settings"]["Select Slot"]].Button.Overlay.Visible = false
+                game:GetService("Players").LocalPlayer.PlayerGui.StandStorage.Right.ImageLabel.ItemSlots.Slots[getgenv().Fake_Stand["Settings"]["Select Slot"]].Button.ExoticTier.Visible = true
+            end
+        end
+        wait(1)
+        
+        
+        
+        -- clone animation
+        for _, v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.StandStorage.ports:GetChildren()) do
+            if v:IsA("Model") and v.Name == "npc" then
+                local npcClone = v:Clone() wait(.25)
+                npcClone.Parent = game:GetService("Players").LocalPlayer.PlayerGui.StandStorage.Right.ImageLabel.ItemSlots.Slots[
+                    getgenv().Fake_Stand["Settings"]["Select Slot"]
+                ].ViewportFrame.WorldModel[getgenv().Fake_Stand["Settings"]["Stand Name"]]
+            end
+        end
+        
+        
+        
+        -- credits
+        local hi = Instance.new("Sound") hi.Name = "Notification_Sound" hi.SoundId = "http://www.roblox.com/asset/?id=6026984224" hi.Volume = 5 hi.archivable = false hi.Parent = game.Workspace
+        hi:Play() wait(.46)
+        Notification:Notify( {Title = "successfully", Description = "The stand you selected was successfully generated. | stand you selected: ".. tostring(getgenv().Fake_Stand["Settings"]["Stand Name"])}, {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 8, Type = "image"}, {Image = "http://www.roblox.com/asset/?id=7733964640", ImageColor = Color3.fromRGB(2, 255, 23), Callback = function(State) print(tostring(State)) end} ) wait(.25) workspace.Notification_Sound:Destroy()
+        wait(1)
+        local hi = Instance.new("Sound") hi.Name = "Notification_Sound" hi.SoundId = "http://www.roblox.com/asset/?id=6026984224" hi.Volume = 5 hi.archivable = false hi.Parent = game.Workspace
+        hi:Play() wait(.46)
+        Notification:Notify( {Title = "Credits", Description = "Made by InfinityMercury "}, {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 8, Type = "image"}, {Image = "http://www.roblox.com/asset/?id=7733964640", ImageColor = Color3.fromRGB(2, 255, 23), Callback = function(State) print(tostring(State)) end} ) wait(.25) workspace.Notification_Sound:Destroy()
+        wait(1)
+    end,
 })
 
 
