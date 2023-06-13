@@ -19,7 +19,7 @@ local Window = Library:Window({
 local FakeStandGenerator = Window:Tab({
    Text = "Fake Stand"
 })
-local FakeStandGenerator = Window:Tab({
+local FakeItemsGenerator = Window:Tab({
    Text = "Fake Items"
 })
 local Credits = Window:Tab({
@@ -122,3 +122,4 @@ CreditsSection:Button({
       print("yeahhhhh")
    end
 })
+
