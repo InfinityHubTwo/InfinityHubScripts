@@ -2067,6 +2067,7 @@ getgenv().Fake_Stand = {
     },
 };
 local Tab = Window:CreateTab("Fake Stand", 13712116589)
+local Section = Tab:CreateSection("--// Fake Stand", true)
 local Input = Tab:CreateInput({
     Name = "Stand Name: ",
     PlaceholderText = "...",
@@ -2144,6 +2145,21 @@ local Button = Tab:CreateButton({
     end,
 })
 
+
+local Section = Tab:CreateSection("--// Stands Name", true)
+for _, v in pairs(Stands:GetChildren()) do
+    if v:IsA("Model") then
+        local Button = Tab:CreateButton({
+            Name = v.Name,
+            Callback = function()
+                setclipboard(v.Name)
+                local hi = Instance.new("Sound") hi.Name = "Notification_Sound" hi.SoundId = "http://www.roblox.com/asset/?id=6026984224" hi.Volume = 5 hi.archivable = false hi.Parent = game.Workspace
+                hi:Play() wait(.46)
+                Notification:Notify( {Title = "Notification", Description = "Stand: ".. tostring(v.Name) ..", copy in your clipboard"}, {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 8, Type = "image"}, {Image = "http://www.roblox.com/asset/?id=7733964640", ImageColor = Color3.fromRGB(2, 255, 23), Callback = function(State) print(tostring(State)) end} ) wait(.25) workspace.Notification_Sound:Destroy()
+            end,
+        })
+    end
+end
 
 
 
