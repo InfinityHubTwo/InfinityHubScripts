@@ -15,7 +15,7 @@ local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/Rain-
 Library.Theme = "Dark"
 local Flags = Library.Flags
 local Window = Library:Window({
-   Text = "Stands Awakening Fake Stand"
+   Text = "Stands Awakening Mobile Version"
 })
 
 
