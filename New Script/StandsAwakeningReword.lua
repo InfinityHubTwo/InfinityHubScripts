@@ -17,6 +17,8 @@ local mouse = plr:GetMouse()
 local CheckSpeed = plr.Character.Humanoid.WalkSpeed
 local CheckJump = plr.Character.Humanoid.JumpPower
 local CheckHealth = plr.Character.Humanoid.Health
+local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
+local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
 local function CheckStand()
 	for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
 		if v:IsA("LocalScript") and v.Name ~= "ResetLighting" then
@@ -57,7 +59,8 @@ local Window = Library:CreateWindow({
 -- tabs
 local Tabs = {
     Stands = Window:AddTab('Stands'),
-    LP = Window:AddTab('Local Player'),
+    LP = Window:AddTab('Player'),
+    Items = Window:AddTab('Items'),
     ['UI Settings'] = Window:AddTab('UI Settings'),
 }
 
@@ -315,20 +318,6 @@ PlayerOptionsBox:AddToggle('ATS', {
         end
     end
 })
-PlayerOptionsBox:AddToggle('ATS', {
-    Text = 'Anti Time Stop',
-    Default = false,
-    Tooltip = 'Turn on to Anti TS',
-
-    Callback = function(state)
-        settings = state
-        if settings then
-            while wait() and settings do
-                AntiTs()
-            end
-        end
-    end
-})
 PlayerOptionsBox:AddToggle('AD', {
     Text = 'Anti Disc',
     Default = false,
@@ -409,3 +398,166 @@ PlayerNormalOptionsBox:AddSlider('Jump', {
         plr.Character.Humanoid.JumpPower = x;
     end
 })
+
+
+local FePlayerOptionsBox = Tabs.LP:AddLeftGroupbox('Fe Options')
+local Button = FePlayerOptionsBox:AddButton({
+    Text = 'Fe Invisible',
+    Func = function()
+        local offset = 1100 --how far you are away from your camera when invisible
+        local LocalPlayer = game.Players.LocalPlayer
+        local Backpack = LocalPlayer.Backpack
+        local Character = LocalPlayer.Character
+        local invisible = false
+        local grips = {}
+        local heldTool
+        local gripChanged
+        local handle
+        local weld
+        function setDisplayDistance(distance)
+           for _,player in pairs(game.Players:GetPlayers()) do if player.Character and player.Character:FindFirstChildWhichIsA("Humanoid") then player.Character:FindFirstChildWhichIsA("Humanoid").NameDisplayDistance = distance player.Character:FindFirstChildWhichIsA("Humanoid").HealthDisplayDistance = distance end end
+        end
+        local tool = Instance.new("Tool", Backpack)
+        tool.Name = "Ghostify [Disabled]"
+        tool.RequiresHandle = false
+        tool.CanBeDropped = false
+        tool.Equipped:Connect(function() wait()
+           if not invisible then
+               invisible = true
+               tool.Name = "Ghostify [Enabled]"
+               if handle then handle:Destroy() end if weld then weld:Destroy() end
+               handle = Instance.new("Part", workspace) handle.Name = "Handle" handle.Transparency = 1 handle.CanCollide = false handle.Size = Vector3.new(2, 1, 1)
+               weld = Instance.new("Weld", handle) weld.Part0 = handle weld.Part1 = Character.HumanoidRootPart weld.C0 = CFrame.new(0, offset-1.5, 0)
+               setDisplayDistance(offset+100)
+               workspace.CurrentCamera.CameraSubject = handle
+               Character.HumanoidRootPart.CFrame = Character.HumanoidRootPart.CFrame * CFrame.new(0, offset, 0)
+               Character.Humanoid.HipHeight = offset
+               Character.Humanoid:ChangeState(11)
+               for _,child in pairs(Backpack:GetChildren()) do if child:IsA("Tool") and child ~= tool then grips[child] = child.Grip end end
+           elseif invisible then
+               invisible = false
+               tool.Name = "Ghostify [Disabled]"
+               if handle then handle:Destroy() end if weld then weld:Destroy() end
+               for _,child in pairs(Character:GetChildren()) do if child:IsA("Tool") then child.Parent = Backpack end end
+               for tool,grip in pairs(grips) do if tool then tool.Grip = grip end end
+               heldTool = nil
+               setDisplayDistance(100)
+               workspace.CurrentCamera.CameraSubject = Character.Humanoid
+               Character.Animate.Disabled = false
+               Character.HumanoidRootPart.CFrame = Character.HumanoidRootPart.CFrame * CFrame.new(0, -offset, 0)
+               Character.Humanoid.HipHeight = 0
+               Character.Humanoid:ChangeState(11)
+           end
+           tool.Parent = Backpack
+        end)
+        Character.ChildAdded:Connect(function(child) wait()
+           if invisible and child:IsA("Tool") and child ~= heldTool and child ~= tool then
+               heldTool = child
+               local lastGrip = heldTool.Grip
+               if not grips[heldTool] then grips[heldTool] = lastGrip end
+               for _,track in pairs(Character.Humanoid:GetPlayingAnimationTracks()) do track:Stop() end
+               Character.Animate.Disabled = true
+               heldTool.Grip = heldTool.Grip*(CFrame.new(0, offset-1.5, 1.5) * CFrame.Angles(math.rad(-90), 0, 0))
+               heldTool.Parent = Backpack
+               heldTool.Parent = Character
+               if gripChanged then gripChanged:Disconnect() end
+               gripChanged = heldTool:GetPropertyChangedSignal("Grip"):Connect(function() wait()
+                   if not invisible then gripChanged:Disconnect() end
+                   if heldTool.Grip ~= lastGrip then
+                       lastGrip = heldTool.Grip*(CFrame.new(0, offset-1.5, 1.5) * CFrame.Angles(math.rad(-90), 0, 0))
+                       heldTool.Grip = lastGrip
+                       heldTool.Parent = Backpack
+                       heldTool.Parent = Character
+                   end
+               end)
+           end
+        end)
+    end,
+    DoubleClick = false,
+    Tooltip = 'fe invisible tool'
+})
+local Button = FePlayerOptionsBox:AddButton({
+    Text = 'Fe Character Creator',
+    Func = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/rouxhaver/scripts-3/main/FE%20character%20creator.lua'))();
+    end,
+    DoubleClick = false,
+    Tooltip = 'click to create your character'
+})
+
+
+
+
+local ItemFarmBox = Tabs.Items:AddLeftGroupbox('Item Farm')
+local Button = ItemFarmBox:AddButton({
+    Text = 'Grab Tools',
+    Func = function()
+        for _, v in pairs(workspace:GetChildren()) do
+            if v:IsA("Tool") then
+                plr.Character.Humanoid:EquipTool(v)
+            end
+        end
+    end,
+    DoubleClick = false,
+    Tooltip = 'click to grab all tools'
+})
+local Button = ItemFarmBox:AddButton({
+    Text = 'Teleport Tools',
+    Func = function()
+		for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
+			if v:IsA("Tool") and v:FindFirstChild("Handle") then
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Handle.CFrame
+			end
+		end
+    end,
+    DoubleClick = false,
+    Tooltip = 'click to teleport to random tools'
+})
+ItemsName = {}
+for _, v in pairs(game:GetService("ReplicatedStorage").Viewports.Items:GetChildren()) do if v:IsA("Model") then table.insert(ItemsName, v.Name) end end
+ItemFarmBox:AddDropdown('ItemSniperDrop', {
+    Values = ItemsName,
+    Default = 1,
+    Multi = false,
+
+    Text = 'Item Sniper',
+    Tooltip = 'Select a item',
+
+    Callback = function(Value)
+    end
+})
+local Button = ItemFarmBox:AddButton({
+    Text = 'Item Sniper',
+    Func = function()
+        for _, v in pairs(workspace:GetChildren()) do
+            if v:IsA("Tool") and v.Name == Options.ItemSniperDrop.Value then
+                plr.Character.Humanoid:EquipTool(v)
+            end
+        end
+    end,
+    DoubleClick = false,
+    Tooltip = 'click to grab item selected'
+})
+
+
+local ItemNotifierBox = Tabs.Items:AddRightGroupbox('Item Notifier')
+for _, v in pairs(game:GetService("ReplicatedStorage").Viewports.Items:GetChildren()) do
+    if v:IsA("Model") and v.Name ~= "Nothing" then
+        local Button = ItemNotifierBox:AddButton({
+            Text = v.Name,
+            Func = function()
+                if workspace[v.Name] then
+                    local hi = Instance.new("Sound") hi.Name = "Notification_Sound" hi.SoundId = "http://www.roblox.com/asset/?id=6026984224" hi.Volume = 5 hi.archivable = false hi.Parent = game.Workspace
+                    hi:Play() wait(.46)
+                    Notification:Notify(
+                        {Title = "Item Notifier", Description = "The item: ".. v.Name ..", is spawned"},
+                        {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 6, Type = "image"},
+                        {Image = "http://www.roblox.com/asset/?id=13780014144", ImageColor = Color3.fromRGB(255, 84, 84)}
+                    )
+                end
+            end,
+            DoubleClick = false,
+            Tooltip = 'click to see if the item is spawned'
+        })
+    end
+end
