@@ -7,6 +7,16 @@
 ]]
 
 
+-- notification
+local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
+local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
+local hi = Instance.new("Sound")  hi.Name = "Notification_Sound"  hi.SoundId = "http://www.roblox.com/asset/?id=6026984224"  hi.Volume = 5  hi.archivable = false  hi.Parent = game.Workspace hi:Play() wait(.46)
+Notification:Notify(
+    {Title = "Script Executed", Description = "Infinity Hub Executed, made by InfinityMercury and Darkzin"},
+    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 6, Type = "image"},
+    {Image = "http://www.roblox.com/asset/?id=13780014144", ImageColor = Color3.fromRGB(255, 255, 255)}
+) wait(4)
+
 
 
 
@@ -17,8 +27,6 @@ local mouse = plr:GetMouse()
 local CheckSpeed = plr.Character.Humanoid.WalkSpeed
 local CheckJump = plr.Character.Humanoid.JumpPower
 local CheckHealth = plr.Character.Humanoid.Health
-local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
-local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
 local function CheckStand()
 	for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
 		if v:IsA("LocalScript") and v.Name ~= "ResetLighting" then
@@ -42,6 +50,7 @@ local Settings
 
 
 
+
 -- libray
 local repo = 'https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Ui%20Libray/Linoria/'
 local Libray = loadstring(game:HttpGet(repo .. 'Loader.lua'))()
@@ -57,6 +66,7 @@ local Window = Library:CreateWindow({
 
 
 
+
 -- tabs
 local Tabs = {
     Stands = Window:AddTab('Stands'),
@@ -64,6 +74,7 @@ local Tabs = {
     Items = Window:AddTab('Items'),
     ['UI Settings'] = Window:AddTab('UI Settings'),
 }
+
 
 
 
@@ -959,10 +970,4 @@ OtherItemFarmBox:AddToggle('AB', {
 -- libray settings
 local MenuGroup = Tabs['UI Settings']:AddLeftGroupbox('Menu')
 MenuGroup:AddButton('Unload', function() Library:Unload() end)
-MenuGroup:AddLabel('Menu bind'):AddKeyPicker('MenuKeybind', { Default = "RightControl", NoUI = true, Text = 'Menu keybind' }) 
-Library.ToggleKeybind = Options.MenuKeybind 
-SaveManager:SetIgnoreIndexes({ 'MenuKeybind' }) 
-ThemeManager:SetFolder('Infinity Hub')
-SaveManager:SetFolder("InfHub/" .. game.PlaceId)
-SaveManager:BuildConfigSection(Tabs['UI Settings']) 
-ThemeManager:ApplyToTab(Tabs['UI Settings'])
+MenuGroup:AddLabel('Menu bind'):AddKeyPicker('MenuKeybind', { Default = "RightControl", NoUI = true, Text = 'Menu keybind' })
