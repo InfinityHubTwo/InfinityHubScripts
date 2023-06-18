@@ -37,6 +37,17 @@ local function AntiTs()
 		end
 	end
 end
+local function getWorkspaceTools()
+	local wsTools = {}
+	for i, v in pairs(game.Workspace:GetDescendants()) do
+		if v:IsA("Tool") and game.Players:GetPlayerFromCharacter(v.Parent) == nil then
+			if v:findFirstChild("Handle") or v:FindFirstChildOfClass("Part") or v:FindFirstChildOfClass("MeshPart") or v:findFirstChildOfClass("UnionOperation") then
+				table.insert(wsTools, v)
+			end
+		end
+	end
+	return wsTools
+end
 local Settings
 
 
@@ -338,7 +349,7 @@ PlayerOptionsBox:AddToggle('AD', {
         end
     end
 })
-PlayerOptionsBox:AddToggle('AD', {
+PlayerOptionsBox:AddToggle('GM', {
     Text = 'God Mode',
     Default = false,
     Tooltip = 'Debug Version, then sometimes it cant work',
@@ -486,6 +497,168 @@ local Button = FePlayerOptionsBox:AddButton({
 })
 
 
+local VisualOptionsBox = Tabs.LP:AddRightGroupbox('Visual Options')
+local Button = VisualOptionsBox:AddButton({
+    Text = 'Infinity Money',
+    Func = function()
+        game:GetService("Players").LocalPlayer.Data.Money.Value = 4198237189273980213
+    end,
+    DoubleClick = false,
+    Tooltip = 'click to get a infinite money'
+})
+VisualOptionsBox:AddToggle('AB', {
+    Text = 'Fake Time Stop',
+    Default = false,
+    Tooltip = 'clique to generate a fake time stop',
+
+    Callback = function(state)
+        settings = state
+        if settings then
+			for i, v in pairs (game:GetService("ReplicatedStorage").Effects:GetChildren()) do
+			    if v:IsA("MeshPart") and v.Name == "TSEffect" then
+					-- clone
+					v:Clone()
+					v.Parent = game:GetService("Workspace")
+					v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+
+					-- size
+					if v.Size then
+						v.Size = Vector3.new(750, 750, 750)
+					end
+			    end
+			end
+
+        else
+
+			for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
+				if v:IsA("MeshPart") and v.Name == "TSEffect" then
+					-- return
+					v.Parent = game:GetService("ReplicatedStorage").Effects
+
+					-- normal size
+					if v.Size then
+						v.Size = Vector3.new(1.27, 1.27, 1.27)
+					end
+				end
+			end
+        end
+    end
+})
+VisualOptionsBox:AddToggle('AB', {
+    Text = 'Fake Black Dtw',
+    Default = false,
+    Tooltip = 'click to generate a fake black dtw',
+
+    Callback = function(state)
+        settings = state
+        if settings then
+            game:GetService("Players").LocalPlayer.Character.Stand["Meshes/18"].Name = "Neon"
+            game:GetService("Players").LocalPlayer.Character.Stand["Meshes/18"].Name = "Neon"
+            while wait() and settings do
+                game:GetService("Players").LocalPlayer.Character.Stand.Neon:Remove()
+            end
+
+        else
+
+            plr.Character.Head:Destroy()
+        end
+    end
+})
+VisualOptionsBox:AddToggle('FTS', {
+    Text = 'Fake Cosmic Jsp',
+    Default = false,
+    Tooltip = 'click to generate a fake cosmic jsp',
+
+    Callback = function(state)
+        settings = state
+        if settings then
+            while wait() and settings do
+                game:GetService("Players").LocalPlayer.Character.Stand["Neon."]:Destroy()
+            end
+
+        else
+
+            plr.Character.Head:Destroy()
+        end
+    end
+})
+standsName = {}
+for _, v in pairs(game:GetService("ReplicatedStorage").Viewports.Stands:GetChildren()) do if v:IsA("Model") and v.Name ~= "npc" and v.Name ~= "Nothing" then table.insert(standsName, v.Name) end end
+VisualOptionsBox:AddDropdown('StandsNameTwo', {
+    Values = standsName,
+    Default = 1,
+    Multi = false,
+
+    Text = 'Fake Stand',
+    Tooltip = 'Select a Stand',
+
+    Callback = function(Value)
+    end
+})
+VisualOptionsBox:AddDropdown('SelectSlots', {
+    Values = {"1", "2", "3", "4", "5", "6", "7", "8"},
+    Default = 1,
+    Multi = false,
+
+    Text = 'Select Slot',
+    Tooltip = 'Select a Stand',
+
+    Callback = function(Value)
+    end
+})
+local ReplicatedStorage = game:GetService("ReplicatedStorage") local Viewports = ReplicatedStorage.Viewports local Stands = Viewports.Stands
+local Button = VisualOptionsBox:AddButton({
+    Text = 'Generate Fake Stand',
+    Func = function()
+     -- destroy stand in slot
+        for _, v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.StandStorage.Right.ImageLabel.ItemSlots.Slots[Options.SelectSlots.Value].ViewportFrame.WorldModel:GetChildren()) do
+            if v:IsA("Model") then
+                v:Destroy()
+            end
+        end
+        wait(1)
+        
+        
+        
+        -- dupe stand
+        for _, v in pairs(Stands:GetChildren()) do
+            if v:IsA("Model") and v.Name == Options.StandsNameTwo.Value then
+                local clone = v:Clone() wait(.25)
+                clone.Parent = game:GetService("Players").LocalPlayer.PlayerGui.StandStorage.Right.ImageLabel.ItemSlots.Slots[Options.SelectSlots.Value].ViewportFrame.WorldModel
+                game:GetService("Players").LocalPlayer.PlayerGui.StandStorage.Right.ImageLabel.ItemSlots.Slots[Options.SelectSlots.Value].ItemName.Value = Options.StandsNameTwo.Value
+                
+                -- rarity
+                game:GetService("Players").LocalPlayer.PlayerGui.StandStorage.Right.ImageLabel.ItemSlots.Slots[Options.SelectSlots.Value].Button.Overlay.Visible = false
+                game:GetService("Players").LocalPlayer.PlayerGui.StandStorage.Right.ImageLabel.ItemSlots.Slots[Options.SelectSlots.Value].Button.ExoticTier.Visible = true
+            end
+        end
+        wait(1)
+        
+        
+        
+        -- clone animation
+        for _, v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.StandStorage.ports:GetChildren()) do
+            if v:IsA("Model") and v.Name == "npc" then
+                local npcClone = v:Clone() wait(.25)
+                npcClone.Parent = game:GetService("Players").LocalPlayer.PlayerGui.StandStorage.Right.ImageLabel.ItemSlots.Slots[
+                    Options.SelectSlots.Value
+                ].ViewportFrame.WorldModel[Options.StandsNameTwo.Value]
+            end
+        end
+        wait(1)
+
+        local hi = Instance.new("Sound")  hi.Name = "Notification_Sound"  hi.SoundId = "http://www.roblox.com/asset/?id=6026984224"  hi.Volume = 5  hi.archivable = false  hi.Parent = game.Workspace hi:Play() wait(.46)
+        Notification:Notify(
+            {Title = "Fake Stand", Description = "Fake stand generated"},
+            {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 6, Type = "image"},
+            {Image = "http://www.roblox.com/asset/?id=13780014144", ImageColor = Color3.fromRGB(255, 84, 84)}
+        )
+    end,
+    DoubleClick = false,
+    Tooltip = 'click to generate fake stand'
+})
+
+
 
 
 local ItemFarmBox = Tabs.Items:AddLeftGroupbox('Item Farm')
@@ -547,8 +720,7 @@ for _, v in pairs(game:GetService("ReplicatedStorage").Viewports.Items:GetChildr
             Text = v.Name,
             Func = function()
                 if workspace[v.Name] then
-                    local hi = Instance.new("Sound") hi.Name = "Notification_Sound" hi.SoundId = "http://www.roblox.com/asset/?id=6026984224" hi.Volume = 5 hi.archivable = false hi.Parent = game.Workspace
-                    hi:Play() wait(.46)
+                    local hi = Instance.new("Sound")  hi.Name = "Notification_Sound"  hi.SoundId = "http://www.roblox.com/asset/?id=6026984224"  hi.Volume = 5  hi.archivable = false  hi.Parent = game.Workspace hi:Play() wait(.46)
                     Notification:Notify(
                         {Title = "Item Notifier", Description = "The item: ".. v.Name ..", is spawned"},
                         {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 6, Type = "image"},
@@ -561,3 +733,39 @@ for _, v in pairs(game:GetService("ReplicatedStorage").Viewports.Items:GetChildr
         })
     end
 end
+
+
+local OtherItemFarmBox = Tabs.Items:AddLeftGroupbox('Other Options')
+OtherItemFarmBox:AddToggle('AB', {
+    Text = 'Item Esp',
+    Default = false,
+    Tooltip = 'Turn on to be locked',
+
+    Callback = function(state)
+        settings = state
+        if settings then
+            local wsTools = getWorkspaceTools()        
+            for i, v in pairs(wsTools) do
+            	for i, a in pairs(v:GetDescendants()) do
+            		if a.ClassName == "Part" or a.ClassName == "MeshPart" or a.ClassName == "UnionOperation" or a.ClassName == "Tool" then
+            			local esp = Instance.new("Highlight")
+            			esp.Parent = a
+            			esp.FillColor = Color3.new(255, 255, 255)
+            	    end
+                end
+            end
+
+        else
+
+            local wsTools = getWorkspaceTools()
+            for i, v in pairs(wsTools) do
+            	local toolDes = v:GetDescendants()
+            	for i, a in pairs(toolDes) do
+            		if a:IsA("Highlight") then
+            			a:remove()
+            		end
+            	end
+            end
+        end
+    end
+})
