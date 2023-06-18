@@ -27,16 +27,6 @@ local function CheckStand()
 	end
 end
 local ts = game:GetService("Lighting").TS
-local function AntiTs()
-	for i,v in pairs(game:GetService("Lighting"):GetChildren()) do
-		if v:IsA("BoolValue") and v.Name == "TS" then
-			if ts.Value == true then
-				wait(1)
-				ts.Value = false
-			end
-		end
-	end
-end
 local function getWorkspaceTools()
 	local wsTools = {}
 	for i, v in pairs(game.Workspace:GetDescendants()) do
@@ -367,7 +357,14 @@ PlayerOptionsBox:AddToggle('ATS', {
         settings = state
         if settings then
             while wait() and settings do
-                AntiTs()
+	            for i,v in pairs(game:GetService("Lighting"):GetChildren()) do
+	            	if v:IsA("BoolValue") and v.Name == "TS" then
+	            		if ts.Value == true then
+	            			wait(1)
+	            			ts.Value = false
+	            		end
+	            	end
+	            end
             end
         end
     end
