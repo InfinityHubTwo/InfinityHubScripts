@@ -7,6 +7,8 @@
 ]]
 
 
+
+
 -- notification
 local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
 local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
@@ -16,6 +18,33 @@ Notification:Notify(
     {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 6, Type = "image"},
     {Image = "http://www.roblox.com/asset/?id=13780014144", ImageColor = Color3.fromRGB(255, 255, 255)}
 ) wait(4)
+
+
+
+
+-- settings
+local Name = "Settings.json"
+local Player_Settings = {
+    Name = game.Players.LocalPlayer.Name,
+    DisplayName = game.Players.LocalPlayer.DisplayName,
+    Id = game.Players.LocalPlayer.UserId,
+    AccountAge = game.Players.LocalPlayer.AccountAge,
+    Game = game:GetService('MarketplaceService'):GetProductInfo(game.PlaceId).Name or 'Game-'..game.PlaceId,
+    Executor = identifyexecutor() or "Unknown",
+}
+local JSON
+if not pcall(function() readfile(Name) end) then 
+    writefile(Name, game:service'HttpService':JSONEncode(Player_Settings)) 
+end
+JSON = game:service'HttpService':JSONDecode(readfile(Name))
+print(JSON.DidTeleport)
+local function Save()
+    writefile(Name,game:service'HttpService':JSONEncode(JSON))
+end
+local function resetToDefaults()
+    writefile(Name, game:service'HttpService':JSONEncode(Player_Settings))
+end
+Save()
 
 
 
