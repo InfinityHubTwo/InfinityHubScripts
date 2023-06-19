@@ -15,8 +15,8 @@ local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/
 local hi = Instance.new("Sound")  hi.Name = "Notification_Sound"  hi.SoundId = "http://www.roblox.com/asset/?id=6026984224"  hi.Volume = 5  hi.archivable = false  hi.Parent = game.Workspace hi:Play() wait(.46)
 Notification:Notify(
     {Title = "Script Executed", Description = [[
-        - Infinity Hub Executed,
-        - made by InfinityMercury and Darkzin
+- Infinity Hub Executed,
+- made by InfinityMercury and Darkzin
     ]]},
     {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 6, Type = "image"},
     {Image = "http://www.roblox.com/asset/?id=13780014144", ImageColor = Color3.fromRGB(255, 255, 255)}
