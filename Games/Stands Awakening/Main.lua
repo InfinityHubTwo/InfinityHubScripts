@@ -14,10 +14,13 @@ local NotificationHolder = loadstring(game:HttpGet("https://raw.githubuserconten
 local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
 local hi = Instance.new("Sound")  hi.Name = "Notification_Sound"  hi.SoundId = "http://www.roblox.com/asset/?id=6026984224"  hi.Volume = 5  hi.archivable = false  hi.Parent = game.Workspace hi:Play() wait(.46)
 Notification:Notify(
-    {Title = "Script Executed", Description = "Infinity Hub Executed, made by InfinityMercury and Darkzin"},
+    {Title = "Script Executed", Description = [[
+        - Infinity Hub Executed,
+        - made by InfinityMercury and Darkzin
+    ]]},
     {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 6, Type = "image"},
     {Image = "http://www.roblox.com/asset/?id=13780014144", ImageColor = Color3.fromRGB(255, 255, 255)}
-) wait(4)
+) wait(2.5)
 
 
 
@@ -610,6 +613,16 @@ local Button = FePlayerOptionsBox:AddButton({
     DoubleClick = false,
     Tooltip = 'click to create your character'
 })
+local Button = FePlayerOptionsBox:AddButton({
+    Text = 'Get Farm Zone',
+    Func = function()
+        game:GetService(
+            "Players"
+        ).LocalPlayer.Data.Ticket.Value = true
+    end,
+    DoubleClick = false,
+    Tooltip = 'click to get farm zone'
+})
 
 
 local VisualOptionsBox = Tabs.LP:AddRightGroupbox('Visual Options')
@@ -819,6 +832,63 @@ KillPlayerBox:AddToggle('SKP', {
 })
 
 
+local TeleportBox = Tabs.LP:AddLeftGroupbox('Teleports')
+local Button = TeleportBox:AddButton({
+    Text = 'Teleport to farm zone',
+    Func = function()
+        plr.Character.HumanoidRootPart.CFrame = 
+            workspace.Map["Farming Zone"].Board:GetChildren()[11].CFrame
+    end,
+    DoubleClick = false,
+    Tooltip = 'click to teleport'
+})
+local Button = TeleportBox:AddButton({
+    Text = 'Teleport to bank',
+    Func = function()
+        plr.Character.HumanoidRootPart.CFrame = 
+            workspace.Map.Tom.HumanoidRootPart.CFrame
+    end,
+    DoubleClick = false,
+    Tooltip = 'click to teleport'
+})
+local Button = TeleportBox:AddButton({
+    Text = 'Teleport to timmy',
+    Func = function()
+        plr.Character.HumanoidRootPart.CFrame = 
+            workspace.Map.Timmy.HumanoidRootPart
+    end,
+    DoubleClick = false,
+    Tooltip = 'click to teleport'
+})
+local Button = TeleportBox:AddButton({
+    Text = 'Teleport to key spawn 1',
+    Func = function()
+        plr.Character.HumanoidRootPart.CFrame = 
+            workspace.Map["ABD Map"].Bricks:GetChildren()[444].CFrame
+    end,
+    DoubleClick = false,
+    Tooltip = 'click to teleport'
+})
+local Button = TeleportBox:AddButton({
+    Text = 'Teleport to key spawn 2',
+    Func = function()
+        plr.Character.HumanoidRootPart.CFrame = 
+            workspace.Map["ABD Map"].Mountains:GetChildren()[209].CFrame
+    end,
+    DoubleClick = false,
+    Tooltip = 'click to teleport'
+})
+local Button = TeleportBox:AddButton({
+    Text = 'Teleport to key boss',
+    Func = function()
+        plr.Character.HumanoidRootPart.CFrame = 
+            workspace.Map.Arena:GetChildren()[34].CFrame
+    end,
+    DoubleClick = false,
+    Tooltip = 'click to teleport'
+})
+
+
 
 
 local ItemFarmBox = Tabs.Items:AddLeftGroupbox('Item Farm')
@@ -847,7 +917,7 @@ local Button = ItemFarmBox:AddButton({
     Tooltip = 'click to teleport to random tools'
 })
 ItemsName = {}
-for _, v in pairs(game:GetService("ReplicatedStorage").Viewports.Items:GetChildren()) do if v:IsA("Model") then table.insert(ItemsName, v.Name) end end
+for _, v in pairs(game:GetService("ReplicatedStorage").Viewports.Items:GetChildren()) do if v:IsA("Model") and v.Name ~= "Uncanny Pumpkin" and v.name ~= "robin" and v.Name ~= "Valentine's Day Diary" and v.Name ~= "Alien" then table.insert(ItemsName, v.Name) end end
 ItemFarmBox:AddDropdown('ItemSniperDrop', {
     Values = ItemsName,
     Default = 1,
@@ -922,7 +992,7 @@ local Button = BuyItemsBox:AddButton({
 
 local ItemNotifierBox = Tabs.Items:AddRightGroupbox('Item Notifier')
 for _, v in pairs(game:GetService("ReplicatedStorage").Viewports.Items:GetChildren()) do
-    if v:IsA("Model") and v.Name ~= "Nothing" then
+    if v:IsA("Model") and v.Name ~= "Nothing" and v.Name ~= "Uncanny Pumpkin" and v.name ~= "robin" and v.Name ~= "Valentine's Day Diary" and v.Name ~= "Alien" then
         local Button = ItemNotifierBox:AddButton({
             Text = v.Name,
             Func = function()
@@ -945,7 +1015,7 @@ end
 local ItemsNoAnimationBox = Tabs.Items:AddLeftGroupbox('Items No Animation')
 ItemsNoAnimation = {}
 for _, v in pairs(game:GetService("ReplicatedStorage").ItemEvents:GetChildren()) do 
-    if v:IsA("RemoteEvent") and v.Name ~= "VampireMask2" and v.Name ~= "VampireMask3" and v.Name ~= "VampireMask4" then 
+    if v:IsA("RemoteEvent") and v.Name ~= "VampireMask2" and v.Name ~= "VampireMask3" and v.Name ~= "VampireMask4" and v.Name ~= "Pumpkin" then 
         local Button = ItemsNoAnimationBox:AddButton({
             Text = v.Name,
             Func = function()
@@ -967,28 +1037,33 @@ OtherItemFarmBox:AddToggle('AB', {
     Callback = function(state)
         settings = state
         if settings then
-            local wsTools = getWorkspaceTools()        
-            for i, v in pairs(wsTools) do
-            	for i, a in pairs(v:GetDescendants()) do
-            		if a.ClassName == "Part" or a.ClassName == "MeshPart" or a.ClassName == "UnionOperation" or a.ClassName == "Tool" then
-            			local esp = Instance.new("Highlight")
-            			esp.Parent = a
-            			esp.FillColor = Color3.new(255, 255, 255)
-            	    end
-                end
-            end
+		    local wsTools = getWorkspaceTools()
+		    for i, v in pairs(wsTools) do
+		    	for i, a in pairs(v:GetDescendants()) do
+		    		if a.ClassName == "Part" or a.ClassName == "MeshPart" or a.ClassName == "UnionOperation" then
+		    			local esp = Instance.new("BoxHandleAdornment")
+		    			esp.Parent = a
+		    			esp.Size = a.Size
+		    			esp.Color3 = Color3.new(255, 255, 255)
+		    			esp.AlwaysOnTop = true
+		    			esp.Adornee = a
+		    			esp.Visible = true
+		    			esp.ZIndex = 2				
+		    		end
+		    	end
+		    end
 
         else
 
-            local wsTools = getWorkspaceTools()
-            for i, v in pairs(wsTools) do
-            	local toolDes = v:GetDescendants()
-            	for i, a in pairs(toolDes) do
-            		if a:IsA("Highlight") then
-            			a:remove()
-            		end
-            	end
-            end
+		    local wsTools = getWorkspaceTools()
+		    for i, v in pairs(wsTools) do
+		    	local toolDes = v:GetDescendants()
+		    	for i, a in pairs(toolDes) do
+		    		if a:IsA("BoxHandleAdornment") then
+		    			a:remove()
+		    		end
+		    	end
+		    end
         end
     end
 })
