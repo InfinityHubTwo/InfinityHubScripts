@@ -855,7 +855,7 @@ local Button = TeleportBox:AddButton({
     Text = 'Teleport to timmy',
     Func = function()
         plr.Character.HumanoidRootPart.CFrame = 
-            workspace.Map.Timmy.HumanoidRootPart
+            workspace.Map.Timmy.HumanoidRootPart.CFrame
     end,
     DoubleClick = false,
     Tooltip = 'click to teleport'
