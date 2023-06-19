@@ -20,7 +20,7 @@ Notification:Notify(
     ]]},
     {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 6, Type = "image"},
     {Image = "http://www.roblox.com/asset/?id=13780014144", ImageColor = Color3.fromRGB(255, 255, 255)}
-) wait(2.5)
+) wait(2)
 
 
 
@@ -634,6 +634,17 @@ local Button = VisualOptionsBox:AddButton({
     DoubleClick = false,
     Tooltip = 'click to get a infinite money'
 })
+local Button = VisualOptionsBox:AddButton({
+    Text = 'Fake Spawn Multipler',
+    Func = function()
+        for i = 1, 999 do
+            game:GetService("Players").LocalPlayer.PlayerGui.MenuGUI.spawn.Text = "Spawn Multipler: ".. tostring(i)
+            wait(0.001)
+        end
+    end,
+    DoubleClick = false,
+    Tooltip = 'click to generate fake spawn multipler'
+})
 VisualOptionsBox:AddToggle('AB', {
     Text = 'Fake Time Stop',
     Default = false,
@@ -648,6 +659,7 @@ VisualOptionsBox:AddToggle('AB', {
 					v:Clone()
 					v.Parent = game:GetService("Workspace")
 					v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+                    game:GetService("Lighting").STWEffect.Enabled = true
 
 					-- size
 					if v.Size then
@@ -662,6 +674,7 @@ VisualOptionsBox:AddToggle('AB', {
 				if v:IsA("MeshPart") and v.Name == "TSEffect" then
 					-- return
 					v.Parent = game:GetService("ReplicatedStorage").Effects
+                    game:GetService("Lighting").STWEffect.Enabled = false
 
 					-- normal size
 					if v.Size then
@@ -917,7 +930,7 @@ local Button = ItemFarmBox:AddButton({
     Tooltip = 'click to teleport to random tools'
 })
 ItemsName = {}
-for _, v in pairs(game:GetService("ReplicatedStorage").Viewports.Items:GetChildren()) do if v:IsA("Model") and v.Name ~= "Uncanny Pumpkin" and v.name ~= "robin" and v.Name ~= "Valentine's Day Diary" and v.Name ~= "Alien" then table.insert(ItemsName, v.Name) end end
+for _, v in pairs(game:GetService("ReplicatedStorage").Viewports.Items:GetChildren()) do if v:IsA("Model") and v.Name ~= "Uncanny Pumpkin" and v.name ~= "robin" and v.Name ~= "Valentine's Day Diary" and v.Name ~= "Alien" and v.Name ~= "Solar Diary" then table.insert(ItemsName, v.Name) end end
 ItemFarmBox:AddDropdown('ItemSniperDrop', {
     Values = ItemsName,
     Default = 1,
@@ -992,7 +1005,7 @@ local Button = BuyItemsBox:AddButton({
 
 local ItemNotifierBox = Tabs.Items:AddRightGroupbox('Item Notifier')
 for _, v in pairs(game:GetService("ReplicatedStorage").Viewports.Items:GetChildren()) do
-    if v:IsA("Model") and v.Name ~= "Nothing" and v.Name ~= "Uncanny Pumpkin" and v.name ~= "robin" and v.Name ~= "Valentine's Day Diary" and v.Name ~= "Alien" then
+    if v:IsA("Model") and v.Name ~= "Nothing" and v.Name ~= "Uncanny Pumpkin" and v.name ~= "robin" and v.Name ~= "Valentine's Day Diary" and v.Name ~= "Alien" and v.Name ~= "Solar Diary" then
         local Button = ItemNotifierBox:AddButton({
             Text = v.Name,
             Func = function()
@@ -1074,4 +1087,3 @@ OtherItemFarmBox:AddToggle('AB', {
 -- libray settings
 local MenuGroup = Tabs['UI Settings']:AddLeftGroupbox('Menu')
 MenuGroup:AddButton('Unload', function() Library:Unload() end)
-MenuGroup:AddLabel('Menu bind'):AddKeyPicker('MenuKeybind', { Default = "J", NoUI = true, Text = 'Menu keybind' })
