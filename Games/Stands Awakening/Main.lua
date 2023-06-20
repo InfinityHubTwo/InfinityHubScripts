@@ -1,9 +1,27 @@
 --[[
-    New Infinity Hub Stands Awakening version 8.0
+    Version 8.2 Infinity Hub | Stands Awakening
+        [-] New:
+            [+] New Items Options (Farm)
+            [+] Item Esp
+            [+] God Mode Debug Version
+            [+] New Anti Time Stop
+            [+] New 15 Seconds Time Stop (All Stands)
+            [+] Fake Stand
 
-    Credits
-        . Darkzin
-        . InfinityMercury
+        [-] Reworks:
+            [+] Anti Time Stop
+            [+] Item Farm
+            [+] Item Sniper
+            [+] Item Notifier
+            [+] Stand Farm
+            [+] Kill Player
+            [+] Item No Animation
+            [+] Fe Options
+
+        [-] Credits:
+            [+] Darkzin (Scripter and Owner)
+            [+] Cool (Ideals and Co-Owner)
+            [+] InfinityMercury (Scripter Helper)
 ]]
 
 
@@ -16,7 +34,7 @@ local hi = Instance.new("Sound")  hi.Name = "Notification_Sound"  hi.SoundId = "
 Notification:Notify(
     {Title = "Script Executed", Description = [[
 - Infinity Hub Executed,
-- made by InfinityMercury and Darkzin
+- made by InfinityMercury, Darkzin and Cool
     ]]},
     {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 6, Type = "image"},
     {Image = "http://www.roblox.com/asset/?id=13780014144", ImageColor = Color3.fromRGB(255, 255, 255)}
@@ -360,7 +378,7 @@ PlayerOptionsBox:AddToggle('AB', {
     Callback = function(state)
         settings = state
         if settings then
-            while wait(.5) and settings do
+            while wait() and settings do
 	    		local args = {
 					[1] = "Alternate",
 					[2] = "Block"
@@ -378,16 +396,18 @@ PlayerOptionsBox:AddToggle('ATS', {
     Callback = function(state)
         settings = state
         if settings then
-            while wait() and settings do
-	            for i,v in pairs(game:GetService("Lighting"):GetChildren()) do
-	            	if v:IsA("BoolValue") and v.Name == "TS" then
-	            		if ts.Value == true then
-	            			wait(1)
-	            			ts.Value = false
-	            		end
-	            	end
-	            end
-            end
+            task.spawn(function ()
+                repeat task.wait(1)
+	                for i,v in pairs(game:GetService("Lighting"):GetChildren()) do
+	                	if v:IsA("BoolValue") and v.Name == "TS" then
+	                		if ts.Value == true then
+	                			wait(1)
+	                			ts.Value = false
+	                		end
+	                	end
+	                end
+                until settings == false
+            end)
         end
     end
 })
