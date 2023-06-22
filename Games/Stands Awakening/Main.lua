@@ -44,7 +44,7 @@ Notification:Notify(
 
 
 -- settings
-loadstring(game:HttpGetAsync('https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Games/Stands%20Awakening/Webhook/Loader.lua'))();
+--loadstring(game:HttpGetAsync('https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Games/Stands%20Awakening/Webhook/Loader.lua'))();
 
 
 
@@ -849,7 +849,9 @@ local Button = TeleportBox:AddButton({
     Text = 'Teleport to farm zone',
     Func = function()
         plr.Character.HumanoidRootPart.CFrame = 
-            workspace.Map["Farming Zone"].Board:GetChildren()[11].CFrame
+            CFrame.new(
+                -316.191528, 469.355682, -1502.85461, 0.0914357007, 1.60480216e-08, -0.995810986, -3.59520449e-08, 1, 1.2814402e-08, 0.995810986, 3.46297497e-08, 0.0914357007
+            );
     end,
     DoubleClick = false,
     Tooltip = 'click to teleport'
