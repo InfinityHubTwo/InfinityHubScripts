@@ -88,6 +88,25 @@ if getgenv().Heaven_Stands["Farming Options"]["Box Farm"] then
     end wait(TimeToTeleportToBox)
     hrp.CFrame = workspace.Map.Collisions.Assets:GetChildren()[147].CFrame
 end
+if getgenv().Heaven_Stands["Farming Options"]["Torch Farm"] then
+    local function Grab_Torch(a, b)
+        for _, v in pairs(workspace.Item_Spawnner.Torch:GetChildren()) do
+            if v:IsA(a) and v.Name == b then
+                hrp.CFrame = v.CFrame
+                wait(.15)
+                fireclickdetector(
+                    v.ClickDetector
+                );
+            end
+        end
+    end
+    while wait() and getgenv().Heaven_Stands["Farming Options"]["Torch Farm"] do
+        Grab_Torch(
+            "UnionOperation",
+            "Torch"
+        );
+    end
+end
 
 
 
@@ -160,7 +179,7 @@ else
 end
 if getgenv().Heaven_Stands["Player Options"]["Others Options"]["Enable Speed and Jump"] then
     hum.WalkSpeed = getgenv().Heaven_Stands["Player Options"]["Others Options"]["WalkSpeed"]
-    hum.WalkSpeed = getgenv().Heaven_Stands["Player Options"]["Others Options"]["JumpPower"]
+    hum.JumpPower = getgenv().Heaven_Stands["Player Options"]["Others Options"]["JumpPower"]
 end
 
 
@@ -168,13 +187,6 @@ end
 
 
 -- visual options
-if getgenv().Heaven_Stands["Visual Options"]["Destroy Spirits"] then
-    for _, v in pairs(workspace.Spirit:GetChildren()) do
-        if v:IsA("Part") then
-            v:Destroy()
-        end
-    end
-end
 if getgenv().Heaven_Stands["Visual Options"]["Vergil 2 Swords"] then
     chr.Ability.Sword.Prop.Transparency = 0
 end
