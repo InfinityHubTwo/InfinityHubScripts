@@ -1,14 +1,3 @@
--- "Anti-Cheat" Bypass (Can barely call it an anticheat)
-for _,v in pairs(getgc()) do
-    if type(v) == "function" and getfenv(v).script == Player.PlayerScripts.LocalScript then
-        if debug.getinfo(v).name == "kick" then
-            hookfunction(v, function() end)
-        end
-    end
-end
-
-
-
 -- notification
 local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
 local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
@@ -53,7 +42,7 @@ local Tabs = {
 
 
 -- code
-local FarmingBox = Tabs.Stands:AddLeftGroupbox('Farming')
+local FarmingBox = Tabs.Main:AddLeftGroupbox('Farming')
 local Button = FarmingBox:AddButton({
     Text = 'Win',
     Func = function()
