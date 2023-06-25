@@ -1,3 +1,10 @@
+--[[
+    Infinity Hub  |  Heaven Stands ⛅
+    Made by Darkzin and InfinityMercury
+
+    Darkzin - Script
+    InfinityMercury - Script
+]]
 getgenv().Heaven_Stands = {
     ["Farming Options"] = {
         ["Box Farm"] = false,
@@ -5,11 +12,11 @@ getgenv().Heaven_Stands = {
     ["Insta Kill Bosses"] = {
         ["DIO"] = false,
         ["Garou"] = false,
-        ["Minos Prime"] = false,
+        ["Vergil"] = false,
     },
     ["Player Options"] = {
         ["Character"] = {
-            ["Disable Character Functions"] = false,
+            ["Disable Character Functions"] = true,
             ["Disable Animate"] = false,
         },
         ["Others Options"] = {
@@ -19,7 +26,6 @@ getgenv().Heaven_Stands = {
         },
     },
     ["Visual Options"] = {
-        ["Destroy Spirits"] = false,
         ["Vergil 2 Swords"] = false,
         ["RTX Mode"] = false,
     },
