@@ -5,8 +5,6 @@ local plr = game:GetService("Players").LocalPlayer
 local chr = plr.Character
 local hum = chr.Humanoid
 local hrp = chr.HumanoidRootPart
-local TimeToTeleportToBox = 0.50
-local TimeToFireClickDetector = 0.25
 
 
 
@@ -14,79 +12,16 @@ local TimeToFireClickDetector = 0.25
 
 -- farming options
 if getgenv().Heaven_Stands["Farming Options"]["Box Farm"] then
-    local hi = Instance.new("Sound") hi.Name = "Notification_Sound" hi.SoundId = "http://www.roblox.com/asset/?id=6026984224" hi.Volume = 5 hi.archivable = false hi.Parent = game.Workspace
-    hi:Play() wait(.46)
-    Notification:Notify( {Title = "Starting Farm Box", Description = "Wait a second..."}, {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"}, {Image = "http://www.roblox.com/asset/?id=7733964640", ImageColor = Color3.fromRGB(2, 255, 78), Callback = function(State) print(tostring(State)) end} ) wait(.25) workspace.Notification_Sound:Destroy()
-    wait(.5)
-
-    --code
-    for _, v in pairs(workspace.Item_Spawnner.Box:GetChildren()[6]:GetChildren()) do
-        if v:IsA("Model") then
-            hrp.CFrame =
-                v.Base.CFrame
-    
-            wait(TimeToFireClickDetector)
-            fireclickdetector(
-                v.Base.ClickDetector
-            );
+    for _, v in pairs(workspace.Item_Spawnner.Box:GetChildren()) do
+      if v:IsA("MeshPart") then
+        for _, v in pairs(v:GetChildren()) do
+          if v.Base then
+            hrp.CFrame = v.Base.CFrame wait(.25)
+            fireclickdetector(v.Base.ClickDetector);
+          end
         end
-    end wait(TimeToTeleportToBox)
-    for _, v in pairs(workspace.Item_Spawnner.Box.Spawn_Location:GetChildren()) do
-        if v:IsA("Model") then
-            hrp.CFrame =
-                v.Base.CFrame
-    
-            wait(TimeToFireClickDetector)
-            fireclickdetector(
-                v.Base.ClickDetector
-            );
-        end
-    end wait(TimeToTeleportToBox)
-    for _, v in pairs(workspace.Item_Spawnner.Box:GetChildren()[3]:GetChildren()) do
-        if v:IsA("Model") then
-            hrp.CFrame =
-                v.Base.CFrame
-    
-            wait(TimeToFireClickDetector)
-            fireclickdetector(
-                v.Base.ClickDetector
-            );
-        end
-    end wait(TimeToTeleportToBox)
-    for _, v in pairs(workspace.Item_Spawnner.Box:GetChildren()[2]:GetChildren()) do
-        if v:IsA("Model") then
-            hrp.CFrame =
-                v.Base.CFrame
-    
-            wait(TimeToFireClickDetector)
-            fireclickdetector(
-                v.Base.ClickDetector
-            );
-        end
-    end wait(TimeToTeleportToBox)
-    for _, v in pairs(workspace.Item_Spawnner.Box:GetChildren()[4]:GetChildren()) do
-        if v:IsA("Model") then
-            hrp.CFrame =
-                v.Base.CFrame
-    
-            wait(TimeToFireClickDetector)
-            fireclickdetector(
-                v.Base.ClickDetector
-            );
-        end
-    end wait(TimeToTeleportToBox)
-    for _, v in pairs(workspace.Item_Spawnner.Box:GetChildren()[5]:GetChildren()) do
-        if v:IsA("Model") then
-            hrp.CFrame =
-                v.Base.CFrame
-    
-            wait(TimeToFireClickDetector)
-            fireclickdetector(
-                v.Base.ClickDetector
-            );
-        end
-    end wait(TimeToTeleportToBox)
-    hrp.CFrame = workspace.Map.Collisions.Assets:GetChildren()[147].CFrame
+      end
+    end
 end
 
 
