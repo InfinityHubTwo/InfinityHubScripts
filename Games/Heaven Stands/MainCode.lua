@@ -88,25 +88,6 @@ if getgenv().Heaven_Stands["Farming Options"]["Box Farm"] then
     end wait(TimeToTeleportToBox)
     hrp.CFrame = workspace.Map.Collisions.Assets:GetChildren()[147].CFrame
 end
-if getgenv().Heaven_Stands["Farming Options"]["Torch Farm"] then
-    local function Grab_Torch(a, b)
-        for _, v in pairs(workspace.Item_Spawnner.Torch:GetChildren()) do
-            if v:IsA(a) and v.Name == b then
-                hrp.CFrame = v.CFrame
-                wait(.15)
-                fireclickdetector(
-                    v.ClickDetector
-                );
-            end
-        end
-    end
-    while wait() and getgenv().Heaven_Stands["Farming Options"]["Torch Farm"] do
-        Grab_Torch(
-            "UnionOperation",
-            "Torch"
-        );
-    end
-end
 
 
 
@@ -145,10 +126,10 @@ if getgenv().Heaven_Stands["Insta Kill Bosses"]["Garou"] then
     local Mob = "Garou"
     task.spawn(function ()     repeat task.wait()         Enemies = workspace.Enemies:GetChildren()         for i = 1, #Enemies do             local v = Enemies[i]             if                 v.Name == Mob and v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and                     v:FindFirstChildOfClass("Humanoid").Health > 0              then                 game.Players.LocalPlayer.Character.PrimaryPart.CFrame =                     CFrame.new(v.PrimaryPart.Position + Vector3.new(0, 7, 0), v.PrimaryPart.Position)             end         end     until 1+1==2 end) local ohString1 = "MouseButton1" game:GetService("ReplicatedStorage").Remote_Events.Input_Remote:InvokeServer(ohString1) wait(.25) workspace.Enemies.Garou.Head:Destroy()
 end
-if getgenv().Heaven_Stands["Insta Kill Bosses"]["Minos Prime"] then
+if getgenv().Heaven_Stands["Insta Kill Bosses"]["Vergil"] then
     --sound
     local hi = Instance.new("Sound") hi.Name = "Notification_Sound" hi.SoundId = "http://www.roblox.com/asset/?id=6026984224" hi.Volume = 5 hi.archivable = false hi.Parent = game.Workspace
-    
+
     --notification
     hi:Play() wait(.46)
     Notification:Notify(
@@ -158,8 +139,8 @@ if getgenv().Heaven_Stands["Insta Kill Bosses"]["Minos Prime"] then
     ) wait(.25) workspace.Notification_Sound:Destroy()
     
     -- kill
-    local Mob = "Minos Prime"
-    task.spawn(function ()     repeat task.wait()         Enemies = workspace.Enemies:GetChildren()         for i = 1, #Enemies do             local v = Enemies[i]             if                 v.Name == Mob and v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and                     v:FindFirstChildOfClass("Humanoid").Health > 0              then                 game.Players.LocalPlayer.Character.PrimaryPart.CFrame =                     CFrame.new(v.PrimaryPart.Position + Vector3.new(0, 7, 0), v.PrimaryPart.Position)             end         end     until 1+1==2 end) local ohString1 = "MouseButton1" game:GetService("ReplicatedStorage").Remote_Events.Input_Remote:InvokeServer(ohString1) wait(.25) workspace.Enemies["Minos Prime"].Head:Destroy()
+    local Mob = "Vergil"
+    task.spawn(function ()     repeat task.wait()         Enemies = workspace.Enemies:GetChildren()         for i = 1, #Enemies do             local v = Enemies[i]             if                 v.Name == Mob and v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and                     v:FindFirstChildOfClass("Humanoid").Health > 0              then                 game.Players.LocalPlayer.Character.PrimaryPart.CFrame =                     CFrame.new(v.PrimaryPart.Position + Vector3.new(0, 7, 0), v.PrimaryPart.Position)             end         end     until 1+1==2 end) local ohString1 = "MouseButton1" game:GetService("ReplicatedStorage").Remote_Events.Input_Remote:InvokeServer(ohString1) wait(.25) workspace.Enemies.Vergil.Head:Destroy()
 end
 
 
