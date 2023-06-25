@@ -1,221 +1,101 @@
---// Variables
-local plr = game:GetService("Players").LocalPlayer
-local valuesI = {
-	"coinMultiplier",
-	"height",
-	"maxCoins",	
-	"maxXp",
-	"sectionCount",
-}
-getgenv().ModdedValues = nil
-local function Values()
-	if getgenv().ModdedValues == "coinMultiplier" then
-		game:GetService("Workspace").tower.coinMultiplier = Slider
-		
-		
-	elseif getgenv().ModdedValues == "height" then
-		game:GetService("Workspace").tower.height.Value = Slider
-	
-        
-	elseif getgenv().ModdedValues == "maxCoins" then
-		game:GetService("Workspace").tower.maxCoins.Value = Slider
-	
-
-	elseif getgenv().ModdedValues == "maxXp" then
-		game:GetService("Workspace").tower.maxXp.Value = Slider
-	
-
-	elseif getgenv().ModdedValues == "sectionCount" then
-		game:GetService("Workspace").tower.sectionCount.Value = Slider
-		
-	end
-end
-
-local Finish = game:GetService("Workspace").tower.sections.finish.FinishGlow
-local Floor  = game:GetService("Workspace").tower.sections.start.floor.floor
-local function TpFinish()
-    if Finish then
-	    plr.Character.HumanoidRootPart.CFrame = Finish.CFrame wait(1.2)
-        plr.Character.HumanoidRootPart.CFrame = Floor.CFrame 
+-- "Anti-Cheat" Bypass (Can barely call it an anticheat)
+for _,v in pairs(getgc()) do
+    if type(v) == "function" and getfenv(v).script == Player.PlayerScripts.LocalScript then
+        if debug.getinfo(v).name == "kick" then
+            hookfunction(v, function() end)
+        end
     end
 end
 
 
---// not libray
-local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/Jxereas/UI-Libraries/main/notification_gui_library.lua", true))()
 
---// Rayfiel Libray
-getgenv().SecureMode = true
-local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Ui%20Libray/Rayfield/Main.lua'))()
-local Window = Rayfield:CreateWindow({
-   Name = "Infinity Hub  |  @Darkzin",
-   LoadingTitle = "Infinity Hub",
-   LoadingSubtitle = "by darkzin",
-   ConfigurationSaving = {
-      Enabled = true,
-      FolderName = nil, -- Create a custom folder for your hub/game
-      FileName = "Big Hub"
-   },
-   Discord = {
-      Enabled = false,
-      Invite = "sirius", -- The Discord invite code, do not include discord.gg/
-      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
-   },
-   KeySystem = true, -- Set this to true to use our key system
-   KeySettings = {
-      Title = "Infinity Hub",
-      Subtitle = "Key System",
-      Note = "Private Key",
-      FileName = "SiriusKey",
-      SaveKey = true,
-      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
-      Key = "qy&nBDu=mWJkrJ9D4T7!=i&=7mBQ62"
-   }
+-- notification
+local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
+local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
+local hi = Instance.new("Sound")  hi.Name = "Notification_Sound"  hi.SoundId = "http://www.roblox.com/asset/?id=6026984224"  hi.Volume = 5  hi.archivable = false  hi.Parent = game.Workspace hi:Play() wait(.46)
+Notification:Notify(
+    {Title = "Script Executed", Description = [[
+- Infinity Hub Executed,
+- made by InfinityMercury, Darkzin and Cool
+    ]]},
+    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 6, Type = "image"},
+    {Image = "http://www.roblox.com/asset/?id=13780014144", ImageColor = Color3.fromRGB(255, 255, 255)}
+) wait(2)
+
+
+
+-- settings
+loadstring(game:HttpGetAsync('https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Games/Stands%20Awakening/Webhook/Loader.lua'))();
+
+
+
+-- libray
+local repo = 'https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Ui%20Libray/Linoria/'
+local Libray = loadstring(game:HttpGet(repo .. 'Loader.lua'))()
+local ThemeManager = loadstring(game:HttpGet(repo .. 'ThemeMenager.lua'))()
+local SaveManager = loadstring(game:HttpGet(repo .. 'SaveMenager.lua'))()
+local Window = Library:CreateWindow({
+    Title = 'Infinity Hub | '.. game:GetService('MarketplaceService'):GetProductInfo(game.PlaceId).Name or 'Game-'..game.PlaceId,
+    Center = true,
+    AutoShow = true,
+    TabPadding = 8,
+    MenuFadeTime = 0.2
 })
 
 
 
---// Tabs: Info
-local Tab = Window:CreateTab("Info")
-local Paragraph = Tab:CreateParagraph({Title = "Aviso", Content = [[
-Tower Off Hell Op Script
-Feito por: Infinity Hub - by Darkzin
+-- tabs
+local Tabs = {
+    Main = Window:AddTab('Main'),
+    ['UI Settings'] = Window:AddTab('UI Settings'),
+}
 
-Obs: Se quise deletar alguns script (Que possivelmente pode ser AntiCheat), aperte no botão abaixo.
-Aproveite.
-]]})
 
-local Section = Tab:CreateSection("--// Delete", true)
 
-local script1 = game:GetService("Workspace").Script
-local script2 = game:GetService("Workspace"):GetChildren()[4]
-local script3 = game:GetService("Workspace").sectionorganizer
-local script4 = game:GetService("Workspace").shade
-local Button = Tab:CreateButton({
-    Name = "Delete Scripts",
-    Callback = function()
-        if script1 then
-            if plr then
-                script1:Destroy()
-                script2:Destroy()
-                script3:Destroy()
-                script4:Destroy()
+-- code
+local FarmingBox = Tabs.Stands:AddLeftGroupbox('Farming')
+local Button = FarmingBox:AddButton({
+    Text = 'Win',
+    Func = function()
+        game.Players.LocalPlayer.Character:PivotTo(workspace.tower.finishes.Finish:GetPivot())
+    end,
+    DoubleClick = false,
+    Tooltip = 'Click to Win'
+})
+local Button = FarmingBox:AddButton({
+    Text = 'Infinite Jump',
+    Func = function()
+         local Player = game:GetService'Players'.LocalPlayer; local UIS = game:GetService'UserInputService'; _G.JumpHeight = 50; function Action(Object, Function) if Object ~= nil then Function(Object); end end UIS.InputBegan:connect(function(UserInput) if UserInput.UserInputType == Enum.UserInputType.Keyboard and UserInput.KeyCode == Enum.KeyCode.Space then Action(Player.Character.Humanoid, function(self) if self:GetState() == Enum.HumanoidStateType.Jumping or self:GetState() == Enum.HumanoidStateType.Freefall then Action(self.Parent.HumanoidRootPart, function(self) self.Velocity = Vector3.new(0, _G.JumpHeight, 0); end) end end) end end)
+    end,
+    DoubleClick = false,
+    Tooltip = 'Click to start a infinite jump'
+})
+FarmingBox:AddToggle('GD', {
+    Text = 'God Mode',
+    Default = false,
+    Tooltip = 'Click to active god mode',
+
+    Callback = function(state)
+        settings = state
+        if settings then
+            while wait() and settings do
+	            repeat task.wait() until game.Players.LocalPlayer.Character:FindFirstChild("hitbox") or game.Players.LocalPlayer.Character:FindFirstChild("hitboxInvincible") 
+	            for i, p in ipairs(game.Players.LocalPlayer.Character:GetChildren()) do 
+	            	if (p.Name:find("hitbox")) then 
+	            		p:Destroy()
+	            	end
+	            end
             end
+
+        else
+
+            game:GetService("Players").LocalPlayer.Character.Head:Destroy()
         end
-    end,
-})
-
-
---// Tabs: Farming
-local Tab = Window:CreateTab("Farming")
-local Paragraph = Tab:CreateParagraph({Title = "Aviso", Content = [[
-Opções para farmar automaticamente.
-Cuidado! Não abuse muito pois pode acabar levando Ban.
-]]})
-
-
-local Section = Tab:CreateSection("--// Values", true)
-local Dropdown = Tab:CreateDropdown({
-    Name = "Select Value: ",
-    Options = valuesI,
-    CurrentOption = "",
-    Flag = "Dropdown1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-    Callback = function(Option)
-        getgenv().ModdedValues = Option
-    end,
-})
-local Slider = Tab:CreateSlider({
-    Name = "Modded Value Soon",
-    Range = {1, 1000},
-    Increment = 1,
-    Suffix = "",
-    CurrentValue = 1,
-    Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-    Callback = function(Slider)
-        Values()
-    end,
-})
-
-local Section = Tab:CreateSection("--// Teleport Finish", true)
-local Button = Tab:CreateButton({
-    Name = "Teleport Finish",
-    Callback = function()
-        TpFinish()
-    end,
+    end
 })
 
 
 
---// Tabs: Player
-local Tab = Window:CreateTab("Player")
-local Paragraph = Tab:CreateParagraph({Title = "Aviso", Content = [[
-Opções para usar no player.
-Script que são feitos para ajuda o Player.
-]]})
-
-local GodMode = game:GetService("Players").LocalPlayer.Character.KillScript
-local Button = Tab:CreateButton({
-    Name = "GodMode",
-    Callback = function()
-        if GodMode then
-            GodMode:Destroy()
-        end
-    end,
-})
-
-local AntiSpeed = game:GetService("Players").LocalPlayer.Character.speedscript
-local Button = Tab:CreateButton({
-    Name = "AntiSpeed",
-    Callback = function()
-        if AntiSpeed then
-            AntiSpeed:Destroy()
-        end
-    end,
-})
-
-local AntiJump = game:GetService("Players").LocalPlayer.Character.bunnyJump
-local Button = Tab:CreateButton({
-    Name = "AntiJump",
-    Callback = function()
-        if AntiJump then
-            AntiJump:Destroy()
-        end
-    end,
-})
-
-local AntiWind = game:GetService("Players").LocalPlayer.Character.WindScript
-local Button = Tab:CreateButton({
-    Name = "AntiWind",
-    Callback = function()
-        if AntiWind then
-            AntiWind:Destroy()
-        end
-    end,
-})
-
-
-
---// Tabs: Troll
-local Tab = Window:CreateTab("Troll")
-local Paragraph = Tab:CreateParagraph({Title = "Aviso", Content = [[
-Opções para zua 😐👍
-]]})
-
-local Section = Tab:CreateSection("--// Troll Options", true)
-local Button = Tab:CreateButton({
-    Name = "Make a Creator",
-    Callback = function()
-        game:GetService("Workspace").tower.sections.Code.creator.Value = game.Players.LocalPlayer.UserId
-    end,
-})
-local Button = Tab:CreateButton({
-    Name = "Give all tools",
-    Callback = function()
-        for i, v in pairs (game:GetService("ReplicatedStorage").Gear:GetChildren()) do
-            if v:IsA("Tool") then
-                poop = v:Clone()
-                poop.Parent = game:GetService("Players").LocalPlayer:FindFirstChild("Backpack")
-            end
-        end
-    end,
-})
+-- libray settings
+local MenuGroup = Tabs['UI Settings']:AddLeftGroupbox('Menu')
+MenuGroup:AddButton('Unload', function() Library:Unload() end)
