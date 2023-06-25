@@ -42,8 +42,8 @@ local Tabs = {
 
 
 -- code
-local FarmingBox = Tabs.Main:AddLeftGroupbox('Farming')
-local Button = FarmingBox:AddButton({
+local MainBox = Tabs.Main:AddLeftGroupbox('Main')
+local Button = MainBox:AddButton({
     Text = 'Win',
     Func = function()
         game.Players.LocalPlayer.Character:PivotTo(workspace.tower.finishes.Finish:GetPivot())
@@ -51,7 +51,26 @@ local Button = FarmingBox:AddButton({
     DoubleClick = false,
     Tooltip = 'Click to Win'
 })
-local Button = FarmingBox:AddButton({
+local Button = MainBox:AddButton({
+    Text = 'Win and rejoin',
+    Func = function()
+        game.Players.LocalPlayer.Character:PivotTo(workspace.tower.finishes.Finish:GetPivot()) wait(.25)
+        game.Players.LocalPlayer.Character:PivotTo(workspace.tower.finishes.Finish:GetPivot())
+        wait(2)
+        
+        local TeleportService = game:GetService("TeleportService"); 
+        local Players = game:GetService("Players"); 
+        if (#Players:GetPlayers() == 1) then 
+        game:GetService("Players").LocalPlayer:Kick(); 
+        TeleportService:Teleport(game.PlaceId); 
+        else 
+        TeleportService:TeleportToPlaceInstance(game.PlaceId, game.JobId, Players:GetPlayers()[1]);
+        end
+     end,
+    DoubleClick = false,
+    Tooltip = 'Click to Win'
+})
+local Button = MainBox:AddButton({
     Text = 'Infinite Jump',
     Func = function()
          local Player = game:GetService'Players'.LocalPlayer; local UIS = game:GetService'UserInputService'; _G.JumpHeight = 50; function Action(Object, Function) if Object ~= nil then Function(Object); end end UIS.InputBegan:connect(function(UserInput) if UserInput.UserInputType == Enum.UserInputType.Keyboard and UserInput.KeyCode == Enum.KeyCode.Space then Action(Player.Character.Humanoid, function(self) if self:GetState() == Enum.HumanoidStateType.Jumping or self:GetState() == Enum.HumanoidStateType.Freefall then Action(self.Parent.HumanoidRootPart, function(self) self.Velocity = Vector3.new(0, _G.JumpHeight, 0); end) end end) end end)
@@ -59,7 +78,20 @@ local Button = FarmingBox:AddButton({
     DoubleClick = false,
     Tooltip = 'Click to start a infinite jump'
 })
-FarmingBox:AddToggle('GD', {
+local Button = MainBox:AddButton({
+    Text = 'Get all tools',
+    Func = function()
+        for _, v in pairs(game:GetService("ReplicatedStorage").Gear:GetChildren()) do
+          if v:IsA("Tool") then
+            cloneTools = v:Clone()
+            cloneTools.Parent = game:GetService("Players").LocalPlayer.Backpack
+          end
+        end
+    end,
+    DoubleClick = false,
+    Tooltip = 'Click to get all tools'
+})
+MainBox:AddToggle('GD', {
     Text = 'God Mode',
     Default = false,
     Tooltip = 'Click to active god mode',
