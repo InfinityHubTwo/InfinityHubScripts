@@ -1,11 +1,3 @@
---[[
-Creators = {
-    Darkzin = "Stands Awakening, Shindo Life, Bild a Boat For Treasure, World Of Stands, Loucky Block Blateground, Arcane Odyssey, Heaven Stands, Ninja Tycoon, Ninja Legend, Flee The Facility, Destruction Simulator",
-    Cool    = "Stands Awakening",
-}
---]]
-
-
 -- button
 local UserInputService = game:GetService("UserInputService")
 if game.PlaceId == 5780309044 then
@@ -14,6 +6,8 @@ if game.PlaceId == 5780309044 then
 	    loadstring(game:HttpGetAsync('https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Infinity%20Hub%20Loader/Button/Main.lua'))();
     end
 end
+
+
 
 -- games
 local games = {
