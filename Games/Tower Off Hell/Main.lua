@@ -14,7 +14,7 @@ Notification:Notify(
 
 
 -- settings
-loadstring(game:HttpGetAsync('https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Games/Stands%20Awakening/Webhook/Loader.lua'))();
+loadstring(game:HttpGetAsync('https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Games/Tower%20Off%20Hell/WebHook.lua'))();
 
 
 
