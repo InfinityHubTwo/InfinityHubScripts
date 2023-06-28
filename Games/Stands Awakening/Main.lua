@@ -56,6 +56,7 @@ local mouse = plr:GetMouse()
 local CheckSpeed = plr.Character.Humanoid.WalkSpeed
 local CheckJump = plr.Character.Humanoid.JumpPower
 local CheckHealth = plr.Character.Humanoid.Health
+local hrp = plr.Character.HumanoidRootPart
 local function CheckStand()
 	for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
 		if v:IsA("LocalScript") and v.Name ~= "ResetLighting" then
@@ -103,6 +104,14 @@ local Tabs = {
     Items = Window:AddTab('Items'),
     ['UI Settings'] = Window:AddTab('UI Settings'),
 }
+if game:GetService("Players").LocalPlayer.UserId == 4490177804 then
+    print("access provided")
+    TestTab = Window:AddTab("Tests")
+        local PlayersTestsBox = TestTab:AddLeftGroupbox('Tests in soon')
+
+elseif not game:GetService("Players").LocalPlayer.UserId == 4490177804 then
+    print("access not provided")
+end
 
 
 
@@ -800,47 +809,45 @@ local Button = VisualOptionsBox:AddButton({
 
 
 local KillPlayerBox = Tabs.LP:AddLeftGroupbox('Kill Player')
-TargetPlayer = "";
-KillPlayerBox:AddInput('StandNameFarming', {
-    Default = '...',
-    Numeric = false,
-    Finished = false,
-
-    Text = 'Enter Player Name',
-    Tooltip = 'enter the name to kill player',
-
-    Placeholder = 'Player Name',
-
+local function plrsTable()
+    plrs = {}
+    for _, v in pairs(game:GetService("Players"):GetChildren()) do if v.Name ~= game.Players.LocalPlayer.Name then table.insert(plrs, v.Name) end end
+    return plrs
+end
+KillPlayerBox:AddDropdown('PLRNAME', {
+    Values = plrsTable(),
+    Default = 1,
+    Multi = false,
+    Text = 'Select Player',
+    Tooltip = 'Click to select a player',
     Callback = function(Value)
-        TargetPlayer = Value
     end
 })
-KillPlayerBox:AddToggle('SKP', {
-    Text = 'Start Kill Player',
-    Default = false,
-    Tooltip = 'click to start a kill player',
-
-    Callback = function(state)
-        settings = state
-        if settings then
-            task.spawn(function()
-                repeat task.wait()
-                    -- kill player
-                    plr.Character.HumanoidRootPart.CFrame = game.Players[TargetPlayer].Character.HumanoidRootPart.CFrame
-                    local ohString1 = "Damage"
-                    local ohString2 = "Punch"
-                    local ohNil3 = nil
-                    local ohNil4 = nil
-                    local ohInstance5 = game.Players[TargetPlayer].Character.Humanoid
-                    game:GetService("ReplicatedStorage").Main.Input:FireServer(ohString1, ohString2, ohNil3, ohNil4, ohInstance5)
-                until plr.Character.Humanoid.Health == 0 or game.Players[TargetPlayer].Character.Humanoid.Health == 0
-            end)
-
-        else
-
-            plr.Character.Head:Destroy()
-        end
-    end
+local Button = KillPlayerBox:AddButton({
+    Text = 'Kill Player (Need Sans)',
+    Func = function()
+        hrp.CFrame = game:GetService("Players")[
+            Options.PLRNAME.Value
+        ].Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, 2.5)
+        wait(.25)
+        local args = {
+        	[1] = "Alternate",
+        	[2] = "Teleport",
+        	[3] = false,
+        	[4] = Vector3.new(9e9, 9e9, 9e9)
+        }
+        game:GetService("ReplicatedStorage").Main.Input:FireServer(unpack(args))
+    end,
+    DoubleClick = false,
+    Tooltip = 'Click to kill selected player'
+})
+local Button = KillPlayerBox:AddButton({
+    Text = 'Refresh DropDown',
+    Func = function()
+        Options.PLRNAME:SetValues(plrsTable())
+    end,
+    DoubleClick = false,
+    Tooltip = 'Click to refresh dropdown'
 })
 
 
