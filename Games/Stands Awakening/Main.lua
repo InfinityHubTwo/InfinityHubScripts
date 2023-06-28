@@ -828,7 +828,7 @@ local Button = KillPlayerBox:AddButton({
     Func = function()
         hrp.CFrame = game:GetService("Players")[
             Options.PLRNAME.Value
-        ].Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, 2.5)
+        ].Character.HumanoidRootPart.CFrame
         wait(.25)
         local args = {
         	[1] = "Alternate",
