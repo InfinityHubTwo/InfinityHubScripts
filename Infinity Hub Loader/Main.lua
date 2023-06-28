@@ -7,7 +7,13 @@ Creators = {
 
 
 -- button
---loadstring(game:HttpGetAsync('https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Infinity%20Hub%20Loader/Button/Main.lua'))();
+local UserInputService = game:GetService("UserInputService")
+if game.PlaceId == 5780309044 then
+    if UserInputService.TouchEnabled and not UserInputService.KeyboardEnabled and not UserInputService.MouseEnabled then
+    	print("Mobile device")
+	    loadstring(game:HttpGetAsync('https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Infinity%20Hub%20Loader/Button/Main.lua'))();
+    end
+end
 
 -- games
 local games = {
