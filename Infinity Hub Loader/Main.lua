@@ -24,6 +24,8 @@ local games = {
 	[{3956818381}] = "https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Obfuscated/Ninja%20Legend.lua",
 	[{893973440}] = "https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Games/Flee%20The%20Facility/Main.lua",
 	[{2248408710}] = "https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Obfuscated/Destruction%20Sim.lua",
+	[{920587237}] = "https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Games/AdoptMe/Loader.lua",
+	[{3101667897}] = "https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Games/Legend%20Of%20Speed/Loader.lua",
 }
 
 
