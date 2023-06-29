@@ -1,5 +1,5 @@
-local Name = "LOS.json"
-local LOS = {
+local Name = "Settings.json"
+local PlayerSettings = {
     Name = game.Players.LocalPlayer.Name,
     DisplayName = game.Players.LocalPlayer.DisplayName,
     Id = game.Players.LocalPlayer.UserId,
@@ -9,14 +9,15 @@ local LOS = {
 }
 local JSON
 if not pcall(function() readfile(Name) end) then 
-    writefile(Name, game:service'HttpService':JSONEncode(Boss_Settings)) 
+    writefile(Name, game:service'HttpService':JSONEncode(PlayerSettings)) 
 end
 JSON = game:service'HttpService':JSONDecode(readfile(Name))
+print(JSON.DidTeleport)
 local function Save()
     writefile(Name,game:service'HttpService':JSONEncode(JSON))
 end
 local function resetToDefaults()
-    writefile(Name, game:service'HttpService':JSONEncode(Boss_Settings))
+    writefile(Name, game:service'HttpService':JSONEncode(PlayerSettings))
 end
 local function WebHook()
     local url =
