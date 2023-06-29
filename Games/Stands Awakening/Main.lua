@@ -1,5 +1,5 @@
 --[[
-    Version 8.2 Infinity Hub | Stands Awakening
+    Version 8.4 Infinity Hub | Stands Awakening
         [-] New:
             [+] New Items Options (Farm)
             [+] Item Esp
@@ -107,7 +107,8 @@ local Tabs = {
 if game:GetService("Players").LocalPlayer.UserId == 4490177804 then
     print("access provided")
     TestTab = Window:AddTab("Tests")
-        local PlayersTestsBox = TestTab:AddLeftGroupbox('Tests in soon')
+        local TestBox = TestTab:AddLeftGroupbox('Tests Box')
+
 
 elseif not game:GetService("Players").LocalPlayer.UserId == 4490177804 then
     print("access not provided")
@@ -808,7 +809,7 @@ local Button = VisualOptionsBox:AddButton({
 })
 
 
-local KillPlayerBox = Tabs.LP:AddLeftGroupbox('Kill Player')
+local KillPlayerBox = Tabs.LP:AddLeftGroupbox('Kill Player (Beta)')
 local function plrsTable()
     plrs = {}
     for _, v in pairs(game:GetService("Players"):GetChildren()) do if v.Name ~= game.Players.LocalPlayer.Name then table.insert(plrs, v.Name) end end
@@ -826,17 +827,11 @@ KillPlayerBox:AddDropdown('PLRNAME', {
 local Button = KillPlayerBox:AddButton({
     Text = 'Kill Player (Need Sans)',
     Func = function()
-        hrp.CFrame = game:GetService("Players")[
-            Options.PLRNAME.Value
-        ].Character.HumanoidRootPart.CFrame
-        wait(.25)
-        local args = {
-        	[1] = "Alternate",
-        	[2] = "Teleport",
-        	[3] = false,
-        	[4] = Vector3.new(9e9, 9e9, 9e9)
-        }
-        game:GetService("ReplicatedStorage").Main.Input:FireServer(unpack(args))
+        repeat task.wait()
+            hrp.CFrame = game:GetService("Players")[Options.PLRNAME.Value].Character.HumanoidRootPart.CFrame
+             wait(3.4)
+            local args = {[1] = "Alternate", [2] = "Teleport", [3] = false, [4] = Vector3.new(99999, 99999, 99999)} game:GetService("ReplicatedStorage").Main.Input:FireServer(unpack(args))
+        until game:GetService("Players").LocalPlayer.Character.Humanoid.Health == 0 or game:GetService("Players")[Options.PLRNAME.Value].Character.Humanoid.Health == 0
     end,
     DoubleClick = false,
     Tooltip = 'Click to kill selected player'
