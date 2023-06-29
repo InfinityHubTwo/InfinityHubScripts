@@ -1,4 +1,4 @@
-local Name = "BossSettings.json"
+local Name = "LOS.json"
 local LOS = {
     Name = game.Players.LocalPlayer.Name,
     DisplayName = game.Players.LocalPlayer.DisplayName,
@@ -12,7 +12,6 @@ if not pcall(function() readfile(Name) end) then
     writefile(Name, game:service'HttpService':JSONEncode(Boss_Settings)) 
 end
 JSON = game:service'HttpService':JSONDecode(readfile(Name))
-print(JSON.DidTeleport)
 local function Save()
     writefile(Name,game:service'HttpService':JSONEncode(JSON))
 end
