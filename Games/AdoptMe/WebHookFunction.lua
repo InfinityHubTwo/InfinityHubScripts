@@ -1,5 +1,5 @@
 local Name = "Settings.json"
-local AdoptMeSettings = {
+local PlayerSettings = {
     Name = game.Players.LocalPlayer.Name,
     DisplayName = game.Players.LocalPlayer.DisplayName,
     Id = game.Players.LocalPlayer.UserId,
