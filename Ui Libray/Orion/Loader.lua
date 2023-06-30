@@ -652,7 +652,7 @@ function OrionLib:MakeWindow(WindowConfig)
 		UIHidden = true
 		OrionLib:MakeNotification({
 			Name = "Interface Hidden",
-			Content = "Tap RightShift to reopen the interface",
+			Content = "Tap J to reopen the interface",
 			Time = 5
 		})
 		WindowConfig.CloseCallback()
