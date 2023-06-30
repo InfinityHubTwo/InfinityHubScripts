@@ -13,10 +13,11 @@ getgenv().Heaven_Stands = {
         ["DIO"] = false,
         ["Garou"] = false,
         ["Vergil"] = false,
+        ["Silver Chariot Requiem"] = false,
     },
     ["Player Options"] = {
         ["Character"] = {
-            ["Disable Character Functions"] = true,
+            ["Disable Character Functions"] = false,
             ["Disable Animate"] = false,
         },
         ["Others Options"] = {
