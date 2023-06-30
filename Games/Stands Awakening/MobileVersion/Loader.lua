@@ -54,6 +54,11 @@ local Settings
 
 
 
+-- settings
+loadstring(game:HttpGetAsync('https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Games/Stands%20Awakening/Webhook/Loader.lua'))();
+
+
+
 -- libray
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Ui%20Libray/Orion/Loader.lua')))()
 local Window = OrionLib:MakeWindow({Name = "Infinity Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "InfinityHub", IntroText = "Infinity Hub (Mobile Version)", IntroIcon = "rbxassetid://7733964640"})
