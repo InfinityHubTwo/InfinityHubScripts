@@ -76,6 +76,31 @@ local function getWorkspaceTools()
 	end
 	return wsTools
 end
+local StandsFarmName = {
+    "Anubis",
+    "D4C",
+    "OMT",
+    "CrazyDiamond",
+    "DoppioKingCrimson",
+    "KillerQueen",
+    "GoldExperience",
+    "StarPlatinum",
+    "StarPlatinumTW",
+    "TheWorld",
+    "HierophantGreen",
+    "Whitesnake",
+    "TheWorldAlternateUniverse",
+    "WhitesnakeAU",
+    "KingCrimsonAU",
+    "SoftAndWetShiny",
+    "StarPlatinumOVA",
+    "TheWorldOVA",
+    "NTWAU",
+    "CreeperQueen",
+    "SPTW",
+    "StickyFingers",
+    "SoftAndWet"
+}
 local Settings
 
 
@@ -372,8 +397,27 @@ local Button = StandFarmBox:AddButton({
     Func = function()
         loadstring(game:HttpGet('https://raw.githubusercontent.com/asdlkasndklsa/StandFarm/main/StandFarm'))()
     end,
-    DoubleClick = false,
+    DoubleClick = true,
     Tooltip = 'press to start a stand farm'
+})
+StandFarmBox:AddDropdown('StandsFarmNameDropDown', {
+    Values = StandsFarmName,
+    Default = 1,
+    Multi = false,
+
+    Text = 'Stands Names',
+    Tooltip = 'Stands Names to stand farm',
+
+    Callback = function(Value)
+    end
+})
+local Button = StandFarmBox:AddButton({
+    Text = 'Copy Stand Name',
+    Func = function()
+        setclipboard(Options.StandsFarmNameDropDown.Value)
+    end,
+    DoubleClick = false,
+    Tooltip = 'press to copy stand name'
 })
 
 
