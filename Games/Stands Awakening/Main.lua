@@ -450,18 +450,16 @@ PlayerOptionsBox:AddToggle('ATS', {
     Callback = function(state)
         settings = state
         if settings then
-            task.spawn(function ()
-                repeat task.wait(1)
-	                for i,v in pairs(game:GetService("Lighting"):GetChildren()) do
-	                	if v:IsA("BoolValue") and v.Name == "TS" then
-	                		if ts.Value == true then
-	                			wait(1)
-	                			ts.Value = false
-	                		end
-	                	end
-	                end
-                until settings == false
-            end)
+		while wait() and settings do
+	            for i,v in pairs(game:GetService("Lighting"):GetChildren()) do
+	            	if v:IsA("BoolValue") and v.Name == "TS" then
+	            		if ts.Value == true then
+	            			wait(1)
+	            			ts.Value = false
+	            		end
+	            	end
+	            end
+		    end
         end
     end
 })
