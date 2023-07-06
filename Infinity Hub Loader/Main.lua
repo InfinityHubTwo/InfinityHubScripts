@@ -27,6 +27,7 @@ if not UserInputService.TouchEnabled and UserInputService.KeyboardEnabled and Us
     	[{2248408710}] = "https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Obfuscated/Destruction%20Sim.lua",
     	[{920587237}] = "https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Obfuscated/Adopt%20Me.lua",
     	[{3101667897}] = "https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Obfuscated/Legend%20Of%20Speed.lua",
+	[{286090429}] = "https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Obfuscated/Arsenal",
     }
     for ids, url in next, games do
         if table.find(ids, game.PlaceId) then
