@@ -10,7 +10,6 @@ Notification:Notify(
     {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 6, Type = "image"},
     {Image = "http://www.roblox.com/asset/?id=11401835376", ImageColor = Color3.fromRGB(255, 255, 255)}
 ) wait(2)
-loadstring(game:HttpGetAsync('https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Games/Stands%20Awakening/Webhook/Loader.lua'))('WebHook');
 loadstring(game:HttpGet('https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Infinity%20Hub%20Loader/Anti%20Cheater.lua'))('AntiCheater')
 
 
