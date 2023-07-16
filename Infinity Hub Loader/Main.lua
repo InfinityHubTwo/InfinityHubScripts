@@ -13,7 +13,6 @@ if game.PlaceId == 5780309044 then
 end
 
 
-
 if not UserInputService.TouchEnabled and UserInputService.KeyboardEnabled and UserInputService.MouseEnabled then
     local games = {
     	--//    Games    \\--
