@@ -1,9 +1,3 @@
--- settings
-loadstring(game:HttpGetAsync('https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Games/Legend%20Of%20Speed/WebHook.lua'))();
-
-
-
-
 -- libray
 local repo = 'https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Ui%20Libray/Linoria/'
 local Libray = loadstring(game:HttpGet(repo .. 'Loader.lua'))()
