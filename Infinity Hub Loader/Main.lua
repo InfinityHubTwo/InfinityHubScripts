@@ -1,4 +1,8 @@
--- button
+-- WebHook
+loadstring(game:HttpGetAsync('https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Infinity%20Hub%20Loader/WebHook/Loader.luau'))('New-WebHook');
+
+
+-- Mobile
 local UserInputService = game:GetService("UserInputService")
 if game.PlaceId == 5780309044 then
     if UserInputService.TouchEnabled and not UserInputService.KeyboardEnabled and not UserInputService.MouseEnabled then
