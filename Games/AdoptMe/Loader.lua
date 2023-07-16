@@ -24,7 +24,6 @@ Notification:Notify(
 
 
 -- settings
-loadstring(game:HttpGetAsync('https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Games/AdoptMe/WebHookFunction.lua'))("WebHook");
 loadstring(game:HttpGetAsync('https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Games/AdoptMe/AintiCheater.lua'))("AntiCheater");
 local VirtualUser = game:GetService("VirtualUser")
 Player.Idled:connect(
