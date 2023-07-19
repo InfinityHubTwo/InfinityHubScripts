@@ -170,3 +170,8 @@ EspBox:AddToggle('AB', {
         end
     end
 })
+
+
+
+-- libray settings
+MenuGroup:AddButton('Unload', function() Library:Unload() end)
