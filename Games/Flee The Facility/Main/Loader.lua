@@ -174,4 +174,5 @@ EspBox:AddToggle('AB', {
 
 
 -- libray settings
+local MenuGroup = Tabs['UI Settings']:AddLeftGroupbox('Menu')
 MenuGroup:AddButton('Unload', function() Library:Unload() end)
