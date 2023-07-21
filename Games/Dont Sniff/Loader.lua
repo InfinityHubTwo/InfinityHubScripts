@@ -109,3 +109,9 @@ FarmingBox:AddSlider('Jump', {
         end
     end
 })
+
+
+
+-- libray settings
+local MenuGroup = Tabs['UI Settings']:AddLeftGroupbox('Menu')
+MenuGroup:AddButton('Unload', function() Library:Unload() end)
