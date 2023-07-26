@@ -1,4 +1,4 @@
-local Release = "Release 2A"
+elocal Release = "Release 2A"
 local NotificationDuration = 6.5
 local ArrayFieldFolder = "ArrayField"
 local ConfigurationFolder = ArrayFieldFolder.."/Configurations"
@@ -13,7 +13,7 @@ local ArrayFieldLibrary = {
 			TextColor = Color3.fromRGB(240, 240, 240),
 
 			Background = Color3.fromRGB(25, 25, 25),
-			Topbar = Color3.fromRGB(0, 9, 111),
+			Topbar = Color3.fromRGB(28, 2, 121),
 			Shadow = Color3.fromRGB(20, 20, 20),
 
 			NotificationBackground = Color3.fromRGB(20, 20, 20),
@@ -44,7 +44,7 @@ local ArrayFieldLibrary = {
 			ToggleDisabledOuterStroke = Color3.fromRGB(65, 65, 65),
 
 			InputBackground = Color3.fromRGB(30, 30, 30),
-			InputStroke = Color3.fromRGB(65, 65, 65),
+			InputStroke = Color3.fromRGB(45, 0, 204),
 			PlaceholderColor = Color3.fromRGB(178, 178, 178)
 		},
 		Light = {
