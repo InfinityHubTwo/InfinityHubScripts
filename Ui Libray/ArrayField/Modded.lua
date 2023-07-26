@@ -20,7 +20,7 @@ local ArrayFieldLibrary = {
 			NotificationActionsBackground = Color3.fromRGB(230, 230, 230),
 
 			TabBackground = Color3.fromRGB(41, 43, 127),
-			TabStroke = Color3.fromRGB(39, 0, 177),
+			TabStroke = Color3.fromRGB(62, 48, 173),
 			TabBackgroundSelected = Color3.fromRGB(7, 0, 255),
 			TabTextColor = Color3.fromRGB(240, 240, 240),
 			SelectedTabTextColor = Color3.fromRGB(50, 50, 50),
@@ -36,11 +36,11 @@ local ArrayFieldLibrary = {
 			SliderStroke = Color3.fromRGB(48, 119, 177),
 
 			ToggleBackground = Color3.fromRGB(30, 30, 30),
-			ToggleEnabled = Color3.fromRGB(0, 146, 214),
+			ToggleEnabled = Color3.fromRGB(42, 0, 255),
 			ToggleDisabled = Color3.fromRGB(100, 100, 100),
-			ToggleEnabledStroke = Color3.fromRGB(0, 170, 255),
+			ToggleEnabledStroke = Color3.fromRGB(33,34,65),
 			ToggleDisabledStroke = Color3.fromRGB(125, 125, 125),
-			ToggleEnabledOuterStroke = Color3.fromRGB(100, 100, 100),
+			ToggleEnabledOuterStroke = Color3.fromRGB(17, 23, 55),
 			ToggleDisabledOuterStroke = Color3.fromRGB(65, 65, 65),
 
 			InputBackground = Color3.fromRGB(30, 30, 30),
