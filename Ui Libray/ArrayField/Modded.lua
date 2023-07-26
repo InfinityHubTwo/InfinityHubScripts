@@ -1,17 +1,3 @@
---[[
-
-ArrayField Interface Suite
-by Meta
-
-Original by Sirius
-
--------------------------------
-Arrays  | Designing + Programming + New Features
-
-]]
-
-
-
 local Release = "Release 2A"
 local NotificationDuration = 6.5
 local ArrayFieldFolder = "ArrayField"
@@ -27,15 +13,15 @@ local ArrayFieldLibrary = {
 			TextColor = Color3.fromRGB(240, 240, 240),
 
 			Background = Color3.fromRGB(25, 25, 25),
-			Topbar = Color3.fromRGB(34, 34, 34),
+			Topbar = Color3.fromRGB(3, 11, 100),
 			Shadow = Color3.fromRGB(20, 20, 20),
 
 			NotificationBackground = Color3.fromRGB(20, 20, 20),
 			NotificationActionsBackground = Color3.fromRGB(230, 230, 230),
 
-			TabBackground = Color3.fromRGB(80, 80, 80),
-			TabStroke = Color3.fromRGB(85, 85, 85),
-			TabBackgroundSelected = Color3.fromRGB(210, 210, 210),
+			TabBackground = Color3.fromRGB(41, 43, 127),
+			TabStroke = Color3.fromRGB(39, 0, 177),
+			TabBackgroundSelected = Color3.fromRGB(7, 0, 255),
 			TabTextColor = Color3.fromRGB(240, 240, 240),
 			SelectedTabTextColor = Color3.fromRGB(50, 50, 50),
 
@@ -837,7 +823,7 @@ function Hide()
 		FadeDescription(nil,true)
 	end)
 	Debounce = true
-	ArrayFieldLibrary:Notify({Title = "Interface Hidden", Content = "The interface has been hidden, you can unhide the interface by tapping J", Duration = 7})
+	ArrayFieldLibrary:Notify({Title = "Interface Hidden", Content = "The interface has been hidden, you can unhide the interface by tapping RightShift", Duration = 7})
 	TweenService:Create(Main, TweenInfo.new(0.5, Enum.EasingStyle.Quint), {Size = UDim2.new(0, 470, 0, 400)}):Play()
 	TweenService:Create(Main.Topbar, TweenInfo.new(0.5, Enum.EasingStyle.Quint), {Size = UDim2.new(0, 470, 0, 45)}):Play()
 	TweenService:Create(Main, TweenInfo.new(0.5, Enum.EasingStyle.Quint), {BackgroundTransparency = 1}):Play()
@@ -2535,7 +2521,7 @@ function ArrayFieldLibrary:CreateWindow(Settings)
 			UserInputService.InputBegan:Connect(function(input, processed)
 
 				if CheckingForKey then
-					if input.KeyCode ~= Enum.KeyCode.Unknown and input.KeyCode ~= Enum.KeyCode.J then
+					if input.KeyCode ~= Enum.KeyCode.Unknown and input.KeyCode ~= Enum.KeyCode.RightShift then
 						local SplitMessage = string.split(tostring(input.KeyCode), ".")
 						local NewKeyNoEnum = SplitMessage[3]
 						Keybind.KeybindFrame.KeybindBox.Text = tostring(NewKeyNoEnum)
@@ -3396,10 +3382,10 @@ end)
 Topbar.Type.MouseButton1Click:Connect(function()
 	if Debounce or Minimised then return end
 	if SideBarClosed then
-		Topbar.Type.Image = "rbxassetid://"..7733674319
+		Topbar.Type.Image = "rbxassetid://"..6023565894
 		OpenSideBar()
 	else
-		Topbar.Type.Image = "rbxassetid://"..7733674239
+		Topbar.Type.Image = "rbxassetid://"..6023565896
 		CloseSideBar()
 	end
 end)
@@ -3417,7 +3403,7 @@ Topbar.Hide.MouseButton1Click:Connect(function()
 end)
 
 UserInputService.InputBegan:Connect(function(input, processed)
-	if (input.KeyCode == Enum.KeyCode.J and not processed) then
+	if (input.KeyCode == Enum.KeyCode.RightShift and not processed) then
 		if Debounce then return end
 		if Hidden then
 			Hidden = false
