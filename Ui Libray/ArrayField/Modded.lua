@@ -184,7 +184,7 @@ function ChangeTheme(ThemeName)
 	end
 
 	ArrayField.Main.BackgroundColor3 = SelectedTheme.Background
-	ArrayField.Main.Topbar.BackgroundColor3 = SelectedTheme.Topbar
+	ArrayField.Main.Topbar.BackgroundColor3 = Color3.new(0, 9, 111)
 	ArrayField.Main.Topbar.CornerRepair.BackgroundColor3 = SelectedTheme.Topbar
 	ArrayField.Main.Shadow.Image.ImageColor3 = SelectedTheme.Shadow
 
