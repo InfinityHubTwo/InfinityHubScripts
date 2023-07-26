@@ -13,7 +13,7 @@ local ArrayFieldLibrary = {
 			TextColor = Color3.fromRGB(240, 240, 240),
 
 			Background = Color3.fromRGB(25, 25, 25),
-			Topbar = Color3.fromRGB(3, 11, 100),
+			Topbar = Color3.fromRGB(0, 9, 111),
 			Shadow = Color3.fromRGB(20, 20, 20),
 
 			NotificationBackground = Color3.fromRGB(20, 20, 20),
@@ -38,7 +38,7 @@ local ArrayFieldLibrary = {
 			ToggleBackground = Color3.fromRGB(30, 30, 30),
 			ToggleEnabled = Color3.fromRGB(42, 0, 255),
 			ToggleDisabled = Color3.fromRGB(100, 100, 100),
-			ToggleEnabledStroke = Color3.fromRGB(33,34,65),
+			ToggleEnabledStroke = Color3.fromRGB(45, 0, 204),
 			ToggleDisabledStroke = Color3.fromRGB(125, 125, 125),
 			ToggleEnabledOuterStroke = Color3.fromRGB(17, 23, 55),
 			ToggleDisabledOuterStroke = Color3.fromRGB(65, 65, 65),
