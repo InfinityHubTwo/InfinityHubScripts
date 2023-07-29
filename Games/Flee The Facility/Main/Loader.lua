@@ -1,8 +1,4 @@
--- Script Settings
-loadstring(game:HttpGetAsync('https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Infinity%20Hub%20Loader/Anti%20Cheater.lua')
-)('AntiCheater');
-loadstring(game:HttpGetAsync('https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Games/Flee%20The%20Facility/Settings/Loader.lua')
-)('Settings')
+
 
 
 
