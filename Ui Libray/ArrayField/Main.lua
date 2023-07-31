@@ -15,7 +15,7 @@ local Window = ArrayField:CreateWindow({
       Invite = "no invite link",
       RememberJoins = true
    },
-   KeySystem = true,
+   KeySystem = false,
    KeySettings = {
       Title = "Infinity Hub",
       Subtitle = "Key System",
@@ -27,16 +27,19 @@ local Window = ArrayField:CreateWindow({
             [1] = {
                 Text = '> - <',
                 OnPress = function()
-                    setclipboard([[> - <]])
+                    setclipboard([[yhhdasdjMSHDANdhasldjHYSD&2hALSdjksn]])
                 end,
                 }
             },
-      Key = {"a"}
+      Key = {"yhhdasdjMSHDANdhasldjHYSD&2hALSdjksn"}
    }
 })
-wait(1)
+wait(.6)
 for _, v in pairs(game:GetService('CoreGui'):GetDescendants()) do
 	if v:IsA('ScreenGui') and v.Name == 'ArrayField' then
-		v.Main.Topbar.BackgroundColor3 = Color3.new(0.058823, 0.007843, 0.494117) wait(.5) v.Main.Topbar.CornerRepair.BackgroundColor3 = Color3.new(0.058823, 0.007843, 0.494117) wait(.5) v.Main.Topbar.Divider.BackgroundColor3 = Color3.new(0.007843, 0.333333, 0.6)
+		v.Main.Topbar.Type.ImageTransparency = 1 wait(.1)
+        v.Main.Topbar.BackgroundColor3 = Color3.new(0.058823, 0.007843, 0.494117) wait(.1) v.Main.Topbar.CornerRepair.BackgroundColor3 = Color3.new(0.058823, 0.007843, 0.494117) wait(.1) v.Main.Topbar.Divider.BackgroundColor3 = Color3.new(0.007843, 0.333333, 0.6) wait(.25) 
+        v.Main.Topbar.Type.Image = 'http://www.roblox.com/asset/?id=7733993211'
+        v.Main.Topbar.Type.ImageTransparency = 0
 	end
 end
