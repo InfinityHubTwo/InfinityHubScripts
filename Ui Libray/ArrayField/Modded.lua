@@ -811,7 +811,7 @@ function CloseSideBar()
 	TweenService:Create(Main.SideTabList.UIStroke, TweenInfo.new(0.4, Enum.EasingStyle.Quint),{Transparency = 1}):Play()
 	TweenService:Create(Main.SideTabList.RDMT, TweenInfo.new(0.4, Enum.EasingStyle.Quint),{TextTransparency = 1}):Play()
 	wait(.4)
-	Main.SideTabList.Visible = false
+	Main.SideTabList.Visible = true
 	wait(0.2)
 	Debounce = false
 end
