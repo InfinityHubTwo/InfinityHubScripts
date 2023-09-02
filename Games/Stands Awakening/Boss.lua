@@ -14,12 +14,6 @@ Notification:Notify(
 
 
 
--- settings
-loadstring(game:HttpGetAsync('https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Games/Stands%20Awakening/Webhook/LoaderTwo.lua'))();
-
-
-
-
 -- libray
 local repo = 'https://raw.githubusercontent.com/InfinityHubTwo/InfinityHubScripts/main/Ui%20Libray/Linoria/'
 local Libray = loadstring(game:HttpGet(repo .. 'Loader.lua'))()
